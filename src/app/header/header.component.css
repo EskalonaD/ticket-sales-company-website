@@ -43,11 +43,6 @@
     padding-right: 25px;
 }
 
-@font-face {
-    font-family: "Tanseek-Modern-Arabic";
-  src: url("/assets/Tanseek Modern Pro Arabic Book.ttf") format("ttf"),
-}
-
 .navigation-header__link {
     text-decoration: none;
     color: #283493;
