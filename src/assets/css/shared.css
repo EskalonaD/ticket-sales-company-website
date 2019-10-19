@@ -1,8 +1,42 @@
+:root {
+    --main-orange: #FE8122;
+    --main-blue: #283493;
+    --main-dark-blue: #040F64;
+}
+
 .section-wrapper {
-    padding: 10vh 15vw;
+    padding: 100px 150px;
 }
 
 .section-title {
     font-size: 24px;
     font-weight: bold;
+}
+
+.button {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+}
+
+.button-more {
+    transition: 0.2s;
+    padding: 10px 15px;
+    font-size: 16px;
+}
+
+.button-more_blue {
+    background-color: var(--main-blue);
+    border: 1px solid var(--main-blue);
+    color: white;
+}
+
+.button-more_blue:hover {
+    background-color: white;
+    color: var(--main-blue);
+}
+
+.button_white {
+
 }
