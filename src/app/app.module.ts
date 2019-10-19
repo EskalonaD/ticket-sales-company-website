@@ -7,6 +7,7 @@ import { MainComponent } from './main/main.component';
 import { FooterComponent } from './footer/footer.component';
 import { PopularDestinationsComponent } from './main/popular-destinations/popular-destinations.component';
 import { PopularCardComponent } from './main/popular-destinations/popular-card/popular-card.component';
+import { TripHelperComponent } from './main/trip-helper/trip-helper.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { PopularCardComponent } from './main/popular-destinations/popular-card/p
     FooterComponent,
     PopularDestinationsComponent,
     PopularCardComponent,
+    TripHelperComponent,
   ],
   imports: [
     BrowserModule
