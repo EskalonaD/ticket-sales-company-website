@@ -19,6 +19,11 @@
     font-weight: bold;
 }
 
+.article-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
 .button {
     border: none;
     background-color: transparent;
@@ -43,6 +48,14 @@
     color: var(--main-blue);
 }
 
-.button_white {
+.button-more_white {
+    background-color: white;
+    border: 1px solid var(--main-blue);
+    color: var(--main-blue);
+}
 
+.button-more_white:hover {
+    background-color: var(--main-blue);
+    border: 1px solid var(--main-blue);
+    color: white;
 }

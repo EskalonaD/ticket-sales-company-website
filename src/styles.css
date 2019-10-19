@@ -80,3 +80,7 @@ textarea {
     vertical-align: top;
     resize: vertical;
 }
+
+img {
+    max-width: 100%;
+}
