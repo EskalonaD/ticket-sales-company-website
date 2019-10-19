@@ -1,3 +1,7 @@
+.popular-destination {
+    margin-top: 100px;
+}
+
 .cards {
     display: flex;
     flex-direction:row;

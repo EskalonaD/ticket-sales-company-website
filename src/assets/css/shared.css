@@ -4,8 +4,14 @@
     --main-dark-blue: #040F64;
 }
 
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
 .section-wrapper {
-    padding: 100px 150px;
+    width: 80%;
+    margin: 100px auto;
 }
 
 .section-title {
