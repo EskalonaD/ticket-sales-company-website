@@ -1,0 +1,33 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 0px;
+    background-color: var(--main-dark-blue);
+}
+
+.footer-navigation {
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.footer-navigation__item:not(:last-child) {
+    margin-right: 25px;
+}
+
+.footer-navigation__link {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.footer-navigation__link:hover {
+    color: lightgrey;
+}
+
+.footer__license {
+    color: white;
+    font-size: 14px;
+}
