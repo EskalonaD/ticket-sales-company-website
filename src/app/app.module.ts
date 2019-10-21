@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -16,7 +15,9 @@ import { MainTicketsComponent } from './main/main-tickets/main-tickets.component
 import { HelperComponent } from './main/main-gallery/helper/helper.component';
 import { MainGalleryComponent } from './main/main-gallery/main-gallery.component';
 import { MainSearchComponent } from './main/main-search/main-search.component';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DateRangePickerModule } from 'projects/uiowa/date-range-picker/src/public-api';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,11 +33,16 @@ import { MainSearchComponent } from './main/main-search/main-search.component';
     MainTicketsComponent,
     HelperComponent,
     MainGalleryComponent,
-    MainSearchComponent
+    MainSearchComponent,
+    SpecialOfferComponent,
+    TicketComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule, 
+    NgbModule,
+ DateRangePickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
