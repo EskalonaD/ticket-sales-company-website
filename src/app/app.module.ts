@@ -17,6 +17,7 @@ import { HelperComponent } from './main/main-gallery/helper/helper.component';
 import { MainGalleryComponent } from './main/main-gallery/main-gallery.component';
 import { MainSearchComponent } from './main/main-search/main-search.component';
 import { SpecialOfferComponent } from './main/main-gallery/special-offers/special-offer/special-offer.component';
+import { TicketComponent } from './main/main-tickets/ticket/ticket.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { SpecialOfferComponent } from './main/main-gallery/special-offers/specia
     HelperComponent,
     MainGalleryComponent,
     MainSearchComponent,
-    SpecialOfferComponent
+    SpecialOfferComponent,
+    TicketComponent
   ],
   imports: [
     BrowserModule,
