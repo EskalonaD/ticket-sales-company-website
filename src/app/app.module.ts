@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MainComponent } from './main/main.component';
 import { FooterComponent } from './footer/footer.component';
-import { PopularDestinationsComponent } from './main/popular-destinations/popular-destinations.component';
-import { PopularCardComponent } from './main/popular-destinations/popular-card/popular-card.component';
+
+import { PopularDestinationsComponent } from './main/main-gallery/popular-destinations/popular-destinations.component';
+import { PopularCardComponent } from './main/main-gallery/popular-destinations/popular-card/popular-card.component';
 import { TripHelperComponent } from './trip-helper/trip-helper.component';
-import { SpecialOffersComponent } from './main/special-offers/special-offers.component';
+import { SpecialOffersComponent } from './main/main-gallery/special-offers/special-offers.component';
 import { MyTripsComponent } from './my-trips/my-trips.component';
 import { MainTicketsComponent } from './main/main-tickets/main-tickets.component';
-import { HelperComponent } from './main/helper/helper.component';
+import { HelperComponent } from './main/main-gallery/helper/helper.component';
+import { MainGalleryComponent } from './main/main-gallery/main-gallery.component';
+import { MainSearchComponent } from './main/main-search/main-search.component';
+
 
 @NgModule({
   declarations: [
@@ -27,6 +31,8 @@ import { HelperComponent } from './main/helper/helper.component';
     MyTripsComponent,
     MainTicketsComponent,
     HelperComponent,
+    MainGalleryComponent,
+    MainSearchComponent
   ],
   imports: [
     BrowserModule,
