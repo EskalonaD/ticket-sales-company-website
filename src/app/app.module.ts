@@ -33,7 +33,9 @@ import { FormsModule } from '@angular/forms';
     MainTicketsComponent,
     HelperComponent,
     MainGalleryComponent,
-    MainSearchComponent
+    MainSearchComponent,
+    SpecialOfferComponent,
+    TicketComponent
   ],
   imports: [
     BrowserModule,
