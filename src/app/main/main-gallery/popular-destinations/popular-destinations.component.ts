@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { MainGalleryService } from './../main-gallery.service';
+import { Gallery } from './../main-gallery.model';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-popular-destinations',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PopularDestinationsComponent implements OnInit {
 
-  constructor() { }
+  @Input() cards: Gallery[];
+
+  constructor(private galleryService: MainGalleryService) { }
 
   ngOnInit() {
+    this.cards = this.galleryService.getArray('popular');
   }
 
 }

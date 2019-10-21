@@ -1,0 +1,8 @@
+<div class="special-article" [ngClass]="{'special-article--reverse': index % 2 ? true : false}">
+  <img [src]="offer.imgPath" alt="" class="special-article__image">
+  <div class="special-article__content">
+    <h3 class="article-title special-article__title">{{offer.name}}</h3>
+    <p class="special-article__text">{{offer.content}}</p>
+    <button class="special-article__button button button-more button-more_white">Learn more</button>
+  </div>
+</div>

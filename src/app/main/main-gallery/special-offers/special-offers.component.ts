@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Gallery } from './../main-gallery.model';
+import { MainGalleryService } from './../main-gallery.service';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-special-offers',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./special-offers.component.css']
 })
 export class SpecialOffersComponent implements OnInit {
+  @Input() offers: Gallery[];
 
-  constructor() { }
+  constructor(private galleryService: MainGalleryService) { }
 
   ngOnInit() {
+    this.offers = this.galleryService.getArray('offer');
   }
 
 }
