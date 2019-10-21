@@ -18,6 +18,8 @@ import { MainSearchComponent } from './main/main-search/main-search.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DateRangePickerModule } from 'projects/uiowa/date-range-picker/src/public-api';
 import { FormsModule } from '@angular/forms';
+import { SpecialOfferComponent } from './main/main-gallery/special-offers/special-offer/special-offer.component';
+import { TicketComponent } from './main/main-tickets/ticket/ticket.component';
 
 @NgModule({
   declarations: [
