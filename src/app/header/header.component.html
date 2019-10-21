@@ -1,18 +1,21 @@
 <header class="header">
-    <div class="header__logo">
-        <img src="../assets/img/logo.svg" alt="Travelo"/>
+  <div class="header__logo">
+    <img src="../assets/img/logo.svg" alt="Travelo" />
+  </div>
+  <div class="header-menu">
+    <nav class="header-menu__navigation navigation">
+      <ul class="navigation-header">
+        <li class="navigation-header__item" routerLinkActive="active"><a routerLink="/flights"
+            class="navigation-header__link">Flights</a></li>
+        <li class="navigation-header__item" routerLinkActive="active"><a routerLink="/my-trips"
+            class="navigation-header__link">My trips</a></li>
+        <li class="navigation-header__item" routerLinkActive="active"><a routerLink="/trip-helper"
+            class="navigation-header__link">Trip helper</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="header__registration">
+      <a href="#" class="header__registration-link">AV</a>
     </div>
-    <div class="header-menu">
-        <nav class="header-menu__navigation navigation">
-            <ul class="navigation-header">
-                <li class="navigation-header__item"><a href="#" class="navigation-header__link">Flights</a></li>
-                <li class="navigation-header__item"><a href="#" class="navigation-header__link">My trips</a></li>
-                <li class="navigation-header__item"><a href="#" class="navigation-header__link">Trip helper</a></li>
-            </ul>
-        </nav>
-        <div class="header__registration">
-            <a href="#" class="header__registration-link">AV</a>
-        </div>
-    </div>
+  </div>
 </header>
-
