@@ -16,6 +16,7 @@ import { MainTicketsComponent } from './main/main-tickets/main-tickets.component
 import { HelperComponent } from './main/main-gallery/helper/helper.component';
 import { MainGalleryComponent } from './main/main-gallery/main-gallery.component';
 import { MainSearchComponent } from './main/main-search/main-search.component';
+import { SpecialOfferComponent } from './main/main-gallery/special-offers/special-offer/special-offer.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { MainSearchComponent } from './main/main-search/main-search.component';
     MainTicketsComponent,
     HelperComponent,
     MainGalleryComponent,
-    MainSearchComponent
+    MainSearchComponent,
+    SpecialOfferComponent
   ],
   imports: [
     BrowserModule,

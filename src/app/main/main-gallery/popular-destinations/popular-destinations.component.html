@@ -1,37 +1,8 @@
 <div class="section-wrapper">
-    <section class="popular-destinations">
-        <h2 class="section-title">Popular destinations</h2>
-        <div class="cards">
-            <app-popular-card class="cards-item" 
-                imageSource="/assets/img/bostonCard.jpg" 
-                name="Boston" 
-                content="13-14 March total sale on round trop in Paris!">
-            </app-popular-card>
-            <app-popular-card class="cards-item" 
-                imageSource="/assets/img/parisCard.jpg" 
-                name="Paris" 
-                content="13-14 March total sale on round trop in Paris!">
-            </app-popular-card>
-            <app-popular-card class="cards-item" 
-                imageSource="/assets/img/viennaCard.jpg" 
-                name="Vienna" 
-                content="13-14 March total sale on round trop in Paris!">
-            </app-popular-card>
-            <app-popular-card class="cards-item" 
-                imageSource="/assets/img/nyCard.jpg" 
-                name="New York" 
-                content="13-14 March total sale on round trop in Paris!">
-            </app-popular-card>
-            <app-popular-card class="cards-item" 
-                imageSource="/assets/img/tokyoCard.jpg" 
-                name="Tokyo" 
-                content="13-14 March total sale on round trop in Paris!">
-            </app-popular-card>
-            <app-popular-card class="cards-item" 
-                imageSource="/assets/img/berlinCard.jpg" 
-                name="Berlin" 
-                content="13-14 March total sale on round trop in Paris!">
-            </app-popular-card>
-        </div>
-    </section>
+  <section class="popular-destinations">
+    <h2 class="section-title">Popular destinations</h2>
+    <div class="cards">
+      <app-popular-card class="cards-item" *ngFor=" let cardElement of cards" [card]="cardElement"></app-popular-card>
+    </div>
+  </section>
 </div>

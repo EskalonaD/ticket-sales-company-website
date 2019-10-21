@@ -1,3 +1,4 @@
+import { Gallery } from './../../main-gallery.model';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -6,9 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./popular-card.component.css']
 })
 export class PopularCardComponent implements OnInit {
-  @Input() imageSource: string;
-  @Input() name: string;
-  @Input() content: string;
+  @Input() card: Gallery;
 
   constructor() { }
 
