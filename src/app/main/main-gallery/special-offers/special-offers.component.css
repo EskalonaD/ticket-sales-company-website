@@ -1,1 +1,10 @@
+.special-offers {
+    margin: 100px auto;
+}
 
+.special-article {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 50px auto 100px;
+}
