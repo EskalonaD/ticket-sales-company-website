@@ -12,6 +12,7 @@ import { TripHelperComponent } from './trip-helper/trip-helper.component';
 import { SpecialOffersComponent } from './main/special-offers/special-offers.component';
 import { MyTripsComponent } from './my-trips/my-trips.component';
 import { MainTicketsComponent } from './main/main-tickets/main-tickets.component';
+import { HelperComponent } from './main/helper/helper.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { MainTicketsComponent } from './main/main-tickets/main-tickets.component
     SpecialOffersComponent,
     MyTripsComponent,
     MainTicketsComponent,
+    HelperComponent,
   ],
   imports: [
     BrowserModule,
