@@ -186,3 +186,13 @@ opacity: 1;
   background-color:#FFFFFF;
 }
 
+
+.airports-output{
+  display: none;
+}
+
+.showDeparture {
+  display: block;
+  background: red;
+}
+
