@@ -1,0 +1,33 @@
+.helper {
+    background: url("/assets/img/tripHelper.jpg");
+    background-size: cover;
+    background-position: 50% 50%;
+    padding: 100px 0;
+}
+
+.helper__block {
+    width: 50%;
+    background: rgba(255,255,255,0.7);
+    padding-top: 25px;
+    padding-bottom: 75px;
+}
+
+.helper__content {
+    position: relative;
+    margin-left: auto;
+    margin-right: 100px;
+    width: 300px;
+}
+
+.helper__title {
+    margin-bottom: 15px;
+}
+
+.helper__text {
+    line-height: 25px;
+}
+
+.helper__button {
+    position: absolute;
+    right: 0;
+}

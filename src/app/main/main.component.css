@@ -2,6 +2,6 @@
     height: 70vh;
     background-image: url("/assets/img/main.png");
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
     background-position: 50% 50%;
 }
