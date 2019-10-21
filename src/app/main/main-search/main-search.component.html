@@ -1,1 +1,55 @@
-<button routerLink="tickets"></button>
+<div class="block-main">
+    <div class="section-wrapper">
+        <div class="block-main__text">
+            <h1 class="block-main__text-header">
+                Life is to short to quit traveling
+            </h1>
+        </div>
+        <div class="block-main__form">
+            <div class="block-form__buttons">
+                <div class="block-textfields">
+                    <input type="radio" name="choosetype" id="return"/>
+                    <label for="return">Return</label>
+                </div>
+                <div class="block-textfields">
+                    <input type="radio" name="choosetype" id="oneway"/>
+                    <label for="oneway">One way</label>
+                </div>
+                <div class="block-textfields">
+                    <input type="radio" name="choosetype" id="multitrip"/>
+                    <label for="multitrip">Multi-trip</label>
+                </div>
+            </div>
+            <div class="block-form__textfields">
+                <div class="block-form__elements">
+                    <label for="from" class="block-form__labelfrom"><img src="../assets/img/plane_to.svg"> <input type="text" name="travel" placeholder="Kyiv (KPB)" id="from" class="block-form__input"></label>
+                </div>
+                <div class="block-form__elements">
+                    <button class="block-form__button"><img src="../assets/img/backnforce.svg">
+                    </button>
+                </div>
+                <div class="block-form__elements">
+                    <label for="to" class="block-form__labelto"><img src="../assets/img/plane_back.svg">
+                        <input type="text" name="travel"  placeholder="Paris (CDG)" id="to" class="block-form__input"/>
+
+                    </label>
+                </div>
+                <div class="block-form__information">
+                        <div class="block-form__calendar">
+                            <date-range-picker
+  [(dateRange)]="dateRange"
+  [maxDate]="maxDate"
+></date-range-picker>
+                        </div>
+                        <div class="block-form__passenger">
+                            <img src="../assets/img/profile.svg" alt="passengers"/>
+                        </div>
+                        <div class="block-form__search">
+                            <button class="block-form__buttonsearch">Search</button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
