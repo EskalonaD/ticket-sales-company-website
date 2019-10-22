@@ -31,7 +31,7 @@
 
 
 
-  <div class="ticket-info">
+  <div class="ticket-info" *ngFor='let ticket of tickets'>
     <div class="ticket-details">
       <div class="ticket-details__logo"><img src="/assets/img/airfrance.png" alt="Logo"></div>
       <div class="ticket-details__date">
@@ -52,7 +52,7 @@
           <span class="flight-duration__minutes"> 30</span> min
         </p>
         <div class="ticket-details__route">
-          <span class="ticket-details__route-from">Kyiv (KBP)</span>
+          <span class="ticket-details__route-from">{{ ticket.flightFrom.startAirport.name}}</span>
           <img src="/assets/img/route-arrow.svg" class="route-arrow">
           <span class="ticket-details__route-to">Paris (CDG)</span>
         </div>
@@ -90,9 +90,9 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="ticket__price-block">
-    <span class="ticket__price">$123</span>
-    <button class="button button-book">Book</button>
+    <div class="ticket__price-block">
+      <span class="ticket__price">$123</span>
+      <button class="button button-book">Book</button>
+    </div>
   </div>
 </div>
