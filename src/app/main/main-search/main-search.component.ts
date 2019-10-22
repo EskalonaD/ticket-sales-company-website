@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
 }*/
 import { Component, OnInit } from '@angular/core';
 import { DateRange } from 'projects/uiowa/date-range-picker/src/public-api';
-
+import * as moment from 'moment';
 import { Airport } from '../../data/Airport';
 import { AIRPORTS } from '../../data/flightFrom';
 
@@ -31,22 +31,31 @@ export class MainSearchComponent implements OnInit {
   date: Date;
   flightFrom:Airport[] = AIRPORTS;
   showDeparture: boolean = false;
-
+  currentDate = moment().format('LL');     
   ngOnInit(): void {
     this.maxDate.setDate(this.maxDate.getDate() + 20);
   }
 
-  onKeyUp(event: any) {
+  count=0;
+  onKeyright(event: any) {
+this.count = this.count + 1;
+  }
+
+  onKeyleft(event: any) {
+    this.count = this.count - 1;
+      }
+
+  /*onKeyUp(event: any) {
     this.flightFrom = AIRPORTS.filter(({city}) => city.toLowerCase().includes(event.target.value.toLowerCase()));
     console.log(this.flightFrom);
     this.showDeparture = true;
-  }
+  }*/
 
-  onBlur() {
+  /*onBlur() {
     this.showDeparture = false;
   }
 
   onFocus() {
     this.showDeparture = true;
-  }
+  }*/
 }

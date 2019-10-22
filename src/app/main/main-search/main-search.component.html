@@ -20,29 +20,41 @@
                     <label for="multitrip">Multi-trip</label>
                 </div>
             </div>
-            <div class="block-form__textfields">
-                <div class="block-form__elements">
-                    <label for="from" class="block-form__labelfrom"><img src="../assets/img/plane_to.svg"> <input type="text" name="travel" placeholder="Departure City" id="from" class="block-form__input" (keyup)='onKeyUp($event)' (blur)='onBlur()' (focus)='onFocus()'></label>
-                </div>
-                <div class="block-form__elements">
-                    <button class="block-form__button"><img src="../assets/img/backnforce.svg">
-                    </button>
-                </div>
-                <div class="block-form__elements">
-                    <label for="to" class="block-form__labelto"><img src="../assets/img/plane_back.svg">
-                        <input type="text" name="travel"  placeholder="Arrival City" id="to" class="block-form__input"/>
-
-                    </label>
-                </div>
-                <div class="block-form__information">
-                        <div class="block-form__calendar">
-                            <date-range-picker
-  [(dateRange)]="dateRange"
-  [maxDate]="maxDate"
-></date-range-picker>
+                <div class="block-form__mainform">
+                    <div class="block-form__textfields">
+                        <div class="block-form__elements">
+                            <label for="from" class="block-form__labelfrom"><img src="../assets/img/plane_to.svg"> <input list="departurefrom" type="text"
+                                    name="travel" placeholder="Departure City" id="from" class="block-form__input">
+                            </label>
+                            <datalist id="departurefrom">
+                                <option *ngFor="let airport of flightFrom" value="{{airport.name}}">
+                            </datalist>
                         </div>
+                        <div class="block-form__elements">
+                            <button class="block-form__button"><img src="../assets/img/backnforce.svg">
+                            </button>
+                        </div>
+                        <div class="block-form__elements">
+                            <label for="to" class="block-form__labelto"><img src="../assets/img/plane_back.svg">
+                                <input list="departureto" type="text" name="travel" placeholder="Arrival City" id="to" class="block-form__input" />
+                                <datalist id="departureto">
+                                    <option *ngFor="let airport of flightFrom" value="{{airport.name}}">
+                                </datalist>
+                            </label>
+                        </div>
+                    </div>
+                <div class="block-form__information">
+                        <img src="../assets/img/calendar.svg" alt="calendar" class="block-calendar__image"/>
+                         <div class="block-form__calendar">
+                            <input type="text" ngxDaterangepickerMd [(ngModel)]="selected" class="form-control" [placeholder] = "currentDate"/>
+                         </div>
                         <div class="block-form__passenger">
                             <img src="../assets/img/profile.svg" alt="passengers"/>
+                            <div class="buttons__passenger">
+                            <button (keyupleft)='onKeyleft($event)'>&lt;</button>
+                            <div>1</div>
+                            <button (keyupright)='onKeyright($event)'>&gt;</button>
+                            </div>
                         </div>
                         <div class="block-form__search">
                             <button class="block-form__buttonsearch" routerLink="tickets">Search</button>
@@ -57,9 +69,4 @@
 
 
 
-<div class='airports-output' [class.showDeparture]="this.showDeparture">
-    <div *ngFor="let airport of flightFrom">
-        {{airport.name}}
-    </div>
-</div>
 

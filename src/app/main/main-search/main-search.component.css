@@ -30,6 +30,13 @@
   font-weight: bold;
 }
 
+.block-form__mainform {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+}
+
 .block-textfields {
   margin-right: 35px;
   margin-left: 10px;
@@ -101,24 +108,24 @@ opacity: 1;
 
 .block-form__labelfrom input {
   height: 40px;
-  width: 200px;
+  width: 300px;
   border-right:none;
   border-top: 1px solid grey;
   border-bottom: 1px solid grey;
   border-left: 1px solid grey;
-  text-align: center;
+  text-align: left;
   font-family: sans-serif;
   font-size: 16px;
 }
 
 .block-form__labelto input {
   height: 40px;
-  width: 200px;
+  width: 300px;
   border-left:none;
   border-top: 1px solid grey;
   border-bottom: 1px solid grey;
   border-right: 1px solid grey;
-  text-align: center;
+  text-align: left;
   font-family: sans-serif;
   font-size: 16px;
 }
@@ -143,7 +150,8 @@ opacity: 1;
 
 
 .block-form__button {
-  height: 100%;
+  height: 40px;
+  width: 60px;
   border-top: 1px solid grey;
   border-bottom:1px solid grey;
   border-right: none;
@@ -156,7 +164,12 @@ opacity: 1;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-top: 20px;
+  padding-bottom: 30px;
   width: 100%;
+  padding-left: 20px;
+  position:relative;
+
 }
 
 .block-form__passenger {
@@ -177,7 +190,6 @@ opacity: 1;
   font-weight: bold;
   border-radius: 3px;
   cursor: pointer;
-  margin-right: 20px;
 }
 
 .block-form__buttonsearch:hover {
@@ -187,12 +199,67 @@ opacity: 1;
 }
 
 
-.airports-output{
-  display: none;
+.block-form__input {
+  padding-left: 60px;
+  padding-right: 15px;
 }
 
-.showDeparture {
-  display: block;
-  background: red;
+.form-control {
+  height: 40px;
+  width: 300px;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 18px;
+  color: #000000;
+  padding-left: 50px;
+  padding-right: 15px;
 }
+
+.form-control:focus::-webkit-input-placeholder {
+  color:grey;
+}
+
+.form-control:focus:-moz-placeholder {
+  color:grey;
+}
+.form-control:focus::-moz-placeholder {
+  color:grey;
+}
+.form-control:focus:-ms-input-placeholder {
+  color:grey;
+}
+
+.block-form__calendar {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  width: 300px;
+}
+
+.block-calendar__image {
+  position: absolute;
+  left: 35px;
+  top: 8px;
+}
+
+
+
+.block-form__passenger {
+  height: 40px;
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.buttons__passenger {
+  display: flex;
+  flex-direction: row;
+}
+
+
+
+
 
