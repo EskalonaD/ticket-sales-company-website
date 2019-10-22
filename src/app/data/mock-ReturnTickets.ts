@@ -1,7 +1,8 @@
 import { TicketReturn } from './TicketReturn';
 import { ONEWAYTICKETS } from './mock-OneWayTickets';
+import { TicketOneWay } from './TicketOneway';
 
-function calculateMaxDuration (a, b) {
+function calculateMaxDuration (a:TicketOneWay, b:TicketOneWay) {
     return Math.max(a.durationTotal, b.durationTotal);
 }
 
