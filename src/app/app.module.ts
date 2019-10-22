@@ -1,3 +1,4 @@
+import { SearchService } from './main/main-search/search.service';
 import { SpecialOfferComponent } from './main/main-gallery/special-offers/special-offer/special-offer.component';
 import { TicketComponent } from './main/main-tickets/ticket/ticket.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -18,8 +19,9 @@ import { HelperComponent } from './main/main-gallery/helper/helper.component';
 import { MainGalleryComponent } from './main/main-gallery/main-gallery.component';
 import { MainSearchComponent } from './main/main-search/main-search.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { DateRangePickerModule } from 'projects/uiowa/date-range-picker/src/public-api';
-import { FormsModule } from '@angular/forms';
+// import { DateRangePickerModule } from 'projects/uiowa/date-range-picker/src/public-api';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -37,16 +39,20 @@ import { FormsModule } from '@angular/forms';
     MainGalleryComponent,
     MainSearchComponent,
     SpecialOfferComponent,
-    TicketComponent
+    TicketComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     NgbModule,
-    DateRangePickerModule
+    // DateRangePickerModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+
   ],
-  providers: [],
+  providers: [SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
