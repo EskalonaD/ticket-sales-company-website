@@ -2,7 +2,7 @@ import { TicketReturn } from './TicketReturn';
 import { ONEWAYTICKETS } from './mock-OneWayTickets';
 
 function calculateTotalDuration () {
-    return this.fligtTo.durationTotal + this.flightFrom.durationTotal
+    return this.flightTo.durationTotal + this.flightFrom.durationTotal
 }
 
 export const RETURNTICKETS: TicketReturn[] = [
