@@ -1,9 +1,5 @@
 import { TicketOneWay } from './TicketOneWay';
 
-function calculateDurationTotal(): number {
-    return this.durationToChangeAirport + this.durationFromChangeAirport;
-}
-
 export const ONEWAYTICKETS: TicketOneWay[] = [
     {
         id: 1,
@@ -12,7 +8,7 @@ export const ONEWAYTICKETS: TicketOneWay[] = [
         price: 123,
         durationToChangeAirport: 2,
         durationFromChangeAirport: 2.5,
-        durationTotal: calculateDurationTotal(),
+        durationTotal: 2 + 2.5,
         startTime: 1568667600000,
         endTime: 1569013200000,
         startAirport: { id: 2, name: 'KBP Kyiv, Borispil International Airport', city: 'Kyiv'},

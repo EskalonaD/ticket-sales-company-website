@@ -3,6 +3,6 @@ import { TicketOneWay } from './TicketOneway';
 export interface TicketReturn {
     flightTo: TicketOneWay;
     flightFrom: TicketOneWay;
-    totalDuration: number;
+    maxDuration: number;
     price: number;
 }
