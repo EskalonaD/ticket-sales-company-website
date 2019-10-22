@@ -1,4 +1,4 @@
-export class Airport {
+export interface Airport {
 
         id: number;
         name: string;

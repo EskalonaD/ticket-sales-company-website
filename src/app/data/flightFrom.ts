@@ -3,5 +3,6 @@ import {Airport} from './Airport';
 export const AIRPORTS: Airport[] = [
     { id: 1, name: 'IEV Kyiv, Igor Sikorsky International', city: 'Kyiv'},
     { id: 2, name: 'KBP Kyiv, Borispil International Airport', city: 'Kyiv'},
-    { id: 3, name: 'Paris (CDG)', city: 'Paris'}
+    { id: 3, name: 'Paris (CDG)', city: 'Paris'},
+    { id:4, name: 'Warsaw (WAW)', city: 'Warsaw'},
 ]
