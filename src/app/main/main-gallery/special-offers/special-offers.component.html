@@ -1,7 +1,9 @@
-<div class="section-wrapper">
-  <h2 class="section-title">Special Offers</h2>
-  <section class="special">
-    <app-special-offer *ngFor="let offerElement of offers; let i = index" [offer]="offerElement" [index]="i">
-    </app-special-offer>
-  </section>
-</div>
+<section class="special-offers">
+  <div class="section-wrapper">
+    <h2 class="section-title">Special Offers</h2>
+    <section class="special">
+      <app-special-offer *ngFor="let offerElement of offers; let i = index" [offer]="offerElement" [index]="i">
+      </app-special-offer>
+    </section>
+  </div>
+</section>

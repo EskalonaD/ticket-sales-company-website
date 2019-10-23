@@ -36,6 +36,7 @@
   font-weight: bold;
   font-size: 24px;
   letter-spacing: 1px;
+  min-width: 200px;
 }
 
 .ticket-date {
@@ -63,16 +64,27 @@
   justify-content: flex-start;
 }
 
-.route-arrow {
+.route-details {
   display: inline-block;
   height: 25px;
   margin: 0px 5px;
+}
+
+.route-details__arrow {
+  width: 100px;
+  min-width: 100px;
+}
+
+.route-details__transfer{
+  font-size: 16px;
+  text-align: center;
 }
 
 .trip-info {
   display: flex;
   align-items: center;
   color: grey;
+  min-width: 300px;
 }
 
 .trip-info__dashes {
@@ -81,6 +93,11 @@
   width: 150px;
   margin-right: 20px;
   border-bottom: 3px dashed grey;
+}
+
+.trip-ifno__text {
+  display: block;
+  min-width: 150px;
 }
 
 .ticket__price-block {
@@ -104,12 +121,5 @@
   font-size: 30px;
   font-weight: bold;
   padding: 20px 50px;
-  background-color: var(--main-blue);
-  border: 1px solid var(--main-blue);
-  color: white;
-}
-
-.button-book:hover {
-  background-color: white;
-  color: var(--main-blue);
+  transition: 0.1s;
 }

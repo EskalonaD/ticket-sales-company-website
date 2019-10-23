@@ -19,9 +19,9 @@ import { HelperComponent } from './main/main-gallery/helper/helper.component';
 import { MainGalleryComponent } from './main/main-gallery/main-gallery.component';
 import { MainSearchComponent } from './main/main-search/main-search.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-// import { DateRangePickerModule } from 'projects/uiowa/date-range-picker/src/public-api';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 
 @NgModule({
   declarations: [
@@ -51,6 +51,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     BrowserAnimationsModule,
 
+    NgxDaterangepickerMd.forRoot()
   ],
   providers: [SearchService],
   bootstrap: [AppComponent]

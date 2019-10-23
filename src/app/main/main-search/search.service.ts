@@ -10,6 +10,8 @@ export class SearchService {
         { id: 3, name: 'Paris (CDG)', city: 'Paris' }
     ]
 
+    newTripInfo: Object = {}
+
     constructor() { }
 
 
@@ -20,5 +22,10 @@ export class SearchService {
                 return airport.name.toLowerCase().includes(queryString.toLowerCase())
             }
         }).slice()
+    }
+
+    onAddNewTripInfo(data: Object) {
+        this.newTripInfo = data;
+        console.log(this.newTripInfo);
     }
 }

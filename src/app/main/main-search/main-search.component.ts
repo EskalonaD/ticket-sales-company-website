@@ -1,7 +1,9 @@
 import { Airport } from './../../data/airports.module';
 import { SearchService } from './search.service';
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import * as moment from 'moment';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-main-search',
@@ -11,19 +13,28 @@ import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 })
 
 export class MainSearchComponent implements OnInit {
+
+
+
   dataGroup: FormGroup = new FormGroup({
     departure: new FormControl(''),
-    arrival: new FormControl('')
+    arrival: new FormControl(''),
+    date: new FormControl(),
+    passengers: new FormControl('')
   })
-  value: string = '';
+
+  @ViewChild('oneWay', { static: false }) oneWay: ElementRef;
+  @ViewChild('twoWay', { static: false }) twoWay: ElementRef;
+  @ViewChild('multiTrip', { static: false }) multiTrip: ElementRef;
+
   results: Airport[];
-  // queryField = new FormControl();
+  count: number = 0;
+  maxDate = new Date();
+  date: Date;
+  currentDate = moment().format('LL');
 
-  // @ViewChild('departure', { static: false }) departure: ElementRef;
-  // @ViewChild('arrival', { static: false }) arrival: ElementRef;
 
-
-  constructor(private searchService: SearchService, private formBuilder: FormBuilder) { }
+  constructor(private searchService: SearchService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.dataGroup.get('departure').valueChanges
@@ -38,12 +49,25 @@ export class MainSearchComponent implements OnInit {
   }
 
   onSubmit() {
-    // const dep = this.departure.nativeElement.value;
-    // const arr = this.arrival.nativeElement.value;
-    // console.log(dep, arr)
-    console.log(this.dataGroup.value)
-
+    this.searchService.onAddNewTripInfo(this.dataGroup.value)
   }
 
+  onNavigate() {
+    const one = this.oneWay.nativeElement.checked;
+    const two = this.twoWay.nativeElement.checked;
+    const multi = this.multiTrip.nativeElement.checked;
+
+
+    this.router.navigate(['tickets'], { relativeTo: this.route, queryParams: { TwoWay: two, OneWay: one, MultiTrip: multi } })
+  }
+
+
+  onKeyright(event: any) {
+    this.count = this.count + 1;
+  }
+
+  onKeyleft(event: any) {
+    this.count = this.count - 1;
+  }
 
 }
