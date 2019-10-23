@@ -52,18 +52,20 @@
 
         </p>
         <div class="ticket-details__route">
+
           <span class="ticket-details__route-from">{{ ticket.ticketTo.startAirport.shortName }}</span>
 
 
-
-          <div *ngIf='!ticket.ticketTo.direct; else elseBlock'>
-              <img src="/assets/img/route-arrow-transfer.svg" class="route-details__arrow">
-              <div>{{ ticket.ticketTo.changeAirport.code }}</div>
-              <div>{{ ticket.ticketTo.durationToChangeAirport }}</div>
-            </div>
-            <ng-template #elseBlock>
-              <img src="/assets/img/route-arrow.svg" class="route-arrow">
-            </ng-template>
+          <div class="route-details">
+            <div *ngIf='!ticket.ticketTo.direct; else elseBlock'>
+                <img src="/assets/img/route-arrow-transfer.svg" class="route-details__arrow">
+                <div>{{ ticket.ticketTo.changeAirport.code }}</div>
+                <div>{{ ticket.ticketTo.durationToChangeAirport }}</div>
+              </div>
+              <ng-template #elseBlock>
+                <img src="/assets/img/route-arrow.svg" class="route-arrow">
+              </ng-template>
+          </div>
 
 
 
@@ -74,10 +76,10 @@
     </div>
     <div class="trip-info">
       <span class="trip-info__dashes"></span>
+
       <!-- think how to find that number -->
-      <span class="trip-info__duration">4</span>
-       nights in 
-      <span class="trip-info__place">{{ ticket.ticketTo.endAirport.city }}</span>
+      <span class="trip-info__text">4 nights in {{ ticket.ticketTo.endAirport.city }}</span>
+
     </div>
     <div class="ticket-details">
       <div class="ticket-details__logo"><img src="/assets/img/airfrance.png" alt="Logo"></div>
@@ -98,18 +100,20 @@
           {{ ticket.ticketFrom.durationTotal}}
         </p>
         <div class="ticket-details__route">
+
           <span class="ticket-details__route-from">{{ ticket.ticketFrom.startAirport.shortName }}</span>
 
+          <div class="route-details">
 
-          <div *ngIf='!ticket.ticketFrom.direct; else elseBlock1'>
-            <img src="/assets/img/route-arrow-transfer.svg" class="route-details__arrow">
-            <div>{{ ticket.ticketFrom.changeAirport.code }}</div>
-            <div>{{ ticket.ticketFrom.changeAirport.durationToChangeAirport }}</div>
+            <div *ngIf='!ticket.ticketFrom.direct; else elseBlock1'>
+              <img src="/assets/img/route-arrow-transfer.svg" class="route-details__arrow">
+              <div>{{ ticket.ticketFrom.changeAirport.code }}</div>
+              <div>{{ ticket.ticketFrom.changeAirport.durationToChangeAirport }}</div>
+            </div>
+            <ng-template #elseBlock1>
+              <img src="/assets/img/route-arrow.svg" class="route-arrow">
+            </ng-template>
           </div>
-          <ng-template #elseBlock1>
-            <img src="/assets/img/route-arrow.svg" class="route-arrow">
-          </ng-template>
-
 
 
 
@@ -121,5 +125,6 @@
       <span class="ticket__price">{{ ticket.price | currency: undefined: undefined: '1.0-0' }}</span>
       <button class="button button-book">Book</button>
     </div>
+
   </div>
 </div>

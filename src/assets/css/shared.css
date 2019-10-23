@@ -32,30 +32,37 @@
     cursor: pointer;
 }
 
+.button.button:active {
+    background-color: var(--main-orange);
+    border-color: var(--main-orange);
+    color: white;
+    transition: 0s;
+}
+
 .button-more {
     transition: 0.2s;
     padding: 10px 15px;
     font-size: 16px;
 }
 
-.button-more_blue {
+.button_blue {
     background-color: var(--main-blue);
     border: 1px solid var(--main-blue);
     color: white;
 }
 
-.button-more_blue:hover {
+.button_blue:hover {
     background-color: white;
     color: var(--main-blue);
 }
 
-.button-more_white {
+.button_white {
     background-color: white;
     border: 1px solid var(--main-blue);
     color: var(--main-blue);
 }
 
-.button-more_white:hover {
+.button_white:hover {
     background-color: var(--main-blue);
     border: 1px solid var(--main-blue);
     color: white;
