@@ -1,4 +1,3 @@
-// import { TicketOneWay } from './TicketOneWay';
 import { AIRPORTS } from './flightFrom';
 import { TicketOneWay} from './TicketOneWay';
 
