@@ -1,11 +1,6 @@
 import { Airport } from './../../data/airports.module';
-import { ChangeDetectorRef, Component, ChangeDetectionStrategy } from '@angular/core';
 
 
-
-@Component({
-    changeDetection: ChangeDetectionStrategy.OnPush
-})
 
 
 export class SearchService {
@@ -15,12 +10,11 @@ export class SearchService {
         { id: 3, name: 'Paris (CDG)', city: 'Paris' }
     ]
 
-    constructor(private cdr: ChangeDetectorRef) { }
+    constructor() { }
 
 
 
     onSearch(queryString: string): Airport[] {
-        this.cdr.detectChanges()
         return this.AIRPORTS.filter((airport) => {
             if (queryString != "") {
                 return airport.name.toLowerCase().includes(queryString.toLowerCase())

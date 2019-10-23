@@ -1,6 +1,6 @@
 import { Airport } from './../../data/airports.module';
 import { SearchService } from './search.service';
-import { Component, OnInit, ViewChild, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
@@ -11,7 +11,7 @@ import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 })
 
 export class MainSearchComponent implements OnInit {
-  dataGroup: FormGroup = this.formBuilder.group({
+  dataGroup: FormGroup = new FormGroup({
     departure: new FormControl(''),
     arrival: new FormControl('')
   })
@@ -23,12 +23,16 @@ export class MainSearchComponent implements OnInit {
   // @ViewChild('arrival', { static: false }) arrival: ElementRef;
 
 
-  constructor(private searchService: SearchService, private formBuilder: FormBuilder, private cdr: ChangeDetectorRef) { }
+  constructor(private searchService: SearchService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.dataGroup.valueChanges
+    this.dataGroup.get('departure').valueChanges
       .subscribe((queryField) => {
+        this.results = this.searchService.onSearch(queryField)
+      })
 
+    this.dataGroup.get('arrival').valueChanges
+      .subscribe((queryField) => {
         this.results = this.searchService.onSearch(queryField)
       })
   }
