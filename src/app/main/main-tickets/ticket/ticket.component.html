@@ -56,10 +56,8 @@
 
 
 
-<!-- add styles -->
           <div *ngIf='!ticket.ticketTo.direct; else elseBlock'>
-              <!-- add right arrow -->
-              <img>
+              <img src="/assets/img/route-arrow-transfer.svg" class="route-details__arrow">
               <div>{{ ticket.ticketTo.changeAirport.code }}</div>
               <div>{{ ticket.ticketTo.durationToChangeAirport }}</div>
             </div>
@@ -103,10 +101,8 @@
           <span class="ticket-details__route-from">{{ ticket.ticketFrom.startAirport.shortName }}</span>
 
 
-<!-- add styles -->
           <div *ngIf='!ticket.ticketFrom.direct; else elseBlock1'>
-            <!-- add right arrow -->
-            <img>
+            <img src="/assets/img/route-arrow-transfer.svg" class="route-details__arrow">
             <div>{{ ticket.ticketFrom.changeAirport.code }}</div>
             <div>{{ ticket.ticketFrom.changeAirport.durationToChangeAirport }}</div>
           </div>
