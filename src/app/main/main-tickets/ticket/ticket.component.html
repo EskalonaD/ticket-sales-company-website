@@ -1,37 +1,5 @@
-<div class="ticket">
-
-
-<div class="ticket__form">
-  <div class="ticket__finds">Total results:</div>
-  <div class=ticket__inputs>
-    <div class="ticket__price">
-      Price:
-      <input type="range" name="" id="" class=price__range>
-    </div>
-    <div class="ticket__duration">
-      Duration:
-      <input type="range" name="" id="" class="duration__range">
-    </div>
-  </div>
-  <div class="ticket__connections">
-    Connections:
-    <label>
-      <input type="checkbox" name="" id="">
-      Direct flights only
-    </label>
-  </div>
-  <button class="ticket__filter">Filter</button>
-</div>
-
-
-
-
-
-
-
-
-
-  <div class="ticket-info" *ngFor='let ticket of tickets'>
+<div class="ticket" *ngFor='let ticket of tickets'>
+  <div class="ticket-info">
     <div class="ticket-details">
       <div class="ticket-details__logo"><img src="/assets/img/airfrance.png" alt="Logo"></div>
       <div class="ticket-details__date">
@@ -57,19 +25,19 @@
 
 
           <div class="route-details">
-            <div *ngIf='!ticket.ticketTo.direct; else elseBlock'>
-                <img src="/assets/img/route-arrow-transfer.svg" class="route-details__arrow">
-                <div>{{ ticket.ticketTo.changeAirport.code }}</div>
-                <div>{{ ticket.ticketTo.durationToChangeAirport }}</div>
-              </div>
-              <ng-template #elseBlock>
-                <img src="/assets/img/route-arrow.svg" class="route-arrow">
-              </ng-template>
+            <div *ngIf='!ticket.ticketTo.direct; else elseBlock' class="route-details__transfer">
+              <img src="/assets/img/route-arrow-transfer.svg" class="route-details__arrow">
+              <div>{{ ticket.ticketTo.changeAirport.code }}</div>
+              <div>{{ ticket.ticketTo.durationToChangeAirport }}</div>
+            </div>
+            <ng-template #elseBlock class="route-details__transfer">
+              <img src="/assets/img/route-arrow.svg" class="route-details__arrow">
+            </ng-template>
           </div>
 
 
 
-          
+
           <span class="ticket-details__route-to">{{ ticket.ticketTo.endAirport.shortName }}</span>
         </div>
       </div>
@@ -90,9 +58,9 @@
           <span class="ticket-time__end">{{ ticket.ticketFrom.endTime | date: 'HH:mm' }}</span>
         </div>
         <time class="ticket-date">
-            <span class="ticket-date__day">{{ ticket.ticketFrom.startTime | date: 'E'}}</span>,
-            <span class="ticket-date__month">{{ ticket.ticketFrom.startTime | date: 'MMM'}} </span>
-            <span class="ticket-date__dayofmonth">{{ ticket.ticketFrom.startTime | date: 'd'}}</span>
+          <span class="ticket-date__day">{{ ticket.ticketFrom.startTime | date: 'E'}}</span>,
+          <span class="ticket-date__month">{{ ticket.ticketFrom.startTime | date: 'MMM'}} </span>
+          <span class="ticket-date__dayofmonth">{{ ticket.ticketFrom.startTime | date: 'd'}}</span>
         </time>
       </div>
       <div class="ticket-details__trip">
@@ -111,7 +79,7 @@
               <div>{{ ticket.ticketFrom.changeAirport.durationToChangeAirport }}</div>
             </div>
             <ng-template #elseBlock1>
-              <img src="/assets/img/route-arrow.svg" class="route-arrow">
+              <img src="/assets/img/route-arrow.svg" class="route-details__arrow">
             </ng-template>
           </div>
 
@@ -121,10 +89,9 @@
         </div>
       </div>
     </div>
-    <div class="ticket__price-block">
-      <span class="ticket__price">{{ ticket.price | currency: undefined: undefined: '1.0-0' }}</span>
-      <button class="button button-book">Book</button>
-    </div>
-
+  </div>
+  <div class="ticket__price-block">
+    <span class="ticket__price">{{ ticket.price | currency: undefined: undefined: '1.0-0' }}</span>
+    <button class="button button-book button_blue">Book</button>
   </div>
 </div>

@@ -51,6 +51,17 @@
     color: white;
 }
 
+.button_black {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+.button_black:hover {
+    background-color: var(--main-blue);
+    color: white;
+}
+
 .button_blue:hover {
     background-color: white;
     color: var(--main-blue);
