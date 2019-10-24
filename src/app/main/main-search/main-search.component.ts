@@ -28,7 +28,6 @@ export class MainSearchComponent implements OnInit {
   @ViewChild('multiTrip', { static: false }) multiTrip: ElementRef;
 
   results: Airport[];
-  count: number = 0;
   maxDate = new Date();
   date: Date;
   currentDate = moment().format('LL');
@@ -62,12 +61,24 @@ export class MainSearchComponent implements OnInit {
   }
 
 
-  onKeyright(event: any) {
-    this.count = this.count + 1;
+  count: number=1;
+  increase() : void {
+      this.count++;
   }
 
-  onKeyleft(event: any) {
-    this.count = this.count - 1;
+  decrease() : boolean {
+    if (this.count < 2) {
+      return false;
+    }
+    this.count--;
   }
+
+
+ 
+
+condition: boolean=true;
+      toggle(){
+        this.condition=!this.condition;
+    }
 
 }

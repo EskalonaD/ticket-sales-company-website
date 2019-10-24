@@ -52,13 +52,19 @@
               [placeholder]="currentDate" />
           </div>
           <div class="block-form__passenger">
-            <img src="../assets/img/profile.svg" alt="passengers" />
-            <div class="buttons__passenger">
-              <button (keyupleft)='onKeyleft($event)'>&lt;</button>
-              <div>{{count}}</div>
-              <button (keyupright)='onKeyright($event)'>&gt;</button>
+            <img src="../assets/img/profile.svg" alt="passengers"/>
+            <div class="buttons__passenger" tabindex="0" (blur)="blur()">
+                    <div *ngIf="condition; then thenBlock else elseBlock"></div>   
+                    <ng-template #thenBlock><button (focus)="toggle()" class="button button__countpasenger">{{count}} passenger</button></ng-template>  
+                    <ng-template #elseBlock>
+                        <div class="block_buttonsincrement">
+                        <button (click)="decrease()" (blur)="toggle()" class="buttonleft"><img src="../assets/img/slider-arrow.svg" class="arrow_left"></button>
+                        <div>{{count}}</div>
+                        <button (click)="increase()" (blur)="toggle()" class="buttonright"><img src="../assets/img/slider-arrow.svg" class="arrow_right"></button>
+                    </div>
+                    </ng-template>                     
             </div>
-          </div>
+        </div>
           <div class="block-form__search">
             <button class="block-form__buttonsearch" (click)="onNavigate()">Search</button>
           </div>
