@@ -1,0 +1,115 @@
+.passenger-form {
+    margin: auto;
+    font-size: 16px;
+}
+
+.passenger-form__text_big {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.passenger-form__text_small {
+    margin-bottom: 15px;
+}
+
+.passenger-data div {
+    display: inline-block;
+}
+
+.passenger-form input:focus,
+.passenger-form select:focus {
+    border: 1px solid var(--main-blue);
+}
+
+.passenger-data input,
+.passenger-data select {
+    font-size: 16px;
+    display: inline-block;
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid grey;
+    border-radius: 2px;
+}
+
+.passenger-form label {
+    display: block;
+    line-height: 30px;
+}
+
+.passenger-data__name,
+.passenger-data__passport {
+    width: 100%;
+}
+
+.passenger-data__name {
+    margin-bottom: 30px;
+}
+
+.passenger-data__passport {
+    margin-top: 30px;
+}
+
+.passenger-data__name div,
+.passenger-data__passport div {
+    display: inline-block;
+    width: calc((100% - 25px) / 2);
+}
+
+.passenger-data__name div:not(:last-child),
+.passenger-data__passport div:not(:last-child) {
+    margin-right: 25px;
+}
+
+.passenger-data__country {
+    width: calc((100% - 25px) / 2);
+    margin-right: 25px;
+}
+
+.passenger-data__gender {
+    width: calc((((100% - 25px) / 2) - 25px) / 3);
+    margin-right: 25px;
+}
+
+.passenger-data__birth {
+    width: calc((((100% - 25px) / 2) - 25px) * 2 / 3);
+}
+
+.passenger-form__luggage {
+    margin-top: 75px;
+    margin-bottom: 40px;
+}
+
+.passenger-form__price {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.passenger-form__luggage input {
+    width: auto;
+}
+
+.passenger-form__button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.passenger-form__submit {
+    padding: 5px 40px;
+    font-size: 22px;
+    transition: 0.1s;
+}
+
+.passenger-form__submit_disabled {
+    background-color: grey;
+    border: 1px solid grey;
+}
+
+.passenger-form__submit_disabled:hover {
+    cursor: not-allowed;
+    background-color: grey;
+    border: 1px solid grey;
+    color: white;
+}

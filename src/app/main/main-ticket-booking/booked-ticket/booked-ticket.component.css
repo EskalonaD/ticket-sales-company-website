@@ -1,0 +1,127 @@
+.ticket {
+padding: 25px 50px;
+box-shadow: 0px 0px 11px -2px rgba(0, 0, 0, 0.75);
+border-radius: 10px;
+margin-bottom: 100px;
+}
+
+.ticket-details {
+display: flex;
+justify-content: space-between;
+flex-flow: row nowrap;
+margin-bottom: 25px;
+}
+
+.ticket-details__logo {
+max-width: 100px;
+min-width: 75px;
+margin-right: 20px;
+}
+
+.ticket-details__date {
+margin-right: 20px;
+}
+
+.ticket-time {
+font-weight: bold;
+font-size: 18px;
+letter-spacing: 1px;
+}
+
+.ticket-date {
+display: block;
+margin-top: 10px;
+color: grey;
+}
+
+.ticket-details__flight-duration {
+font-size: 18px;
+font-weight: bold;
+}
+
+.ticket-details__route {
+margin-top: 10px;
+color: grey;
+display: flex;
+justify-content: flex-start;
+}
+
+.route-details {
+display: inline-block;
+margin: 0px 5px;
+}
+
+.route-details__arrow {
+max-width: 100%;
+width: 75px;
+min-width: 75px;
+}
+
+.route-details__transfer{
+text-align: center;
+}
+
+.trip-info {
+    font-size: 10px;
+display: flex;
+align-items: center;
+color: var(--main-blue);
+margin-bottom: 25px;
+}
+
+.trip-info__dashes {
+display: block;
+min-width: 50px;
+margin-right: 20px;
+border-bottom: 3px dashed var(--main-blue);
+}
+
+.trip-info__text {
+display: block;
+}
+
+.ticket__price {
+    font-size: 24px;
+    color: var(--main-blue);
+}
+
+.text_grey {
+    color: grey;
+}
+
+.flight-details__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 10px;
+}
+
+.flight-details__arrow {
+    text-align: center;
+}
+
+.flight-details__arrow-text {
+    font-size: 10px;
+}
+
+@media (max-width: 1000px) {
+    .ticket {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .ticket-details {
+        justify-content: center;
+        align-items: center;
+        flex-flow: column nowrap;
+    }
+    
+    .ticket-details__logo,
+    .ticket-details__date,
+    .ticket-details__trip,
+    .ticket__price {
+        margin-bottom: 25px;
+    }
+}

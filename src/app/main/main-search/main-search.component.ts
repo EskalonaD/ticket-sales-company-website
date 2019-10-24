@@ -1,61 +1,84 @@
-/*import { Component, OnInit } from '@angular/core';
-import { DateRange } from '@uiowa/date-range-picker';
-@Component({
-  selector: 'app-main-search',
-  templateUrl: './main-search.component.html',
-  styleUrls: ['./main-search.component.css']
-})
-export class AppComponent implements OnInit {
-  dateRange = new DateRange();
-  maxDate = new Date();
-  date: Date;
-  ngOnInit(): void {
-    this.maxDate.setDate(this.maxDate.getDate() + 20);
-  }
-}*/
-import { Component, OnInit } from '@angular/core';
-import { DateRange } from 'projects/uiowa/date-range-picker/src/public-api';
+import { Airport } from './../../data/airports.module';
+import { SearchService } from './search.service';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import * as moment from 'moment';
-import { Airport } from '../../data/Airport';
-import { AIRPORTS } from '../../data/flightFrom';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-main-search',
   templateUrl: './main-search.component.html',
-  styleUrls: ['./main-search.component.css']
+  styleUrls: ['./main-search.component.css'],
+
 })
 
 export class MainSearchComponent implements OnInit {
-  dateRange = new DateRange();
+
+
+
+  dataGroup: FormGroup = new FormGroup({
+    departure: new FormControl(''),
+    arrival: new FormControl(''),
+    date: new FormControl(),
+    passengers: new FormControl('')
+  })
+
+  @ViewChild('oneWay', { static: false }) oneWay: ElementRef;
+  @ViewChild('twoWay', { static: false }) twoWay: ElementRef;
+  @ViewChild('multiTrip', { static: false }) multiTrip: ElementRef;
+
+  results: Airport[];
   maxDate = new Date();
   date: Date;
-  flightFrom:Airport[] = AIRPORTS;
-  showDeparture: boolean = false;
-  currentDate = moment().format('LL');     
+  currentDate = moment().format('LL');
+
+
+  constructor(private searchService: SearchService, private router: Router, private route: ActivatedRoute) { }
+
   ngOnInit(): void {
-    this.maxDate.setDate(this.maxDate.getDate() + 20);
+    this.dataGroup.get('departure').valueChanges
+      .subscribe((queryField) => {
+        this.results = this.searchService.onSearch(queryField)
+      })
+
+    this.dataGroup.get('arrival').valueChanges
+      .subscribe((queryField) => {
+        this.results = this.searchService.onSearch(queryField)
+      })
   }
 
-  count=0;
-  onKeyright(event: any) {
-this.count = this.count + 1;
+  onSubmit() {
+    this.searchService.onAddNewTripInfo(this.dataGroup.value)
   }
 
-  onKeyleft(event: any) {
-    this.count = this.count - 1;
-      }
+  onNavigate() {
+    const one = this.oneWay.nativeElement.checked;
+    const two = this.twoWay.nativeElement.checked;
+    const multi = this.multiTrip.nativeElement.checked;
 
-  /*onKeyUp(event: any) {
-    this.flightFrom = AIRPORTS.filter(({city}) => city.toLowerCase().includes(event.target.value.toLowerCase()));
-    console.log(this.flightFrom);
-    this.showDeparture = true;
-  }*/
 
-  /*onBlur() {
-    this.showDeparture = false;
+    this.router.navigate(['tickets'], { relativeTo: this.route, queryParams: { TwoWay: two, OneWay: one, MultiTrip: multi } })
   }
 
-  onFocus() {
-    this.showDeparture = true;
-  }*/
+
+  count: number=1;
+  increase() : void {
+      this.count++;
+  }
+
+  decrease() : boolean {
+    if (this.count < 2) {
+      return false;
+    }
+    this.count--;
+  }
+
+
+ 
+
+condition: boolean=true;
+      toggle(){
+        this.condition=!this.condition;
+    }
+
 }

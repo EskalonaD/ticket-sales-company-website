@@ -1,0 +1,21 @@
+.booking {
+    margin: 100px auto;
+    width: 75%;
+}
+
+.booking__title {
+    margin-bottom: 100px;
+}
+
+.booking__section-wrapper {
+    width: 75%;
+    margin: auto;
+}
+
+.booking__tickets {
+    margin-bottom: 150px;
+}
+
+.booking__form {
+    width: 75%;
+}

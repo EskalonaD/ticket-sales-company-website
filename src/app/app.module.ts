@@ -1,3 +1,6 @@
+import { SearchService } from './main/main-search/search.service';
+import { SpecialOfferComponent } from './main/main-gallery/special-offers/special-offer/special-offer.component';
+import { TicketComponent } from './main/main-tickets/ticket/ticket.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -16,11 +19,13 @@ import { HelperComponent } from './main/main-gallery/helper/helper.component';
 import { MainGalleryComponent } from './main/main-gallery/main-gallery.component';
 import { MainSearchComponent } from './main/main-search/main-search.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-//import { DateRangePickerModule } from 'projects/uiowa/date-range-picker/src/public-api';
-import { FormsModule } from '@angular/forms';
-import { SpecialOfferComponent } from './main/main-gallery/special-offers/special-offer/special-offer.component';
-import { TicketComponent } from './main/main-tickets/ticket/ticket.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
+import { MainTicketBookingComponent } from './main/main-ticket-booking/main-ticket-booking.component';
+import { PassengersFormComponent } from './main/main-ticket-booking/passengers-form/passengers-form.component';
+import { CardInfoComponent } from './main/main-ticket-booking/card-info/card-info.component';
+import { BookedTicketComponent } from './main/main-ticket-booking/booked-ticket/booked-ticket.component';
 
 @NgModule({
   declarations: [
@@ -39,16 +44,22 @@ import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
     MainSearchComponent,
     SpecialOfferComponent,
     TicketComponent,
+    MainTicketBookingComponent,
+    PassengersFormComponent,
+    CardInfoComponent,
+    BookedTicketComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule, 
+    FormsModule,
     NgbModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
     NgxDaterangepickerMd.forRoot()
   ],
-  providers: [],
+  providers: [SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
