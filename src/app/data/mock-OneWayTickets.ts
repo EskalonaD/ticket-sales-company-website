@@ -19,7 +19,7 @@ export const ONEWAYTICKETS: TicketOneWay[] = [
     {
         id: 2,
         direct: true,
-        price: 123,
+        price: 73,
         durationTotal: '5h. 30 min',
         startTime: new Date(1569059100000),
         endTime: new Date(1569059100000 + 5.5 * 60 * 60 * 1000),
@@ -29,7 +29,7 @@ export const ONEWAYTICKETS: TicketOneWay[] = [
     {
         id: 3,
         direct: true,
-        price: 123,
+        price: 25,
         durationTotal: '5h. 30 min',
         startTime: new Date(1569059100000),
         endTime: new Date(1569059100000 + 5.5 * 60 * 60 * 1000),

@@ -1,3 +1,15 @@
+<div *ngIf='searchService.newTripInfo.typeOfFlight === "multitrip"'>
+  <app-multi-trip></app-multi-trip>
+</div>
+
+<div *ngIf='searchService.newTripInfo.typeOfFlight === "oneWay"'>
+  <app-one-way-trip></app-one-way-trip>
+</div>
+
+<div *ngIf='searchService.newTripInfo.typeOfFlight === "twoWay"'>
+    <app-return-trip></app-return-trip>
+  </div>
+<!-- 
 <div class="ticket" *ngFor='let ticket of tickets'>
   <div class="ticket-info">
     <div class="ticket-details">
@@ -93,4 +105,4 @@
     <span class="ticket__price">{{ ticket.price | currency: undefined: undefined: '1.0-0' }}</span>
     <button class="button button-book button_blue" [routerLink]="['../ticket/passengers-form']">Book</button>
   </div>
-</div>
+</div> -->

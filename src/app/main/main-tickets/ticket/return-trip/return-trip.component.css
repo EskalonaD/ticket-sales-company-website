@@ -1,0 +1,125 @@
+.ticket {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 0px;
+    box-shadow: 0px 0px 11px -2px rgba(0, 0, 0, 0.75);
+    border-radius: 20px;
+  }
+  
+  .ticket-info {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 25px 75px;
+  }
+  
+  .ticket-details {
+    padding: 25px 0px;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row nowrap;
+  }
+  
+  .ticket-details__logo {
+    max-width: 100px;
+    min-width: 75px;
+    margin-right: 20px;
+  }
+  
+  .ticket-details__date {
+    margin-right: 20px;
+    min-width: 150px;
+  }
+  
+  .ticket-time {
+    font-weight: bold;
+    font-size: 24px;
+    letter-spacing: 1px;
+    min-width: 200px;
+  }
+  
+  .ticket-date {
+    display: block;
+    margin-top: 10px;
+    font-size: 20px;
+    color: grey;
+  }
+  
+  .ticket-details__trip {
+    min-width: 150px;
+  }
+  
+  .ticket-details__flight-duration {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .ticket-details__route {
+    margin-top: 10px;
+    font-size: 20px;
+    color: grey;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .route-details {
+    display: inline-block;
+    height: 25px;
+    margin: 0px 5px;
+  }
+  
+  .route-details__arrow {
+    width: 100px;
+    min-width: 100px;
+  }
+  
+  .route-details__transfer{
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  .trip-info {
+    display: flex;
+    align-items: center;
+    color: grey;
+    min-width: 300px;
+  }
+  
+  .trip-info__dashes {
+    display: block;
+    min-width: 50px;
+    width: 150px;
+    margin-right: 20px;
+    border-bottom: 3px dashed grey;
+  }
+  
+  .trip-ifno__text {
+    display: block;
+    min-width: 150px;
+  }
+  
+  .ticket__price-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 50px;
+    border-left: 2px solid var(--main-blue);
+  }
+  
+  .ticket__price {
+    display: block;
+    font-size: 30px;
+    color: var(--main-blue);
+  }
+  
+  .button-book {
+    border-radius: 5px;
+    margin-top: 25px;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 20px 50px;
+    transition: 0.1s;
+  }
