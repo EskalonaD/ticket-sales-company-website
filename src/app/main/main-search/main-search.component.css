@@ -46,20 +46,20 @@
   padding: 0 5px;
 }
 
-input[name="choosetype"] {
+input[type=radio] {
   position: absolute;
   z-index: -1;
   opacity: 0;
   margin: 10px 0 0 7px;
 }
 
-input[name="choosetype"]+label {
+input[type=radio]+label {
   position: relative;
   padding: 0 0 0 20px;
   cursor: pointer;
 }
 
-input[name="choosetype"]+label:before {
+input[type=radio]+label:before {
   content: '';
   position: absolute;
   top: 0px;
@@ -71,7 +71,7 @@ input[name="choosetype"]+label:before {
   background: #FFF;
 }
 
-input[name="choosetype"]+label:after {
+input[type=radio]+label:after {
   content: '';
   position: absolute;
   top: 4px;
@@ -84,7 +84,7 @@ input[name="choosetype"]+label:after {
   transition: .2s;
 }
 
-input[name="choosetype"]:checked+label:after {
+input[type=radio]:checked+label:after {
   opacity: 1;
 }
 

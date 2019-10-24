@@ -8,15 +8,15 @@
     <form class="block-main__form" [formGroup]="dataGroup" (ngSubmit)="onSubmit()">
       <div class="block-form__buttons">
         <div class="block-textfields">
-          <input type="radio" name="choosetype" id="return" value="twoWay" #twoWay checked />
+          <input type="radio" id="return" value="twoWay" value="twoWay" formControlName="typeOfFlight" checked />
           <label for="return">Return</label>
         </div>
         <div class="block-textfields">
-          <input type="radio" name="choosetype" id="oneway" #oneWay />
+          <input type="radio" id="oneway" value="oneWay" formControlName="typeOfFlight" />
           <label for="oneway">One way</label>
         </div>
         <div class="block-textfields">
-          <input type="radio" name="choosetype" id="multitrip" #multiTrip />
+          <input type="radio" id="multitrip" value="multitrip" formControlName="typeOfFlight" />
           <label for="multitrip">Multi-trip</label>
         </div>
       </div>
