@@ -113,7 +113,11 @@ input[name="choosetype"]:checked+label:after {
 .block-form__labelfrom input {
   height: 40px;
   width: 300px;
+<<<<<<< HEAD
   border-right: none;
+=======
+  border-right:none;
+>>>>>>> 13239ee716dea37c5874c0e1795c3105beb9b092
   border-top: 1px solid grey;
   border-bottom: 1px solid grey;
   border-left: 1px solid grey;
@@ -125,7 +129,11 @@ input[name="choosetype"]:checked+label:after {
 .block-form__labelto input {
   height: 40px;
   width: 300px;
+<<<<<<< HEAD
   border-left: none;
+=======
+  border-left:none;
+>>>>>>> 13239ee716dea37c5874c0e1795c3105beb9b092
   border-top: 1px solid grey;
   border-bottom: 1px solid grey;
   border-right: 1px solid grey;
@@ -174,7 +182,11 @@ input[name="choosetype"]:checked+label:after {
   padding-bottom: 30px;
   width: 100%;
   padding-left: 20px;
+<<<<<<< HEAD
   position: relative;
+=======
+  position:relative;
+>>>>>>> 13239ee716dea37c5874c0e1795c3105beb9b092
 
 }
 
@@ -222,6 +234,7 @@ input[name="choosetype"]:checked+label:after {
 }
 
 .form-control:focus::-webkit-input-placeholder {
+<<<<<<< HEAD
   color: grey;
 }
 
@@ -251,6 +264,35 @@ input[name="choosetype"]:checked+label:after {
   top: 8px;
 }
 
+=======
+  color:grey;
+}
+
+.form-control:focus:-moz-placeholder {
+  color:grey;
+}
+.form-control:focus::-moz-placeholder {
+  color:grey;
+}
+.form-control:focus:-ms-input-placeholder {
+  color:grey;
+}
+
+.block-form__calendar {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  width: 300px;
+}
+
+.block-calendar__image {
+  position: absolute;
+  left: 35px;
+  top: 8px;
+}
+
+>>>>>>> 13239ee716dea37c5874c0e1795c3105beb9b092
 
 
 .block-form__passenger {
@@ -266,3 +308,11 @@ input[name="choosetype"]:checked+label:after {
   display: flex;
   flex-direction: row;
 }
+<<<<<<< HEAD
+=======
+
+
+
+
+
+>>>>>>> 13239ee716dea37c5874c0e1795c3105beb9b092

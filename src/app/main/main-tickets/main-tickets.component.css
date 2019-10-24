@@ -1,11 +1,77 @@
-.ticket {
-  display: flex;
-  padding: 25px 50px;
-  box-shadow: 0px 0px 11px -2px rgba(0, 0, 0, 0.75);
-  width: 100vw;
-  border-radius: 25px;
+.search-results {
+    margin: 100px 0;
 }
 
-.ticket__price {
-  border-left: 1px solid var(--main-dark-blue);
+.search-results__title {
+    font-size: 32px;
+    margin-bottom: 100px;
+}
+
+.search-results__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.ticket-form {
+    line-height: 30px;
+    width: 30%;
+    margin-right: 100px;
+    font-size: 24px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.ticket-form__finds-number {
+    display: block;
+    font-weight: bold;
+}
+
+.ticket-form label {
+    display: block;
+}
+
+.ticket-form__finds,
+.ticket-form__price,
+.ticket-form__duration,
+.ticket-form__connections {
+    margin-bottom: 50px;
+}
+
+.ticket-form__checkbox-text {
+    font-size: 18px;
+    margin-left: 5px;
+}
+
+.ticket-form__filter {
+    padding: 10px 40px;
+    font-size: 24px;
+}
+
+.label {
+    display: block;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.label_blue {
+    color: var(--main-dark-blue);
+}
+
+.search-results__tickets {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-results__button-more {
+    padding: 10px 50px;
+    font-size: 24px;
+}
+
+.search-results__item:not(:last-child) {
+    margin-bottom: 50px;
 }

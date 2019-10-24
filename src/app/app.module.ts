@@ -47,10 +47,8 @@ import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
     AppRoutingModule,
     FormsModule,
     NgbModule,
-    // DateRangePickerModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-
     NgxDaterangepickerMd.forRoot()
   ],
   providers: [SearchService],

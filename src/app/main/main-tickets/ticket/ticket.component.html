@@ -1,69 +1,97 @@
-<div class="ticket">
+<div class="ticket" *ngFor='let ticket of tickets'>
   <div class="ticket-info">
     <div class="ticket-details">
       <div class="ticket-details__logo"><img src="/assets/img/airfrance.png" alt="Logo"></div>
       <div class="ticket-details__date">
         <div class="ticket-time">
-          <span class="ticket-time__start">12:45</span>
+          <span class="ticket-time__start">{{ ticket.ticketTo.startTime | date: 'HH:mm'}}</span>
           -
-          <span class="ticket-time__end">17:45</span>
+          <span class="ticket-time__end">{{ ticket.ticketTo.endTime | date: 'HH:mm'}}</span>
         </div>
         <time class="ticket-date">
-          <span class="ticket-date__day">Tue</span>,
-          <span class="ticket-date__month">Sept </span>
-          <span class="ticket-date__dayofmonth">21</span>
+          <span class="ticket-date__day">{{ ticket.ticketTo.startTime | date: 'E'}}</span>,
+          <span class="ticket-date__month">{{ ticket.ticketTo.startTime | date: 'MMM'}} </span>
+          <span class="ticket-date__dayofmonth">{{ ticket.ticketTo.startTime | date: 'd'}}</span>
         </time>
       </div>
       <div class="ticket-details__trip">
         <p class="ticket-details__flight-duration">
-          <span class="flight-duration__hours">5</span>h.
-          <span class="flight-duration__minutes"> 30</span> min
+          {{ ticket.ticketTo.durationTotal }}
+
         </p>
         <div class="ticket-details__route">
-          <span class="ticket-details__route-from">Kyiv (KBP)</span>
+
+          <span class="ticket-details__route-from">{{ ticket.ticketTo.startAirport.shortName }}</span>
+
+
           <div class="route-details">
-            <img src="/assets/img/route-arrow.svg" class="route-details__arrow">
+            <div *ngIf='!ticket.ticketTo.direct; else elseBlock' class="route-details__transfer">
+              <img src="/assets/img/route-arrow-transfer.svg" class="route-details__arrow">
+              <div>{{ ticket.ticketTo.changeAirport.code }}</div>
+              <div>{{ ticket.ticketTo.durationToChangeAirport }}</div>
+            </div>
+            <ng-template #elseBlock class="route-details__transfer">
+              <img src="/assets/img/route-arrow.svg" class="route-details__arrow">
+            </ng-template>
           </div>
-          <span class="ticket-details__route-to">Paris (CDG)</span>
+
+
+
+
+          <span class="ticket-details__route-to">{{ ticket.ticketTo.endAirport.shortName }}</span>
         </div>
       </div>
     </div>
     <div class="trip-info">
       <span class="trip-info__dashes"></span>
-      <span class="trip-info__text">4 nights in Paris</span>
+
+      <!-- think how to find that number -->
+      <span class="trip-info__text">4 nights in {{ ticket.ticketTo.endAirport.city }}</span>
+
     </div>
     <div class="ticket-details">
       <div class="ticket-details__logo"><img src="/assets/img/airfrance.png" alt="Logo"></div>
       <div class="ticket-details__date">
         <div class="ticket-time">
-          <span class="ticket-time__start">12:45</span>
+          <span class="ticket-time__start">{{ ticket.ticketFrom.startTime | date: 'HH:mm' }}</span>
           -
-          <span class="ticket-time__end">17:45</span>
+          <span class="ticket-time__end">{{ ticket.ticketFrom.endTime | date: 'HH:mm' }}</span>
         </div>
         <time class="ticket-date">
-          <span class="ticket-date__day">Tue</span>,
-          <span class="ticket-date__month">Sept </span>
-          <span class="ticket-date__dayofmonth">21</span>
+          <span class="ticket-date__day">{{ ticket.ticketFrom.startTime | date: 'E'}}</span>,
+          <span class="ticket-date__month">{{ ticket.ticketFrom.startTime | date: 'MMM'}} </span>
+          <span class="ticket-date__dayofmonth">{{ ticket.ticketFrom.startTime | date: 'd'}}</span>
         </time>
       </div>
       <div class="ticket-details__trip">
         <p class="ticket-details__flight-duration">
-          <span class="flight-duration__hours">5</span>h.
-          <span class="flight-duration__minutes"> 30</span> min
+          {{ ticket.ticketFrom.durationTotal}}
         </p>
         <div class="ticket-details__route">
-          <span class="ticket-details__route-from">Kyiv (KBP)</span>
+
+          <span class="ticket-details__route-from">{{ ticket.ticketFrom.startAirport.shortName }}</span>
+
           <div class="route-details">
-            <img src="/assets/img/route-arrow-transfer.svg" class="route-details__arrow">
-            <p class="route-details__transfer">WAW (2H)</p>
+
+            <div *ngIf='!ticket.ticketFrom.direct; else elseBlock1'>
+              <img src="/assets/img/route-arrow-transfer.svg" class="route-details__arrow">
+              <div>{{ ticket.ticketFrom.changeAirport.code }}</div>
+              <div>{{ ticket.ticketFrom.changeAirport.durationToChangeAirport }}</div>
+            </div>
+            <ng-template #elseBlock1>
+              <img src="/assets/img/route-arrow.svg" class="route-details__arrow">
+            </ng-template>
           </div>
-          <span class="ticket-details__route-to">Paris (CDG)</span>
+
+
+
+          <span class="ticket-details__route-to">{{ ticket.ticketFrom.endAirport.shortName }}</span>
         </div>
       </div>
     </div>
   </div>
   <div class="ticket__price-block">
-    <span class="ticket__price">$123</span>
+    <span class="ticket__price">{{ ticket.price | currency: undefined: undefined: '1.0-0' }}</span>
     <button class="button button-book button_blue">Book</button>
   </div>
 </div>
