@@ -22,6 +22,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
+import { MainTicketBookingComponent } from './main/main-ticket-booking/main-ticket-booking.component';
+import { PassengersFormComponent } from './main/main-ticket-booking/passengers-form/passengers-form.component';
+import { CardInfoComponent } from './main/main-ticket-booking/card-info/card-info.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +43,9 @@ import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
     MainSearchComponent,
     SpecialOfferComponent,
     TicketComponent,
+    MainTicketBookingComponent,
+    PassengersFormComponent,
+    CardInfoComponent,
 
   ],
   imports: [
