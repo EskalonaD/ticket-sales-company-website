@@ -16,6 +16,12 @@
     margin-bottom: 150px;
 }
 
-.booking__form {
-    width: 75%;
+@media (max-width: 800px) {
+    .booking {
+        width: 90%;
+    }
+
+    .booking__section-wrapper {
+        width: 100%;
+    }
 }

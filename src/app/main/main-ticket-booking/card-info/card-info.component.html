@@ -1,1 +1,36 @@
-<p>card-info works!</p>
+<div class="card-info">
+    <h3 class="section-title card-info__title">Billing Information</h3>
+    <div class="card-info__container">
+        <form [formGroup]="cardInfo" (ngSubmit)="onSubmit()" class="card-form">
+            <div class="card-form__number">
+                <label for="cardNumber">Card number</label>
+                <input type="text" id="cardNumber" formControlName="number">
+            </div>
+            <div class="card-form__expiry">
+                <label for="cardExpiry">End Date</label>
+                <input type="text" id="cardExpiry" formControlName="expiry">
+            </div>
+            <div class="card-form__cvv">
+                <label for="cardCvv">CV2</label>
+                <input type="text" id="cardCvv" formControlName="cvv">
+                <div class="cvv-tooltip">
+                    <img src="/assets/img/cvvhelp.PNG">
+                </div>
+            </div>
+            <div class="card-form__owner">
+                <label for="cardOwner">Card Owner</label>
+                <input type="text" id="cardOwner" formControlName="owner">
+            </div>
+            <div class="card-form__agreement">
+                <label>
+                    <input type="checkbox" formControlName="agreement">
+                    I agree with <a href="#">Terms & Conditions</a>
+                </label>
+            </div>
+            <div class="card-form__button">
+                <button class="button button_blue card-form__submit" type="submit" [disabled]="!cardInfo.valid"
+                    [ngClass]="{'card-form__submit_disabled': !cardInfo.valid}">Pay</button>
+            </div>
+        </form>
+    </div>
+</div>

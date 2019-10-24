@@ -1,0 +1,114 @@
+.card-info__title {
+    margin-bottom: 50px;
+}
+
+.card-info__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-form {
+    width: 40%;
+    font-size: 16px;
+    position: relative;
+}
+
+.card-form input:focus {
+    border: 1px solid var(--main-blue);
+}
+
+.card-form div {
+    display: inline-block;
+}
+
+.card-form input {
+    font-size: 16px;
+    display: inline-block;
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid grey;
+    border-radius: 2px;
+}
+
+.card-form input[type="checkbox"] {
+    width: auto;
+}
+
+.card-form label {
+    display: block;
+    line-height: 30px;
+}
+
+.card-form__number {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.card-form__expiry {
+    width: calc(((100% - 25px) * 2) / 3);
+    margin-right: 25px;
+    margin-bottom: 10px;
+}
+
+.card-form__cvv {
+    width: calc((100% - 25px) / 3);
+}
+
+.card-form__cvv:hover .cvv-tooltip,
+.card-form__cvv input:focus ~ .cvv-tooltip {
+    visibility: initial;
+}
+
+.cvv-tooltip {
+    visibility: hidden;
+    position: absolute;
+    right: -250px;
+}
+
+.card-form__owner {
+    width: 100%;
+}
+
+.card-form__agreement {
+    width: 100%;
+    font-size: 12px;
+    margin: 25px 0;
+}
+
+.card-form__submit {
+    padding: 5px 40px;
+    font-size: 22px;
+    transition: 0.1s;
+}
+
+.card-form__submit_disabled {
+    background-color: grey;
+    border: 1px solid grey;
+}
+
+.card-form__submit_disabled:hover {
+    cursor: not-allowed;
+    background-color: grey;
+    border: 1px solid grey;
+    color: white;
+}
+
+@media (max-width: 1000px) {
+    .card-form {
+        width: 50%;
+    }
+}
+
+@media (max-width: 500px) {
+    .card-form {
+        width: 100%;
+    }
+    .cvv-tooltip {
+        right: 0;
+        bottom: 25px;
+    }
+}
+
+
+

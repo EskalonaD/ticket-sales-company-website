@@ -33,5 +33,4 @@ export class PassengersFormComponent implements OnInit {
   onSubmit() {
     console.log(this.passengerData.value);
   }
-
 }

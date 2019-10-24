@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-card-info',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardInfoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
   }
 
+  cardInfo = this.fb.group({
+    number: ['', Validators.required],
+    expiry: ['', Validators.required],
+    cvv: ['', Validators.required],
+    owner: ['', Validators.required],
+    agreement: [false, Validators.requiredTrue]
+  });
+
+  onSubmit() {
+    console.log(this.cardInfo.value);
+  }
 }
