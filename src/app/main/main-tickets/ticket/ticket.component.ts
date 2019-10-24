@@ -13,9 +13,9 @@ import { TicketReturn } from 'src/app/data/TicketReturn';
 })
 export class TicketComponent implements OnInit {
   constructor() { }
-  
+
   tickets: TicketReturn[] = RETURNTICKETS;
-  
+
   ngOnInit() {
     console.log(this.tickets)
   }

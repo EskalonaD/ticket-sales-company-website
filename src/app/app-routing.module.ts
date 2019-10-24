@@ -16,16 +16,16 @@ const appRoute: Routes = [
         path: 'flights', component: MainComponent, children: [
             { path: 'gallery', component: MainGalleryComponent },
             {
-                path: 'tickets', component: MainTicketsComponent, children: [
-                    {
-                        path: ':id', component: MainTicketBookingComponent, children: [
-                            { path: 'passengers-form', component: PassengersFormComponent },
-                            { path: 'card-info', component: CardInfoComponent }
-                        ]
-                    },
-                    { path: ':id', redirectTo: ':id/passengers', pathMatch: "full" }
+                path: 'tickets', component: MainTicketsComponent
+            },
+            {
+                path: 'ticket', component: MainTicketBookingComponent, children: [
+                    { path: 'passengers-form', component: PassengersFormComponent },
+                    { path: 'card-info', component: CardInfoComponent }
                 ]
-            }
+            },
+
+
 
         ]
     },

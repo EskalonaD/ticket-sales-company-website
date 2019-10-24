@@ -10,6 +10,7 @@ export class MainTicketsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

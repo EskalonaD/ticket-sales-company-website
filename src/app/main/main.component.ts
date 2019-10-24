@@ -14,8 +14,5 @@ export class MainComponent implements OnInit {
   }
 
 
-  onNavigate() {
-
-  }
 
 }

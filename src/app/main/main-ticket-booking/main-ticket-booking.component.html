@@ -1,16 +1,16 @@
 <div class="section-wrapper">
-    <section class="booking">
-        <h3 class="section-title booking__title">Ticket details & Booking</h3>
-        <div class="booking__section-wrapper">
-            <div class="booking__tickets">
-                <app-booked-ticket></app-booked-ticket>
-                <app-booked-ticket></app-booked-ticket>
-            </div>
-        </div>
-        <div class="booking__section-wrapper">
-            <div class="booking__form">
-                <app-card-info></app-card-info>
-            </div>
-        </div>
-    </section>
+  <section class="booking">
+    <h3 class="section-title booking__title">Ticket details & Booking</h3>
+    <div class="booking__section-wrapper">
+      <div class="booking__tickets">
+        <app-booked-ticket></app-booked-ticket>
+        <app-booked-ticket></app-booked-ticket>
+      </div>
+    </div>
+    <div class="booking__section-wrapper">
+      <div class="booking__form">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </section>
 </div>

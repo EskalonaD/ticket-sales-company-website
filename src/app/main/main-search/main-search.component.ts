@@ -1,6 +1,6 @@
 import { Airport } from './../../data/airports.module';
-import { SearchService } from './search.service';
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { SearchService } from '../search.service';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import * as moment from 'moment';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -17,15 +17,12 @@ export class MainSearchComponent implements OnInit {
 
 
   dataGroup: FormGroup = new FormGroup({
-    departure: new FormControl(''),
-    arrival: new FormControl(''),
+    typeOfFlight: new FormControl(''),
+    startP: new FormControl(''),
+    endP: new FormControl(''),
     date: new FormControl(),
     passengers: new FormControl('')
   })
-
-  @ViewChild('oneWay', { static: false }) oneWay: ElementRef;
-  @ViewChild('twoWay', { static: false }) twoWay: ElementRef;
-  @ViewChild('multiTrip', { static: false }) multiTrip: ElementRef;
 
   results: Airport[];
   maxDate = new Date();
@@ -36,37 +33,33 @@ export class MainSearchComponent implements OnInit {
   constructor(private searchService: SearchService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.dataGroup.get('departure').valueChanges
+    this.dataGroup.get('startP').valueChanges
       .subscribe((queryField) => {
         this.results = this.searchService.onSearch(queryField)
       })
 
-    this.dataGroup.get('arrival').valueChanges
+    this.dataGroup.get('endP').valueChanges
       .subscribe((queryField) => {
         this.results = this.searchService.onSearch(queryField)
       })
   }
 
   onSubmit() {
-    this.searchService.onAddNewTripInfo(this.dataGroup.value)
+    this.searchService.onSearchFlights(this.dataGroup.value)
   }
 
   onNavigate() {
-    const one = this.oneWay.nativeElement.checked;
-    const two = this.twoWay.nativeElement.checked;
-    const multi = this.multiTrip.nativeElement.checked;
 
-
-    this.router.navigate(['tickets'], { relativeTo: this.route, queryParams: { TwoWay: two, OneWay: one, MultiTrip: multi } })
+    this.router.navigate(['tickets'], { relativeTo: this.route })
   }
 
 
-  count: number=1;
-  increase() : void {
-      this.count++;
+  count: number = 1;
+  increase(): void {
+    this.count++;
   }
 
-  decrease() : boolean {
+  decrease(): boolean {
     if (this.count < 2) {
       return false;
     }
@@ -74,11 +67,11 @@ export class MainSearchComponent implements OnInit {
   }
 
 
- 
 
-condition: boolean=true;
-      toggle(){
-        this.condition=!this.condition;
-    }
+
+  condition: boolean = true;
+  toggle() {
+    this.condition = !this.condition;
+  }
 
 }

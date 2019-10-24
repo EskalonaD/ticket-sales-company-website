@@ -16,7 +16,7 @@
 
 .block-main__form {
   width: 100%;
-  background: rgba(247,250,251, 0.9);
+  background: rgba(247, 250, 251, 0.9);
   padding: 20px 20px;
 }
 
@@ -46,42 +46,46 @@
   padding: 0 5px;
 }
 
-input[name="choosetype"] {
-position: absolute;
-z-index: -1;
-opacity: 0;
-margin: 10px 0 0 7px;
+input[type=radio] {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  margin: 10px 0 0 7px;
 }
-input[name="choosetype"] + label {
-position: relative;
-padding: 0 0 0 20px;
-cursor: pointer;
+
+input[type=radio]+label {
+  position: relative;
+  padding: 0 0 0 20px;
+  cursor: pointer;
 }
-input[name="choosetype"] + label:before {
-content: '';
-position: absolute;
-top: 0px;
-left: 0;
-width: 16px;
-height: 16px;
-border: 1px solid #CDD1DA;
-border-radius: 50%;
-background: #FFF;
+
+input[type=radio]+label:before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #CDD1DA;
+  border-radius: 50%;
+  background: #FFF;
 }
-input[name="choosetype"] + label:after {
-content: '';
-position: absolute;
-top: 4px;
-left: 4px;
-width: 10px;
-height: 10px;
-border-radius: 50%;
-background: #283493;
-opacity: 0;
-transition: .2s;
+
+input[type=radio]+label:after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #283493;
+  opacity: 0;
+  transition: .2s;
 }
-input[name="choosetype"]:checked + label:after {
-opacity: 1;
+
+input[type=radio]:checked+label:after {
+  opacity: 1;
 }
 
 .block-form__textfields {
@@ -100,7 +104,7 @@ opacity: 1;
 }
 
 .block-form__labelfrom img,
-.block-form__labelto img{
+.block-form__labelto img {
   position: absolute;
   left: 25px;
   z-index: 1;
@@ -109,7 +113,7 @@ opacity: 1;
 .block-form__labelfrom input {
   height: 40px;
   width: 300px;
-  border-right:none;
+  border-right: none;
   border-top: 1px solid grey;
   border-bottom: 1px solid grey;
   border-left: 1px solid grey;
@@ -121,7 +125,7 @@ opacity: 1;
 .block-form__labelto input {
   height: 40px;
   width: 300px;
-  border-left:none;
+  border-left: none;
   border-top: 1px solid grey;
   border-bottom: 1px solid grey;
   border-right: 1px solid grey;
@@ -132,20 +136,22 @@ opacity: 1;
 
 .block-form__labelfrom input:focus::-webkit-input-placeholder,
 .block-form__labelto input:focus::-webkit-input-placeholder {
-  color:transparent;
+  color: transparent;
 }
 
 .block-form__labelfrom input:focus:-moz-placeholder,
 .block-form__labelto input:focus:-moz-placeholder {
-  color:transparent;
+  color: transparent;
 }
+
 .block-form__labelfrom input:focus::-moz-placeholder,
 .block-form__labelto input:focus::-moz-placeholder {
-  color:transparent;
+  color: transparent;
 }
+
 .block-form__labelfrom input:focus:-ms-input-placeholder,
 .block-form__labelto input:focus:-ms-input-placeholder {
-  color:transparent;
+  color: transparent;
 }
 
 
@@ -153,7 +159,7 @@ opacity: 1;
   height: 40px;
   width: 60px;
   border-top: 1px solid grey;
-  border-bottom:1px solid grey;
+  border-bottom: 1px solid grey;
   border-right: none;
   border-left: none;
   background: #FFFFFF;
@@ -168,7 +174,7 @@ opacity: 1;
   padding-bottom: 30px;
   width: 100%;
   padding-left: 20px;
-  position:relative;
+  position: relative;
 
 }
 
@@ -183,7 +189,7 @@ opacity: 1;
   width: 145px;
   height: 40px;
   background-color: #283493;
-  border:none;
+  border: none;
   color: #FFFFFF;
   font-family: sans-serif;
   font-size: 16px;
@@ -194,8 +200,8 @@ opacity: 1;
 
 .block-form__buttonsearch:hover {
   color: #283493;
-  border:2px solid #283493;
-  background-color:#FFFFFF;
+  border: 2px solid #283493;
+  background-color: #FFFFFF;
 }
 
 
@@ -216,17 +222,19 @@ opacity: 1;
 }
 
 .form-control:focus::-webkit-input-placeholder {
-  color:grey;
+  color: grey;
 }
 
 .form-control:focus:-moz-placeholder {
-  color:grey;
+  color: grey;
 }
+
 .form-control:focus::-moz-placeholder {
-  color:grey;
+  color: grey;
 }
+
 .form-control:focus:-ms-input-placeholder {
-  color:grey;
+  color: grey;
 }
 
 .block-form__calendar {
@@ -296,9 +304,3 @@ opacity: 1;
 .arrow_left {
   transform: scale(-1);
 }
-
-
-
-
-
-

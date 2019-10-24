@@ -1,8 +1,10 @@
-import { Airport } from './../../data/airports.module';
+import { MainTicketService } from './main-tickets/main-tickets.service';
+import { Airport } from '../data/airports.module';
+import { Injectable } from '@angular/core';
 
 
 
-
+@Injectable()
 export class SearchService {
     AIRPORTS: Airport[] = [
         { id: 1, name: 'IEV Kyiv, Igor Sikorsky International', city: 'Kyiv', shortName: 'Kyiv (IEV)', code: 'IEV' },
@@ -13,11 +15,12 @@ export class SearchService {
 
     newTripInfo: Object = {}
 
-    constructor() { }
+    constructor(private ticketBook: MainTicketService) { }
 
 
 
     onSearch(queryString: string): Airport[] {
+        console.log('lol')
         return this.AIRPORTS.filter((airport) => {
             if (queryString != "") {
                 return airport.name.toLowerCase().includes(queryString.toLowerCase())
@@ -25,8 +28,14 @@ export class SearchService {
         }).slice()
     }
 
-    onAddNewTripInfo(data: Object) {
-        this.newTripInfo = data;
-        console.log(this.newTripInfo);
+    // onAddNewTripInfo(data: Object) {
+    //     this.newTripInfo = data;
+    //     console.log(this.newTripInfo);
+    // }
+
+    onSearchFlights(data: Object) {
+        // this.ticketBook.lol(data)
+        console.log(data);
+
     }
 }

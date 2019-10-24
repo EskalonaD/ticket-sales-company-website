@@ -45,8 +45,7 @@
     <div class="trip-info">
       <span class="trip-info__dashes"></span>
 
-      <!-- think how to find that number -->
-      <span class="trip-info__text">4 nights in {{ ticket.ticketTo.endAirport.city }}</span>
+      <span class="trip-info__text">{{ ticket.nightsIn}} nights in {{ ticket.ticketTo.endAirport.city }}</span>
 
     </div>
     <div class="ticket-details">
@@ -92,6 +91,6 @@
   </div>
   <div class="ticket__price-block">
     <span class="ticket__price">{{ ticket.price | currency: undefined: undefined: '1.0-0' }}</span>
-    <button class="button button-book button_blue">Book</button>
+    <button class="button button-book button_blue" [routerLink]="['../ticket/passengers-form']">Book</button>
   </div>
 </div>

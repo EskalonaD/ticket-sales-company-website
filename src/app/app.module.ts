@@ -1,4 +1,5 @@
-import { SearchService } from './main/main-search/search.service';
+import { MainTicketService } from './main/main-tickets/main-tickets.service';
+import { SearchService } from './main/search.service';
 import { SpecialOfferComponent } from './main/main-gallery/special-offers/special-offer/special-offer.component';
 import { TicketComponent } from './main/main-tickets/ticket/ticket.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -59,7 +60,7 @@ import { BookedTicketComponent } from './main/main-ticket-booking/booked-ticket/
     BrowserAnimationsModule,
     NgxDaterangepickerMd.forRoot()
   ],
-  providers: [SearchService],
+  providers: [SearchService, MainTicketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,62 +1,63 @@
 <form [formGroup]="passengerData" class="passenger-form" (ngSubmit)="onSubmit()">
-    <div class="passenger-data" formGroupName="passengerInfo">
-        <p class="passenger-form__text_big">Passenger 1</p>
-        <div formGroupName="name" class="passenger-data__name">
-            <div>
-                <label for="firstName">First name</label>
-                <input type="text" formControlName="firstName" placeholder="Type something">
-            </div>
-            <div>
-                <label for="lastName">Last name</label>
-                <input type="text" formControlName="lastName" placeholder="Type something">
-            </div>
-        </div>
-        <div class="passenger-data__country">
-            <label for="country">Country</label>
-            <select formControlName="country" id="country">
-                <option value="" disabled selected hidden>Select your country</option>
-                <option value="ua">Ukraine</option>
-                <option value="rus">Russia</option>
-                <option value="us">USA</option>
-            </select>
-        </div>
-        <div class="passenger-data__gender">
-            <label for="gender">Gender</label>
-            <select formControlName="gender" id="gender">
-                <option value="" disabled selected hidden>f / m</option>
-                <option value="female">f</option>
-                <option value="male">m</option>
-            </select>
-        </div>
-        <div class="passenger-data__birth">
-            <label for="birthDate">Date of Birth</label>
-            <input type="date" formControlName="birthDate" id="birthDate">
-        </div>
-        <div formGroupName="passport" class="passenger-data__passport">
-            <div>
-                <label for="id">Passport ID</label>
-                <input type="text" formControlName="id" id="id" placeholder="Type something">
-            </div>
-            <div>
-                <label for="expiration">Passport or ID expiry date</label>
-                <input type="date" formControlName="expiration" id="expiration">
-            </div>
-        </div>
-        <div class="passenger-form__luggage">
-            <p class="passenger-form__text_big">Luggage</p>
-            <p class="passenger-form__text_small">Choose the luggage to want to travel with</p>
-            <label><input type="checkbox" formControlName="luggage" id="luggage-check"
-                    class="passenger-form__checkbox">Bag up to 24k. ($20
-                additional
-                cost)</label>
-        </div>
+  <div class="passenger-data" formGroupName="passengerInfo">
+    <p class="passenger-form__text_big">Passenger 1</p>
+    <div formGroupName="name" class="passenger-data__name">
+      <div>
+        <label for="firstName">First name</label>
+        <input type="text" formControlName="firstName" placeholder="Type something">
+      </div>
+      <div>
+        <label for="lastName">Last name</label>
+        <input type="text" formControlName="lastName" placeholder="Type something">
+      </div>
     </div>
-    <div class="passenger-form__price">
-        <p class="passenger-form__text_big">Total:</p>
-        <p class="passenger-form__text_big">$156</p>
+    <div class="passenger-data__country">
+      <label for="country">Country</label>
+      <select formControlName="country" id="country">
+        <option value="" disabled selected hidden>Select your country</option>
+        <option value="ua">Ukraine</option>
+        <option value="rus">Russia</option>
+        <option value="us">USA</option>
+      </select>
     </div>
-    <div class="passenger-form__button">
-        <button class="button button_blue passenger-form__submit" type="submit" [disabled]="!passengerData.valid"
-            [ngClass]="{'passenger-form__submit_disabled': !passengerData.valid}">Book</button>
+    <div class="passenger-data__gender">
+      <label for="gender">Gender</label>
+      <select formControlName="gender" id="gender">
+        <option value="" disabled selected hidden>f / m</option>
+        <option value="female">f</option>
+        <option value="male">m</option>
+      </select>
     </div>
+    <div class="passenger-data__birth">
+      <label for="birthDate">Date of Birth</label>
+      <input type="date" formControlName="birthDate" id="birthDate">
+    </div>
+    <div formGroupName="passport" class="passenger-data__passport">
+      <div>
+        <label for="id">Passport ID</label>
+        <input type="text" formControlName="id" id="id" placeholder="Type something">
+      </div>
+      <div>
+        <label for="expiration">Passport or ID expiry date</label>
+        <input type="date" formControlName="expiration" id="expiration">
+      </div>
+    </div>
+    <div class="passenger-form__luggage">
+      <p class="passenger-form__text_big">Luggage</p>
+      <p class="passenger-form__text_small">Choose the luggage to want to travel with</p>
+      <label><input type="checkbox" formControlName="luggage" id="luggage-check" class="passenger-form__checkbox">Bag up
+        to 24k. ($20
+        additional
+        cost)</label>
+    </div>
+  </div>
+  <div class="passenger-form__price">
+    <p class="passenger-form__text_big">Total:</p>
+    <p class="passenger-form__text_big">$156</p>
+  </div>
+  <div class="passenger-form__button">
+    <button class="button button_blue passenger-form__submit" type="submit"
+      [ngClass]="{'passenger-form__submit_disabled': !passengerData.valid}"
+      [routerLink]="['../card-info']">Book</button>
+  </div>
 </form>
