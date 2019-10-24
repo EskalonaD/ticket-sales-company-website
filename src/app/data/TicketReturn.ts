@@ -5,4 +5,6 @@ export interface TicketReturn {
     ticketFrom: TicketOneWay;
     maxDuration: string;
     price: number;
+    id: number;
+    nightsIn: number; 
 }
