@@ -20,6 +20,7 @@ export class SearchService {
 
 
     onSearch(queryString: string): Airport[] {
+        console.log('lol')
         return this.AIRPORTS.filter((airport) => {
             if (queryString != "") {
                 return airport.name.toLowerCase().includes(queryString.toLowerCase())
@@ -33,6 +34,8 @@ export class SearchService {
     // }
 
     onSearchFlights(data: Object) {
-        this.ticketBook.lol(data)
+        // this.ticketBook.lol(data)
+        console.log(data);
+
     }
 }

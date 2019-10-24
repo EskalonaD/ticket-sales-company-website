@@ -1,9 +1,7 @@
-import { MainTicketService } from './../main-tickets.service';
 import { Component, OnInit } from '@angular/core';
 
 import { RETURNTICKETS } from 'src/app/data/mock-ReturnTickets';
 import { TicketReturn } from 'src/app/data/TicketReturn';
-import { Router } from '@angular/router';
 
 
 
@@ -14,12 +12,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./ticket.component.css']
 })
 export class TicketComponent implements OnInit {
+  constructor() { }
 
-  tickets = []
-  constructor(private ticketBook: MainTicketService) { }
+  tickets: TicketReturn[] = RETURNTICKETS;
 
   ngOnInit() {
-    this.tickets = this.ticketBook.results
+    console.log(this.tickets)
   }
 
 }

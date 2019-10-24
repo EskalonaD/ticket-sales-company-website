@@ -26,6 +26,7 @@ import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 import { MainTicketBookingComponent } from './main/main-ticket-booking/main-ticket-booking.component';
 import { PassengersFormComponent } from './main/main-ticket-booking/passengers-form/passengers-form.component';
 import { CardInfoComponent } from './main/main-ticket-booking/card-info/card-info.component';
+import { BookedTicketComponent } from './main/main-ticket-booking/booked-ticket/booked-ticket.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { CardInfoComponent } from './main/main-ticket-booking/card-info/card-inf
     MainTicketBookingComponent,
     PassengersFormComponent,
     CardInfoComponent,
+    BookedTicketComponent,
 
   ],
   imports: [

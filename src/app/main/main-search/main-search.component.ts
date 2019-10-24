@@ -25,7 +25,6 @@ export class MainSearchComponent implements OnInit {
   })
 
   results: Airport[];
-  count: number = 0;
   maxDate = new Date();
   date: Date;
   currentDate = moment().format('LL');
@@ -34,12 +33,12 @@ export class MainSearchComponent implements OnInit {
   constructor(private searchService: SearchService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.dataGroup.get('departure').valueChanges
+    this.dataGroup.get('startP').valueChanges
       .subscribe((queryField) => {
         this.results = this.searchService.onSearch(queryField)
       })
 
-    this.dataGroup.get('arrival').valueChanges
+    this.dataGroup.get('endP').valueChanges
       .subscribe((queryField) => {
         this.results = this.searchService.onSearch(queryField)
       })
@@ -51,16 +50,28 @@ export class MainSearchComponent implements OnInit {
 
   onNavigate() {
 
-    this.router.navigate(['tickets'])
+    this.router.navigate(['tickets'], { relativeTo: this.route })
   }
 
 
-  onKeyright(event: any) {
-    this.count = this.count + 1;
+  count: number = 1;
+  increase(): void {
+    this.count++;
   }
 
-  onKeyleft(event: any) {
-    this.count = this.count - 1;
+  decrease(): boolean {
+    if (this.count < 2) {
+      return false;
+    }
+    this.count--;
+  }
+
+
+
+
+  condition: boolean = true;
+  toggle() {
+    this.condition = !this.condition;
   }
 
 }

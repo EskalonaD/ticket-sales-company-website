@@ -24,7 +24,7 @@
         <div class="block-form__textfields">
           <div class="block-form__elements">
             <label for="from" class="block-form__labelfrom"><img src="../assets/img/plane_to.svg"> <input
-                list="departurefrom" type="text" formControlName="departure" placeholder="Departure City" id="from"
+                list="departurefrom" type="text" formControlName="startP" placeholder="Departure City" id="from"
                 class="block-form__input">
             </label>
             <datalist id="departurefrom">
@@ -37,7 +37,7 @@
           </div>
           <div class="block-form__elements">
             <label for="to" class="block-form__labelto"><img src="../assets/img/plane_back.svg">
-              <input list="departureto" type="text" formControlName="arrival" placeholder="Arrival City" id="to"
+              <input list="departureto" type="text" formControlName="endP" placeholder="Arrival City" id="to"
                 class="block-form__input" />
               <datalist id="departureto">
                 <option *ngFor="let airport of results" value="{{airport.name}}">
@@ -53,10 +53,19 @@
           </div>
           <div class="block-form__passenger">
             <img src="../assets/img/profile.svg" alt="passengers" />
-            <div class="buttons__passenger">
-              <button (keyupleft)='onKeyleft($event)'>&lt;</button>
-              <div>{{count}}</div>
-              <button (keyupright)='onKeyright($event)'>&gt;</button>
+            <div class="buttons__passenger" tabindex="0" (blur)="blur()">
+              <div *ngIf="condition; then thenBlock else elseBlock"></div>
+              <ng-template #thenBlock><button (focus)="toggle()" class="button button__countpasenger">{{count}}
+                  passenger</button></ng-template>
+              <ng-template #elseBlock>
+                <div class="block_buttonsincrement">
+                  <button (click)="decrease()" (blur)="toggle()" class="buttonleft"><img
+                      src="../assets/img/slider-arrow.svg" class="arrow_left"></button>
+                  <div>{{count}}</div>
+                  <button (click)="increase()" (blur)="toggle()" class="buttonright"><img
+                      src="../assets/img/slider-arrow.svg" class="arrow_right"></button>
+                </div>
+              </ng-template>
             </div>
           </div>
           <div class="block-form__search">
