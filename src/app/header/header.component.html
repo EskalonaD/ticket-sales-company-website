@@ -4,18 +4,33 @@
   </div>
   <div class="header-menu">
     <nav class="header-menu__navigation navigation">
-      <ul class="navigation-header">
-        <li class="navigation-header__item" routerLinkActive="active"><a routerLink="/flights/gallery"
-            class="navigation-header__link">Flights</a></li>
-        <li class="navigation-header__item" routerLinkActive="active"><a routerLink="/my-trips"
-            class="navigation-header__link">My trips</a></li>
-        <li class="navigation-header__item" routerLinkActive="active"><a routerLink="/trip-helper"
-            class="navigation-header__link">Trip helper</a>
-        </li>
-      </ul>
+        <div *ngIf="condition; then thenBlock else elseBlock"></div>
+        <ng-template #thenBlock>
+          <div class="main-menu">
+            <ul class="main-menu__list">
+                <li class="navigation-header__item" routerLinkActive="active"><a routerLink="/flights/gallery"
+                  class="navigation-header__link">Flights</a></li>
+              <li class="navigation-header__item" routerLinkActive="active"><a routerLink="/my-trips"
+                  class="navigation-header__link">My trips</a></li>
+              <li class="navigation-header__item" routerLinkActive="active"><a routerLink="/trip-helper"
+                  class="navigation-header__link">Trip helper</a>
+              </li>
+            </ul>
+            <div class="header__registration">
+                <a href="#" class="header__registration-link">AV</a>
+              </div>
+              </div>
+      </ng-template>
+      <ng-template #elseBlock>
+          <ul class="navigation-header">
+              <li class="navigation-header__item" routerLinkActive="active"><a routerLink="/flights/gallery"
+                  class="navigation-header__link">Flights</a></li>
+                  <li class="navigation-header__item" routerLinkActive="active"><a routerLink="/flights/gallery"
+                    class="navigation-header__link">Sign In</a></li>
+                    <li class="navigation-header__item" routerLinkActive="active"><a routerLink="/flights/gallery"
+                      class="navigation-header__link">Sign Up</a></li>
+            </ul>
+        </ng-template>
     </nav>
-    <div class="header__registration">
-      <a href="#" class="header__registration-link">AV</a>
-    </div>
   </div>
 </header>

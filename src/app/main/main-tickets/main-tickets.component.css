@@ -75,3 +75,41 @@
 .search-results__item:not(:last-child) {
     margin-bottom: 50px;
 }
+
+::ng-deep.custom-slider .ng5-slider .ng5-slider-bar {
+    background: lightgrey;
+    height: 2px;
+  }
+  ::ng-deep.custom-slider .ng5-slider .ng5-slider-selection {
+    background: var(--main-blue);
+  }
+
+  ::ng-deep.custom-slider .ng5-slider .ng5-slider-pointer {
+    width: 16px;
+    height: 16px;
+    top: -8px; /* to remove the default positioning */
+    bottom: 0;
+    background-color: var(--main-dark-blue);
+    border-radius: 50%;
+  }
+
+  ::ng-deep.custom-slider .ng5-slider .ng5-slider-pointer:after {
+    display: none;
+  }
+
+  ::ng-deep.custom-slider .ng5-slider .ng5-slider-bubble {
+    bottom: -30px;
+  }
+
+  ::ng-deep.custom-slider .ng5-slider .ng5-slider-limit {
+    font-weight: bold;
+    color: lightgrey;
+  }
+
+  ::ng-deep.custom-slider .ng5-slider .ng5-slider-tick {
+      display: none;
+  }
+
+  ::ng-deep.custom-slider .ng5-slider .ng5-slider-tick.ng5-slider-selected {
+    background: lightgrey;
+  }
