@@ -10,7 +10,7 @@
                 <p class="modal__message-item">That's great!</p>
                 <p>You're so close to your trip in Paris
                     <!--ENTER ARRIVAL CITY INSTEAD OF PARIS-->.</p>
-                <p>Now you can go to <a [routerLink]="['/my-trips']">My trips</a> to look at your tickets.</p>
+                <p>Now you can go to <a (click)="onCloseButton()" [routerLink]="['/my-trips']">My trips</a> to look at your tickets.</p>
             </div>
             <div class="modal__warning">
                 <p>If automatic download hasn't started:</p>
