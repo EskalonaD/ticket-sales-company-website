@@ -32,5 +32,11 @@ export const FLYWAYS: flyWay[] = [
         startAirport: AIRPORTS.find(({id}) => id === 1),
         endAirport: AIRPORTS.find(({id}) => id === 4),
         duration: 5,
+    },
+    {
+        id: 6,
+        startAirport: AIRPORTS.find(({id}) => id === 3),
+        endAirport: AIRPORTS.find(({id}) => id === 4),
+        duration: 5,
     }
 ]
