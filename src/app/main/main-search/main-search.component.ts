@@ -17,7 +17,7 @@ export class MainSearchComponent implements OnInit {
 
 
   dataGroup: FormGroup = new FormGroup({
-    typeOfFlight: new FormControl(''),
+    typeOfFlight: new FormControl('twoWay'),
     startP: new FormControl(''),
     endP: new FormControl(''),
     date: new FormControl(),
