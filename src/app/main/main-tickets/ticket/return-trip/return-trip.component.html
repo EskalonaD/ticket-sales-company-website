@@ -16,7 +16,7 @@
         </div>
         <div class="ticket-details__trip">
           <p class="ticket-details__flight-duration">
-            {{ ticket.ticketTo.durationTotal }}
+            {{ ticket.ticketTo.durationTotal | flightTime }}
   
           </p>
           <div class="ticket-details__route">
@@ -27,8 +27,8 @@
             <div class="route-details">
               <div *ngIf='!ticket.ticketTo.direct; else elseBlock' class="route-details__transfer">
                 <img src="/assets/img/route-arrow-transfer.svg" class="route-details__arrow">
-                <div>{{ ticket.ticketTo.changeAirport.code }}</div>
-                <div>{{ ticket.ticketTo.durationToChangeAirport }}</div>
+                <div>{{ ticket.ticketTo.flyWay1.endAirport.code }}</div>
+                <div>{{ ticket.ticketTo.flyWay1.duration }}</div>
               </div>
               <ng-template #elseBlock class="route-details__transfer">
                 <img src="/assets/img/route-arrow.svg" class="route-details__arrow">
@@ -64,7 +64,7 @@
         </div>
         <div class="ticket-details__trip">
           <p class="ticket-details__flight-duration">
-            {{ ticket.ticketFrom.durationTotal}}
+            {{ ticket.ticketFrom.durationTotal | flightTime}}
           </p>
           <div class="ticket-details__route">
   
@@ -74,8 +74,8 @@
   
               <div *ngIf='!ticket.ticketFrom.direct; else elseBlock1'>
                 <img src="/assets/img/route-arrow-transfer.svg" class="route-details__arrow">
-                <div>{{ ticket.ticketFrom.changeAirport.code }}</div>
-                <div>{{ ticket.ticketFrom.changeAirport.durationToChangeAirport }}</div>
+                <div>{{ ticket.ticketFrom.flyWay1.endAirport.code }}</div>
+                <div>{{ ticket.ticketFrom.flyWay1.duration }}</div>
               </div>
               <ng-template #elseBlock1>
                 <img src="/assets/img/route-arrow.svg" class="route-details__arrow">

@@ -16,7 +16,7 @@
         </div>
         <div class="ticket-details__trip">
           <p class="ticket-details__flight-duration">
-            {{ ticket.durationTotal }}
+            {{ ticket.durationTotal | flightTime }}
   
           </p>
           <div class="ticket-details__route">
@@ -27,8 +27,8 @@
             <div class="route-details">
               <div *ngIf='!ticket.direct; else elseBlock' class="route-details__transfer">
                 <img src="/assets/img/route-arrow-transfer.svg" class="route-details__arrow">
-                <div>{{ ticket.changeAirport.code }}</div>
-                <div>{{ ticket.durationToChangeAirport }}</div>
+                <div>{{ ticket.flyWay1.endAirport.code }}</div>
+                <div>{{ ticket.flyWay1.duration }}</div>
               </div>
               <ng-template #elseBlock class="route-details__transfer">
                 <img src="/assets/img/route-arrow.svg" class="route-details__arrow">
@@ -42,11 +42,7 @@
           </div>
         </div>
       </div>
-      <div class="trip-info">
-        <span class="trip-info__dashes"></span>
-  
-  
-      </div>
+
     </div>
     <div class="ticket__price-block">
       <span class="ticket__price">{{ ticket.price | currency: undefined: undefined: '1.0-0' }}</span>
