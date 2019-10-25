@@ -5,7 +5,29 @@
 .card-info__container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+}
+
+.card-tooltip {
+    position: relative;
+    margin-left: 25px;
+    width: 300px;
+    height: 200px;
+}
+
+.card-tooltip_hide {
+    display: none;
+}
+
+.card-tooltip__front {
+    position: absolute;
+}
+
+.card-tooltip__back {
+    position: absolute;
+}
+
+.text_focus {
+    fill: red;
 }
 
 .card-form {
@@ -13,6 +35,7 @@
     font-size: 16px;
     position: relative;
 }
+
 
 .card-form input:focus {
     border: 1px solid var(--main-blue);
@@ -29,6 +52,10 @@
     padding: 5px 10px;
     border: 1px solid grey;
     border-radius: 2px;
+}
+
+.hey {
+    color: red;
 }
 
 .card-form input[type="checkbox"] {
@@ -53,17 +80,6 @@
 
 .card-form__cvv {
     width: calc((100% - 25px) / 3);
-}
-
-.card-form__cvv:hover .cvv-tooltip,
-.card-form__cvv input:focus ~ .cvv-tooltip {
-    visibility: initial;
-}
-
-.cvv-tooltip {
-    visibility: hidden;
-    position: absolute;
-    right: -250px;
 }
 
 .card-form__owner {
@@ -97,16 +113,21 @@
 @media (max-width: 1000px) {
     .card-form {
         width: 50%;
+        margin: auto;
+    }
+    .card-info__container {
+        flex-flow: column-reverse;
+    }
+
+    .card-tooltip {
+        margin: auto;
+        margin-bottom: 25px;
     }
 }
 
 @media (max-width: 500px) {
     .card-form {
         width: 100%;
-    }
-    .cvv-tooltip {
-        right: 0;
-        bottom: 25px;
     }
 }
 
