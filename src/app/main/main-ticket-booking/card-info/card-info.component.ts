@@ -10,6 +10,8 @@ export class CardInfoComponent implements OnInit {
 
   constructor(private fb: FormBuilder) { }
 
+  focusInput: string;
+
   ngOnInit() {
   }
 
@@ -23,5 +25,13 @@ export class CardInfoComponent implements OnInit {
 
   onSubmit() {
     console.log(this.cardInfo.value);
+  }
+
+  onFocus(cardPart: string) {
+    this.focusInput = cardPart;
+  }
+
+  onBlur() {
+    this.focusInput = '';
   }
 }
