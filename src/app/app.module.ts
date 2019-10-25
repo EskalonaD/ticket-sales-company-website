@@ -27,7 +27,7 @@ import { MainTicketBookingComponent } from './main/main-ticket-booking/main-tick
 import { PassengersFormComponent } from './main/main-ticket-booking/passengers-form/passengers-form.component';
 import { CardInfoComponent } from './main/main-ticket-booking/card-info/card-info.component';
 import { BookedTicketComponent } from './main/main-ticket-booking/booked-ticket/booked-ticket.component';
-
+import { Ng5SliderModule } from 'ng5-slider';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +58,8 @@ import { BookedTicketComponent } from './main/main-ticket-booking/booked-ticket/
     NgbModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    NgxDaterangepickerMd.forRoot()
+    NgxDaterangepickerMd.forRoot(),
+    Ng5SliderModule
   ],
   providers: [SearchService, MainTicketService],
   bootstrap: [AppComponent]
