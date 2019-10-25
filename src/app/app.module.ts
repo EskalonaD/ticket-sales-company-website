@@ -30,6 +30,7 @@ import { BookedTicketComponent } from './main/main-ticket-booking/booked-ticket/
 import { OneWayTripComponent } from './main/main-tickets/ticket/one-way-trip/one-way-trip.component';
 import { ReturnTripComponent } from './main/main-tickets/ticket/return-trip/return-trip.component';
 import { MultiTripComponent } from './main/main-tickets/ticket/multi-trip/multi-trip.component';
+import { FlightTimePipe } from './main/main-tickets/ticket/flight-time.pipe';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { MultiTripComponent } from './main/main-tickets/ticket/multi-trip/multi-
     OneWayTripComponent,
     ReturnTripComponent,
     MultiTripComponent,
+    FlightTimePipe,
 
   ],
   imports: [
