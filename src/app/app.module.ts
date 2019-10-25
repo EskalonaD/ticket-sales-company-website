@@ -27,6 +27,7 @@ import { MainTicketBookingComponent } from './main/main-ticket-booking/main-tick
 import { PassengersFormComponent } from './main/main-ticket-booking/passengers-form/passengers-form.component';
 import { CardInfoComponent } from './main/main-ticket-booking/card-info/card-info.component';
 import { BookedTicketComponent } from './main/main-ticket-booking/booked-ticket/booked-ticket.component';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { BookedTicketComponent } from './main/main-ticket-booking/booked-ticket/
     PassengersFormComponent,
     CardInfoComponent,
     BookedTicketComponent,
+    ModalComponent,
 
   ],
   imports: [

@@ -1,7 +1,10 @@
-<app-header></app-header>
-<div class="container">
+<div [ngClass]="{'blur': isBlured}">
+  <app-header></app-header>
+  <div class="container">
 
-  <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
 
+  </div>
+  <app-footer></app-footer>
 </div>
-<app-footer></app-footer>
+<app-modal></app-modal>

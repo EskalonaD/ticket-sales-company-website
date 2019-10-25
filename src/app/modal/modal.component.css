@@ -1,0 +1,64 @@
+.modal {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255,255,255,0.5);
+}
+
+.modal__content {
+    position: relative;
+    border-radius: 5px;
+    max-width: 525px;
+    padding: 50px 75px;
+    margin: auto;
+    background-color: white;
+    box-shadow: 0px 0px 300px 31px rgba(0,0,0,0.75);
+}
+
+.modal__close-button {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+}
+
+.modal__title {
+    margin-bottom: 25px;
+}
+
+.modal__image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.modal__image {
+    display: block;
+    width: 200px;
+}
+
+.modal__message {
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 50px;
+}
+
+.modal__warning {
+    margin-bottom: 25px;
+}
+
+.modal__download {
+    display: block;
+    padding: 10px 20px;
+    font-size: 18px;
+    margin: auto;
+}
+
+.modal_hidden {
+    display: none;
+}

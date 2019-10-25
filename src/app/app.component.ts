@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
+  isBlured: boolean = true;
   title = 'ticket-sales-company-website';
 }
