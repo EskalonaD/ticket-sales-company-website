@@ -28,6 +28,8 @@ import { PassengersFormComponent } from './main/main-ticket-booking/passengers-f
 import { CardInfoComponent } from './main/main-ticket-booking/card-info/card-info.component';
 import { BookedTicketComponent } from './main/main-ticket-booking/booked-ticket/booked-ticket.component';
 import { Ng5SliderModule } from 'ng5-slider';
+import { AuthorizationComponent } from './authorization/authorization.component';
+import { RegistrationComponent } from './registration/registration.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +51,8 @@ import { Ng5SliderModule } from 'ng5-slider';
     PassengersFormComponent,
     CardInfoComponent,
     BookedTicketComponent,
+    AuthorizationComponent,
+    RegistrationComponent,
 
   ],
   imports: [

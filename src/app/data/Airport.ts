@@ -5,6 +5,4 @@ export interface Airport {
         city: string;
         shortName: string;
         code: string;
-
-
 }
