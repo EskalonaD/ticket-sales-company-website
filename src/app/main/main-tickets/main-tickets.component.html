@@ -1,34 +1,37 @@
 <section class="search-results">
-    <div class="section-wrapper">
-        <h3 class="section-title search-results__title">Search-results</h3>
-        <div class="search-results__container">
-            <div class="ticket-form">
-                <div class="ticket-form__finds">Total results:
-                    <span class="ticket-form__finds-number">54</span>
-                </div>
-                <div class=ticket-form__inputs>
-                    <div class="ticket-form__price">
-                        <label for="price" class="label label_blue">Price:</label>
-                        <input type="range" name="" id="price" class=price__range>
-                    </div>
-                    <div class="ticket-form__duration">
-                        <label for="duration" class="label label_blue">Duration:</label>
-                        <input type="range" name="" id="duration" class="duration__range">
-                    </div>
-                </div>
-                <div class="ticket-form__connections">
-                    <span class="label label_blue">Connections:</span>
-                    <label>
-                        <input type="checkbox" name="" id="">
-                        <span class="ticket-form__checkbox-text">Direct flights only</span>
-                    </label>
-                </div>
-                <button class="button button_blue ticket-form__filter">Filter</button>
-            </div>
-            <div class="search-results__tickets">
-                <app-ticket class="search-results__item"></app-ticket>
-                <button class="button button_black search-results__button-more">Load more</button>
-            </div>
+  <div class="section-wrapper">
+    <h3 class="section-title search-results__title">Search-results</h3>
+    <div class="search-results__container">
+      <div class="ticket-form">
+        <div class="ticket-form__finds">Total results:
+          <span class="ticket-form__finds-number">54</span>
         </div>
+        <div class=ticket-form__inputs>
+          <div class="ticket-form__price">
+            <label for="price" class="label label_blue">Price:</label>
+            <input type="range" name="" id="price" class='price__range' min="1" max="500" step="1" #price
+              (input)="price.value" (change)="rangeFilter(price.value, 'price')">
+            <span>{{ref.value}}</span>
+          </div>
+          <div class="ticket-form__duration">
+            <label for="duration" class="label label_blue">Duration:</label>
+            <input type="range" name="" id="duration" class="duration__range" min="1" max="500" step="1" #duration
+              (input)="duration.value" (change)="rangeFilter(duration.value, 'durationTotal')">
+          </div>
+        </div>
+        <div class="ticket-form__connections">
+          <span class="label label_blue">Connections:</span>
+          <label>
+            <input type="checkbox" name="" id="">
+            <span class="ticket-form__checkbox-text">Direct flights only</span>
+          </label>
+        </div>
+        <button class="button button_blue ticket-form__filter">Filter</button>
+      </div>
+      <div class="search-results__tickets">
+        <app-ticket class="search-results__item" [tickets]='tickets'></app-ticket>
+        <button class="button button_black search-results__button-more">Load more</button>
+      </div>
     </div>
+  </div>
 </section>

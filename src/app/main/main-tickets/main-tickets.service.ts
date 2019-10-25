@@ -1,3 +1,7 @@
+
+import { RETURNTICKETS } from 'src/app/data/mock-ReturnTickets';
+import { TicketReturn } from 'src/app/data/TicketReturn';
+import { Subject } from 'rxjs';
 export class MainTicketService {
 
     Flights: any = [
@@ -5,35 +9,53 @@ export class MainTicketService {
 
     ]
 
-    results = [];
+    ticketsChange = new Subject<TicketReturn[]>();
+
+    tickets: TicketReturn[] = RETURNTICKETS;
 
 
+    results: TicketReturn[] = [];
     constructor() { }
 
-    lol(item) {
-        const inputStart = item["startP"] || "Kiev";
-        const inputEnd = item["endP"] || "Paris";
-        const allToDestination = this.Flights.filter(route => route["endP"] == inputEnd);
-        const allFromLocation = this.Flights.filter(route => route["startP"] == inputStart);
-        const allDirect = this.Flights.filter(
-            route => route["startP"] == inputStart && route["endP"] == inputEnd
-        );
-        allFromLocation.forEach(routeFrom => {
-            allToDestination.forEach(routeTo => {
-                if (routeFrom["endP"] == routeTo["startP"]) {
-                    this.results.push({
-                        startP: inputStart,
-                        endP: inputEnd,
-                        transfer: routeFrom["endP"],
-                        time: routeFrom['time'] + routeTo['time'],
+    onRangeFilter(value: number, props: string) {
 
-                    });
-                }
-            });
-        });
-
-        this.results = this.results.concat(allDirect);
+        if (!this.results) {
+            this.results = this.tickets
+        }
+        this.results.filter((item) => item[props] < value);
+        this.ticketsChange.next(this.results)
         console.log(this.results);
+
     }
+
+
+
+
+
+    // lol(item) {
+    //     const inputStart = item["startP"] || "Kiev";
+    //     const inputEnd = item["endP"] || "Paris";
+    //     const allToDestination = this.Flights.filter(route => route["endP"] == inputEnd);
+    //     const allFromLocation = this.Flights.filter(route => route["startP"] == inputStart);
+    //     const allDirect = this.Flights.filter(
+    //         route => route["startP"] == inputStart && route["endP"] == inputEnd
+    //     );
+    //     allFromLocation.forEach(routeFrom => {
+    //         allToDestination.forEach(routeTo => {
+    //             if (routeFrom["endP"] == routeTo["startP"]) {
+    //                 this.results.push({
+    //                     startP: inputStart,
+    //                     endP: inputEnd,
+    //                     transfer: routeFrom["endP"],
+    //                     time: routeFrom['time'] + routeTo['time'],
+
+    //                 });
+    //             }
+    //         });
+    //     });
+
+    //     this.results = this.results.concat(allDirect);
+    //     console.log(this.results);
+    // }
 
 }
