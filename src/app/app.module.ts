@@ -37,6 +37,8 @@ import { PastTripsComponent } from './my-trips/past-trips/past-trips.component';
 
 
 import { Ng5SliderModule } from 'ng5-slider';
+import { AuthorizationComponent } from './authorization/authorization.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -59,12 +61,15 @@ import { Ng5SliderModule } from 'ng5-slider';
     PassengersFormComponent,
     CardInfoComponent,
     BookedTicketComponent,
+
     OneWayTripComponent,
     ReturnTripComponent,
     MultiTripComponent,
     FlightTimePipe,
     UpcomingTripsComponent,
     PastTripsComponent,
+    AuthorizationComponent,
+    RegistrationComponent
 
   ],
   imports: [

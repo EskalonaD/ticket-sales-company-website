@@ -5,7 +5,6 @@ import { Options, LabelType } from 'ng5-slider';
   templateUrl: './main-tickets.component.html',
   styleUrls: ['./main-tickets.component.css']
 })
-
 export class MainTicketsComponent {
   minValue1: number = 100;
   maxValue1: number = 400;
