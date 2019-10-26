@@ -31,6 +31,8 @@ import { OneWayTripComponent } from './main/main-tickets/ticket/one-way-trip/one
 import { ReturnTripComponent } from './main/main-tickets/ticket/return-trip/return-trip.component';
 import { MultiTripComponent } from './main/main-tickets/ticket/multi-trip/multi-trip.component';
 import { FlightTimePipe } from './main/main-tickets/ticket/flight-time.pipe';
+import { UpcomingTripsComponent } from './my-trips/upcoming-trips/upcoming-trips.component';
+import { PastTripsComponent } from './my-trips/past-trips/past-trips.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,8 @@ import { FlightTimePipe } from './main/main-tickets/ticket/flight-time.pipe';
     ReturnTripComponent,
     MultiTripComponent,
     FlightTimePipe,
+    UpcomingTripsComponent,
+    PastTripsComponent,
 
   ],
   imports: [
