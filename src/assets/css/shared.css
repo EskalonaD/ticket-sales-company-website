@@ -78,3 +78,15 @@
   border: 1px solid var(--main-blue);
   color: white;
 }
+
+@media (max-width: 768px) {
+  .section-wrapper {
+    margin: 0 25px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .section-wrapper {
+    margin: 0 50px;
+  }
+}
