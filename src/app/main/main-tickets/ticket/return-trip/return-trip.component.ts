@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { RETURNTICKETS } from 'src/app/data/mock-ReturnTickets';
 import { TicketReturn } from 'src/app/data/TicketReturn';
-import { SearchService } from 'src/app/main/search.service';
-
 
 @Component({
   selector: 'app-return-trip',
@@ -12,13 +10,9 @@ import { SearchService } from 'src/app/main/search.service';
 })
 export class ReturnTripComponent implements OnInit {
 
-  constructor(private searchService: SearchService) { }
+  constructor() { }
 
-  tickets: TicketReturn[] = RETURNTICKETS.filter(el => el.ticketTo.startAirport.name === this.searchService.newTripInfo.startP 
-                                                    && el.ticketTo.endAirport.name === this.searchService.newTripInfo.endP
-                                                    && el.ticketTo.startTime.valueOf() > this.searchService.newTripInfo.date.startDate.valueOf()
-                                                    && el.ticketFrom.endTime.valueOf() < this.searchService.newTripInfo.date.endDate.valueOf()
-                                                    && el.ticketFrom.availableTickets > this.searchService.newTripInfo.passengersAmount)
+  tickets: TicketReturn[] = RETURNTICKETS;
 
   ngOnInit() {
     console.log(this.tickets)

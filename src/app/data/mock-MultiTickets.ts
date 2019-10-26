@@ -19,7 +19,6 @@ export const MULTITICKETS: TicketMulti[] = [
             },
         ],
         price: 250,
-        availableTickets: 15,
     },
     {
         id: 2,
@@ -49,6 +48,5 @@ export const MULTITICKETS: TicketMulti[] = [
             },
         ],
         price: 700,
-        availableTickets: 3,
     }
 ]
