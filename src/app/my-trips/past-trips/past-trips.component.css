@@ -1,0 +1,51 @@
+.trip {
+    padding: 25px 50px;
+    box-shadow: 0px 0px 11px -2px rgba(0, 0, 0, 0.75);
+    border-radius: 10px;
+    margin-bottom: 50px;
+    max-width: 800px;
+    display: flex;
+}
+
+.trip__icon {
+    position: relative;
+    top: 5px;
+    margin-right: 10px;
+}
+
+.trip__id {
+    width: 25%;
+}
+
+.trip__details-list {
+    width: 75%;
+}
+
+.trip__details-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.trip__details-item:not(:last-child) {
+    margin-bottom: 25px;
+}
+
+.flight-route {
+    margin-right: 25px;
+}
+
+@media (max-width: 500px) {
+    .trip {
+        flex-direction: column;
+    }
+
+    .trip__id {
+        width: 100%;
+        margin-bottom: 25px;
+    }
+
+    .trip__details-list {
+        width: 100%;
+    }
+}
