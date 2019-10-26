@@ -5,6 +5,10 @@
     box-shadow: 0px 0px 11px -2px rgba(0, 0, 0, 0.75);
     border-radius: 20px;
   }
+
+  .ticket:not(:last-child) {
+    margin-bottom: 50px;
+  }
   
   .ticket-info {
     display: flex;
@@ -122,4 +126,36 @@
     font-weight: bold;
     padding: 20px 50px;
     transition: 0.1s;
+  }
+
+  @media (max-width: 768px) {
+    .ticket-details {
+      flex-direction: column;
+    }
+
+    .ticket-details__logo, 
+    .ticket-details__date,
+    .ticket-details__trip {
+      margin-bottom: 25px;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    .ticket {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .ticket__price-block {
+      border: none;
+    }
+
+    .ticket-info {
+      padding: 10px 25px;
+    }
+
+    .trip-info {
+      min-width: 150px;
+    }
   }

@@ -1,52 +1,46 @@
 <div class="ticket" *ngFor='let ticket of tickets'>
-    <div class="ticket-info">
-      <div class="ticket-details">
-        <div class="ticket-details__logo"><img src="/assets/img/airfrance.png" alt="Logo"></div>
-        <div class="ticket-details__date">
-          <div class="ticket-time">
-            <span class="ticket-time__start">{{ ticket.startTime | date: 'HH:mm'}}</span>
-            -
-            <span class="ticket-time__end">{{ ticket.endTime | date: 'HH:mm'}}</span>
-          </div>
-          <time class="ticket-date">
-            <span class="ticket-date__day">{{ ticket.startTime | date: 'E'}}</span>,
-            <span class="ticket-date__month">{{ ticket.startTime | date: 'MMM'}} </span>
-            <span class="ticket-date__dayofmonth">{{ ticket.startTime | date: 'd'}}</span>
-          </time>
+  <div class="ticket-info">
+    <div class="ticket-details">
+      <div class="ticket-details__logo"><img src="/assets/img/airfrance.png" alt="Logo"></div>
+      <div class="ticket-details__date">
+        <div class="ticket-time">
+          <span class="ticket-time__start">{{ ticket.startTime | date: 'HH:mm'}}</span>
+          -
+          <span class="ticket-time__end">{{ ticket.endTime | date: 'HH:mm'}}</span>
         </div>
-        <div class="ticket-details__trip">
-          <p class="ticket-details__flight-duration">
-            {{ ticket.durationTotal | flightTime }}
-  
-          </p>
-          <div class="ticket-details__route">
-  
-            <span class="ticket-details__route-from">{{ ticket.startAirport.shortName }}</span>
-  
-  
-            <div class="route-details">
-              <div *ngIf='!ticket.direct; else elseBlock' class="route-details__transfer">
-                <img src="/assets/img/route-arrow-transfer.svg" class="route-details__arrow">
-                <div>{{ ticket.flyWay1.endAirport.code }}</div>
-                <div>{{ ticket.flyWay1.duration }}</div>
-              </div>
-              <ng-template #elseBlock class="route-details__transfer">
-                <img src="/assets/img/route-arrow.svg" class="route-details__arrow">
-              </ng-template>
+        <time class="ticket-date">
+          <span class="ticket-date__day">{{ ticket.startTime | date: 'E'}}</span>,
+          <span class="ticket-date__month">{{ ticket.startTime | date: 'MMM'}} </span>
+          <span class="ticket-date__dayofmonth">{{ ticket.startTime | date: 'd'}}</span>
+        </time>
+      </div>
+      <div class="ticket-details__trip">
+        <p class="ticket-details__flight-duration">
+          {{ ticket.durationTotal | flightTime }}
+
+        </p>
+        <div class="ticket-details__route">
+
+          <span class="ticket-details__route-from">{{ ticket.startAirport.shortName }}</span>
+
+
+          <div class="route-details">
+            <div *ngIf='!ticket.direct; else elseBlock' class="route-details__transfer">
+              <img src="/assets/img/route-arrow-transfer.svg" class="route-details__arrow">
+              <div>{{ ticket.flyWay1.endAirport.code }}</div>
+              <div>{{ ticket.flyWay1.duration }}</div>
             </div>
-  
-  
-  
-  
-            <span class="ticket-details__route-to">{{ ticket.endAirport.shortName }}</span>
+            <ng-template #elseBlock class="route-details__transfer">
+              <img src="/assets/img/route-arrow.svg" class="route-details__arrow">
+            </ng-template>
           </div>
+          <span class="ticket-details__route-to">{{ ticket.endAirport.shortName }}</span>
         </div>
       </div>
-
-    </div>
-    <div class="ticket__price-block">
-      <span class="ticket__price">{{ ticket.price | currency: undefined: undefined: '1.0-0' }}</span>
-      <button class="button button-book button_blue" [routerLink]="['../ticket/passengers-form']">Book</button>
     </div>
   </div>
-  
+  <div class="ticket__price-block">
+    <span class="ticket__price">{{ ticket.price | currency: undefined: undefined: '1.0-0' }}</span>
+    <button class="button button-book button_blue" [routerLink]="['../ticket/passengers-form']">Book</button>
+  </div>
+</div>
