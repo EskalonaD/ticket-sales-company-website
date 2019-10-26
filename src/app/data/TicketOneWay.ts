@@ -13,5 +13,4 @@ export interface TicketOneWay {
     startAirport: Airport;
     endAirport: Airport;
     price: number;
-    availableTickets: number;
 }

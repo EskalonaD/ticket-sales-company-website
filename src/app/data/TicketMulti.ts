@@ -11,6 +11,4 @@ export interface TicketMulti {
     id: number;
     flyWays: oneFlight[]; 
     price: number;
-    availableTickets: number;
-
 }
