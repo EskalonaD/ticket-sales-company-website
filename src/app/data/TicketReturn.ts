@@ -6,5 +6,6 @@ export interface TicketReturn {
     maxDuration: number;
     price: number;
     id: number;
-    nightsIn: number; 
+    nightsIn: number;
+    availableTickets: number;
 }
