@@ -1,6 +1,13 @@
 <section class="search-results">
     <div class="section-wrapper">
         <h3 class="section-title search-results__title">Search-results</h3>
+        <div class="ticket__filter">
+                <button class="filtering">
+                    <img src="../assets/img/sort.svg" class="filtering__image"/>
+                    </button>
+             <input type="checkbox" id="lowest" name="lowest">
+             <label for="lowest" class="label__lowest">Lowest duration first</label>
+         </div>
         <div class="search-results__container">
             <div class="ticket-form">
                 <div class="ticket-form__finds">Total results:
@@ -10,7 +17,7 @@
                     <div class="ticket-form__price custom-slider">
                         <label for="price" class="label label_blue">Price:</label>
                         <ng5-slider [(value)]="minValue1" [(highValue)]="maxValue1" [options]="options1"></ng5-slider>
-                    
+
                     </div>
                     <div class="ticket-form__duration custom-slider">
                         <label for="duration" class="label label_blue">Duration:</label>
@@ -19,8 +26,8 @@
                 </div>
                 <div class="ticket-form__connections">
                     <span class="label label_blue">Connections:</span>
-                    <label>
-                        <input type="checkbox" name="" id="">
+                        <input type="checkbox" name="directflights" id="directflights">
+                        <label for="directflights">
                         <span class="ticket-form__checkbox-text">Direct flights only</span>
                     </label>
                 </div>

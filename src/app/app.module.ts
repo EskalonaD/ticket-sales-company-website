@@ -40,6 +40,7 @@ import { Ng5SliderModule } from 'ng5-slider';
 import { AuthorizationComponent } from './authorization/authorization.component';
 import { RegistrationComponent } from './registration/registration.component';
 
+import {MatMenuModule, MatButtonModule} from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
@@ -80,7 +81,8 @@ import { RegistrationComponent } from './registration/registration.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     NgxDaterangepickerMd.forRoot(),
-    Ng5SliderModule
+    Ng5SliderModule,
+    MatMenuModule, MatButtonModule
   ],
   providers: [SearchService, MainTicketService],
   bootstrap: [AppComponent]
