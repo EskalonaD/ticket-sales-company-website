@@ -27,11 +27,20 @@ import { MainTicketBookingComponent } from './main/main-ticket-booking/main-tick
 import { PassengersFormComponent } from './main/main-ticket-booking/passengers-form/passengers-form.component';
 import { CardInfoComponent } from './main/main-ticket-booking/card-info/card-info.component';
 import { BookedTicketComponent } from './main/main-ticket-booking/booked-ticket/booked-ticket.component';
+
 import { OneWayTripComponent } from './main/main-tickets/ticket/one-way-trip/one-way-trip.component';
 import { ReturnTripComponent } from './main/main-tickets/ticket/return-trip/return-trip.component';
 import { MultiTripComponent } from './main/main-tickets/ticket/multi-trip/multi-trip.component';
 import { FlightTimePipe } from './main/main-tickets/ticket/flight-time.pipe';
+import { UpcomingTripsComponent } from './my-trips/upcoming-trips/upcoming-trips.component';
+import { PastTripsComponent } from './my-trips/past-trips/past-trips.component';
 
+
+import { Ng5SliderModule } from 'ng5-slider';
+import { AuthorizationComponent } from './authorization/authorization.component';
+import { RegistrationComponent } from './registration/registration.component';
+
+import { MatMenuModule, MatButtonModule } from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,10 +62,15 @@ import { FlightTimePipe } from './main/main-tickets/ticket/flight-time.pipe';
     PassengersFormComponent,
     CardInfoComponent,
     BookedTicketComponent,
+
     OneWayTripComponent,
     ReturnTripComponent,
     MultiTripComponent,
     FlightTimePipe,
+    UpcomingTripsComponent,
+    PastTripsComponent,
+    AuthorizationComponent,
+    RegistrationComponent
 
   ],
   imports: [
@@ -66,7 +80,9 @@ import { FlightTimePipe } from './main/main-tickets/ticket/flight-time.pipe';
     NgbModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    NgxDaterangepickerMd.forRoot()
+    NgxDaterangepickerMd.forRoot(),
+    Ng5SliderModule,
+    MatMenuModule, MatButtonModule
   ],
   providers: [SearchService, MainTicketService],
   bootstrap: [AppComponent]

@@ -5,17 +5,17 @@
 }
 
 .helper__block {
+  display: flex;
+  justify-content: flex-end;
   width: 50%;
   background: rgba(255, 255, 255, 0.7);
-  padding-top: 25px;
-  padding-bottom: 75px;
+  padding: 50px 0px;
 }
 
 .helper__content {
   position: relative;
   margin-left: auto;
   margin-right: 100px;
-  width: 300px;
 }
 
 .helper__title {
@@ -26,7 +26,19 @@
   line-height: 25px;
 }
 
-.helper__button {
-  position: absolute;
-  right: 0;
+.helper__button-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+  .helper__block {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .helper__content {
+    margin: 0;
+  }
 }

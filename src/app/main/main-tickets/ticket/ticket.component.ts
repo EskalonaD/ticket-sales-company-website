@@ -15,7 +15,7 @@ import { SearchService } from 'src/app/main/search.service';
 export class TicketComponent implements OnInit {
   constructor(private searchService: SearchService) { }
 
-  @Input() tickets: TicketReturn[]
+  @Input() tickets: any[]
 
   ngOnInit() {
     console.log(this.tickets);

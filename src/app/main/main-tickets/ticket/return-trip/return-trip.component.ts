@@ -1,7 +1,8 @@
+import { TicketReturn } from './../../../../data/TicketReturn';
 import { Component, OnInit, Input } from '@angular/core';
 
-import { RETURNTICKETS } from 'src/app/data/mock-ReturnTickets';
-import { TicketReturn } from 'src/app/data/TicketReturn';
+import { SearchService } from 'src/app/main/search.service';
+import { TicketMulti } from 'src/app/data/TicketMulti';
 
 @Component({
   selector: 'app-return-trip',
@@ -10,8 +11,12 @@ import { TicketReturn } from 'src/app/data/TicketReturn';
 })
 export class ReturnTripComponent implements OnInit {
 
+  // get tickets() {
+  //   return this.searchService.calculateTickets();
+  // }
+
   constructor() { }
-  @Input() tickets: TicketReturn[]
+  @Input() tickets: any[]
 
   // tickets: TicketReturn[] = RETURNTICKETS;
 

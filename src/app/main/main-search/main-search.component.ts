@@ -18,16 +18,17 @@ export class MainSearchComponent implements OnInit {
 
   dataGroup: FormGroup = new FormGroup({
     typeOfFlight: new FormControl('twoWay'),
-    startP: new FormControl(''),
-    endP: new FormControl(''),
+    startP: new FormControl(),
+    endP: new FormControl(),
     date: new FormControl(),
-    passengers: new FormControl('')
   })
+
 
   results: Airport[];
   maxDate = new Date();
   date: Date;
   currentDate = moment().format('LL');
+  passengersAmount: number = 1;
 
 
   constructor(private searchService: SearchService, private router: Router, private route: ActivatedRoute) { }
@@ -45,7 +46,7 @@ export class MainSearchComponent implements OnInit {
   }
 
   onSubmit() {
-    this.searchService.onSearchFlights(this.dataGroup.value)
+    this.searchService.onSearchFlights(this.dataGroup.value, this.passengersAmount)
   }
 
   onNavigate() {
@@ -54,16 +55,15 @@ export class MainSearchComponent implements OnInit {
   }
 
 
-  count: number = 1;
   increase(): void {
-    this.count++;
+    this.passengersAmount++;
   }
 
   decrease(): boolean {
-    if (this.count < 2) {
+    if (this.passengersAmount < 2) {
       return false;
     }
-    this.count--;
+    this.passengersAmount--;
   }
 
 

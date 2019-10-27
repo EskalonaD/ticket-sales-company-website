@@ -1,3 +1,4 @@
+import { SearchService } from './../search.service';
 
 import { RETURNTICKETS } from 'src/app/data/mock-ReturnTickets';
 import { TicketReturn } from 'src/app/data/TicketReturn';
@@ -11,18 +12,19 @@ export class MainTicketService {
 
     ticketsChange = new Subject<TicketReturn[]>();
 
-    tickets: TicketReturn[] = RETURNTICKETS;
+    tickets: any[] = this.searchService.calculateTickets();
 
 
-    results: TicketReturn[] = [];
-    constructor() { }
+    results: any[] = [];
+    constructor(private searchService: SearchService) { }
 
-    onRangeFilter(value: number, props: string) {
+    onRangeFilter(min: number, max: number, props: string) {
 
         this.results = this.tickets.filter((item) => {
 
-            return item[props] <= value
+            return min <= item.price && item[props] <= max
         });
+
         this.ticketsChange.next(this.results)
 
     }

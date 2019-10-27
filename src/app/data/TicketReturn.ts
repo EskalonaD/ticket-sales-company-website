@@ -7,4 +7,5 @@ export interface TicketReturn {
     price: number;
     id: number;
     nightsIn: number;
+    availableTickets: number;
 }

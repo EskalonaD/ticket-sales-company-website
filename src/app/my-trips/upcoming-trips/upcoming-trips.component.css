@@ -1,0 +1,118 @@
+.trip {
+    padding: 25px 50px;
+    box-shadow: 0px 0px 11px -2px rgba(0, 0, 0, 0.75);
+    border-radius: 10px;
+    margin-bottom: 100px;
+    max-width: 800px;
+}
+
+.trip__id {
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid grey;
+}
+
+.trip__section-title {
+    color: grey;
+    margin-bottom: 5px;
+}
+
+.trip__passengers {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 25px;
+}
+
+.trip__passengers-text {
+    min-width: 120px;
+}
+
+.trip__icon {
+    position: relative;
+    top: 5px;
+    margin-right: 10px;
+}
+
+.passengers-list {
+    margin-left: 25px;
+}
+
+.passengers-list__item {
+   display: inline-block;
+   margin-right: 10px; 
+   margin-bottom: 10px;
+}
+
+.trip-details {
+
+}
+
+.trip-details__list {
+    display: flex;
+    flex-direction: column;
+}
+
+.trip-details__item {
+    display: flex;
+    flex-flow: row;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.flight-route,
+.flight-departure {
+    margin-right:25px;
+}
+
+.trip__button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 25px;
+}
+
+.trip__button {
+    padding: 10px 20px;
+    margin-left: 25px;
+}
+
+@media (max-width: 768px) {
+    .trip-details__item {
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    .flight-route {
+        width: 100%;
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 500px) {
+    .trip__passengers {
+        flex-direction: column;
+    }
+
+    .passengers-list {
+        margin-top: 25px;
+    }
+
+    .trip {
+        padding: 15px 20px;
+    }
+
+
+    .flight-departure {
+        margin-bottom: 25px;
+    }
+
+    .trip__button-container {
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .trip__button {
+        margin: 0;
+        margin-top: 10px;
+    }
+}

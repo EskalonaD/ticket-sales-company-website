@@ -8,8 +8,7 @@
     <form class="block-main__form" [formGroup]="dataGroup" (ngSubmit)="onSubmit()">
       <div class="block-form__buttons">
         <div class="block-textfields">
-          <input type="radio" id="return" value="twoWay" value="twoWay" [attr.checked]="true"
-            formControlName="typeOfFlight" />
+          <input type="radio" id="return" value="twoWay" formControlName="typeOfFlight" />
           <label for="return">Return</label>
         </div>
         <div class="block-textfields">
@@ -23,7 +22,7 @@
       </div>
       <div class="block-form__mainform">
         <div class="block-form__textfields">
-          <div class="block-form__elements">
+          <div class="block-form__elements elements1">
             <label for="from" class="block-form__labelfrom"><img src="../assets/img/plane_to.svg"> <input
                 list="departurefrom" type="text" formControlName="startP" placeholder="Departure City" id="from"
                 class="block-form__input">
@@ -32,11 +31,11 @@
               <option *ngFor="let airport of results" value="{{airport.name}}">
             </datalist>
           </div>
-          <div class="block-form__elements">
+          <div class="block-form__elements elements2">
             <button class="block-form__button"><img src="../assets/img/backnforce.svg">
             </button>
           </div>
-          <div class="block-form__elements">
+          <div class="block-form__elements elements3">
             <label for="to" class="block-form__labelto"><img src="../assets/img/plane_back.svg">
               <input list="departureto" type="text" formControlName="endP" placeholder="Arrival City" id="to"
                 class="block-form__input" />
@@ -56,13 +55,14 @@
             <img src="../assets/img/profile.svg" alt="passengers" />
             <div class="buttons__passenger" tabindex="0" (blur)="blur()">
               <div *ngIf="condition; then thenBlock else elseBlock"></div>
-              <ng-template #thenBlock><button (focus)="toggle()" class="button button__countpasenger">{{count}}
+              <ng-template #thenBlock><button (focus)="toggle()"
+                  class="button button__countpasenger">{{ passengersAmount }}
                   passenger</button></ng-template>
               <ng-template #elseBlock>
                 <div class="block_buttonsincrement">
                   <button (click)="decrease()" (blur)="toggle()" class="buttonleft"><img
                       src="../assets/img/slider-arrow.svg" class="arrow_left"></button>
-                  <div>{{count}}</div>
+                  <div>{{ passengersAmount }}</div>
                   <button (click)="increase()" (blur)="toggle()" class="buttonright"><img
                       src="../assets/img/slider-arrow.svg" class="arrow_right"></button>
                 </div>
