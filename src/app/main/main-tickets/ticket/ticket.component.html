@@ -7,6 +7,5 @@
 </div>
 
 <div *ngIf='searchService.newTripInfo.typeOfFlight === "twoWay"'>
-    <app-return-trip></app-return-trip>
-  </div>
-
+  <app-return-trip [tickets]="tickets"></app-return-trip>
+</div>

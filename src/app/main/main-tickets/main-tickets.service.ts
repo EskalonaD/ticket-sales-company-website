@@ -4,10 +4,10 @@ import { TicketReturn } from 'src/app/data/TicketReturn';
 import { Subject } from 'rxjs';
 export class MainTicketService {
 
-    Flights: any = [
-        { startP: 'IEV Kyiv, Igor Sikorsky International', endP: 'Paris (CDG)', price: 123, duration: 4, startTime: new Date(1568713500000), endTime: new Date(1568713500000 + 4.5 * 60 * 60 * 1000) },
+    // Flights: any = [
+    //     { startP: 'IEV Kyiv, Igor Sikorsky International', endP: 'Paris (CDG)', price: 123, duration: 4, startTime: new Date(1568713500000), endTime: new Date(1568713500000 + 4.5 * 60 * 60 * 1000) },
 
-    ]
+    // ]
 
     ticketsChange = new Subject<TicketReturn[]>();
 
@@ -19,12 +19,11 @@ export class MainTicketService {
 
     onRangeFilter(value: number, props: string) {
 
-        if (!this.results) {
-            this.results = this.tickets
-        }
-        this.results.filter((item) => item[props] < value);
+        this.results = this.tickets.filter((item) => {
+
+            return item[props] <= value
+        });
         this.ticketsChange.next(this.results)
-        console.log(this.results);
 
     }
 

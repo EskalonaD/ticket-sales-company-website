@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { RETURNTICKETS } from 'src/app/data/mock-ReturnTickets';
 import { TicketReturn } from 'src/app/data/TicketReturn';
@@ -11,11 +11,16 @@ import { TicketReturn } from 'src/app/data/TicketReturn';
 export class ReturnTripComponent implements OnInit {
 
   constructor() { }
+  @Input() tickets: TicketReturn[]
 
-  tickets: TicketReturn[] = RETURNTICKETS;
+  // tickets: TicketReturn[] = RETURNTICKETS;
 
   ngOnInit() {
-    console.log(this.tickets)
+  }
+
+  onSubmit(value) {
+    console.log(value);
+
   }
 
 }

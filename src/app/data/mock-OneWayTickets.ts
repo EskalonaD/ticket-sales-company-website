@@ -7,8 +7,8 @@ export const ONEWAYTICKETS: TicketOneWay[] = [
     {
         id: 1,
         direct: false,
-        flyWay1: FLYWAYS.find(({id}) => id === 2),
-        flyWay2: FLYWAYS.find(({id}) => id === 3),
+        flyWay1: FLYWAYS.find(({ id }) => id === 2),
+        flyWay2: FLYWAYS.find(({ id }) => id === 3),
         price: 123,
         durationTotal: 4.5,
         startTime: new Date(1568713500000),
