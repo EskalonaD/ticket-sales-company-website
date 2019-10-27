@@ -22,7 +22,7 @@ export class MainTicketsComponent implements OnInit, OnDestroy {
   ngOnInit() {
 
 
-    this.tickets = this.ticketService.tickets;
+    this.tickets = this.ticketService.getTickets();
     this.ticketChangeSub = this.ticketService.ticketsChange.subscribe((tickets: TicketReturn[]) => {
       this.tickets = tickets;
     })

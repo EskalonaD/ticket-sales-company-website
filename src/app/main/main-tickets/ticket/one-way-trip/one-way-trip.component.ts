@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { SearchService } from 'src/app/main/search.service';
 
 
@@ -9,15 +9,22 @@ import { SearchService } from 'src/app/main/search.service';
   styleUrls: ['./one-way-trip.component.css']
 })
 export class OneWayTripComponent implements OnInit {
-  get tickets() {
-    return this.searchService.calculateTickets();
-  }
+  // get tickets() {
+  //   return this.searchService.calculateTickets();
+  // }
 
-  constructor( private searchService: SearchService) { }
+  constructor(private searchService: SearchService) { }
+
+  @Input() tickets: any[]
 
 
   ngOnInit() {
     console.log(this.tickets)
+  }
+
+  onSubmit(value) {
+    console.log(value);
+
   }
 
 }

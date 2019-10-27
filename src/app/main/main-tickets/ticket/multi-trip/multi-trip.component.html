@@ -1,6 +1,6 @@
 <div class="ticket" *ngFor='let ticket of tickets'>
   <div class="ticket-info">
-    <div  *ngFor='let trip of ticket.flyWays'>
+    <div *ngFor='let trip of ticket.flyWays'>
       <div class="ticket-details">
         <div class="ticket-details__logo"><img src="/assets/img/airfrance.png" alt="Logo"></div>
         <div class="ticket-details__date">
@@ -48,6 +48,7 @@
   </div>
   <div class="ticket__price-block">
     <span class="ticket__price">{{ ticket.price | currency: undefined: undefined: '1.0-0' }}</span>
-    <button class="button button-book button_blue" [routerLink]="['../ticket/passengers-form']">Book</button>
+    <button class="button button-book button_blue" [routerLink]="['../ticket/passengers-form']"
+      (click)="onSubmit(ticket)">Book</button>
   </div>
 </div>

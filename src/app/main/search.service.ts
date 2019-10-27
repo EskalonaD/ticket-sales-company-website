@@ -39,10 +39,9 @@ export class SearchService {
 
 
     onSearchFlights(data: TripInfo, passengersAmount: number) {
-        console.log(data)
-        // if(data)
         this.newTripInfo = data;
         this.newTripInfo.passengersAmount = passengersAmount;
+        this.calculateTickets()
 
     }
 
@@ -57,8 +56,8 @@ export class SearchService {
                 && (this.newTripInfo.date.endDate === null || el.ticketFrom.endTime.valueOf() < this.newTripInfo.date.endDate.valueOf()))
             : this.newTripInfo.typeOfFlight === 'oneWay' ?
                 ONEWAYTICKETS.filter(el => el.availableTickets > this.newTripInfo.passengersAmount
-                    && (this.newTripInfo.startP !== null || el.startAirport.name === this.newTripInfo.startP)
-                    && (this.newTripInfo.endP !== null || el.endAirport.name === this.newTripInfo.endP)
+                    && (this.newTripInfo.startP === null || el.startAirport.name === this.newTripInfo.startP)
+                    && (this.newTripInfo.endP === null || el.endAirport.name === this.newTripInfo.endP)
                     && (this.newTripInfo.date.startDate === null || el.startTime.valueOf() > this.newTripInfo.date.startDate.valueOf())
                     && (this.newTripInfo.date.endDate === null || el.endTime.valueOf() < this.newTripInfo.date.endDate.valueOf()))
                 : MULTITICKETS.filter(el => el.availableTickets > this.newTripInfo.passengersAmount

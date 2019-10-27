@@ -1,9 +1,9 @@
 <div *ngIf='searchService.newTripInfo.typeOfFlight === "multitrip"'>
-  <app-multi-trip></app-multi-trip>
+  <app-multi-trip [tickets]="tickets"></app-multi-trip>
 </div>
 
 <div *ngIf='searchService.newTripInfo.typeOfFlight === "oneWay"'>
-  <app-one-way-trip></app-one-way-trip>
+  <app-one-way-trip [tickets]="tickets"></app-one-way-trip>
 </div>
 
 <div *ngIf='searchService.newTripInfo.typeOfFlight === "twoWay"'>

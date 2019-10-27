@@ -14,7 +14,16 @@ export class MainTicketService {
 
     ticketsChange = new Subject<TicketReturn[]>();
 
-    tickets: any[] = this.searchService.calculateTickets();
+    tickets: any[];
+
+    getTickets() {
+        this.tickets = this.searchService.calculateTickets();
+        this.ticketsChange.next(this.tickets);
+        console.log(this.tickets);
+
+        return this.tickets;
+    }
+
 
 
     results: any[] = [];
