@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BookingService } from '../booking.service';
 
 @Component({
   selector: 'app-booked-ticket',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookedTicketComponent implements OnInit {
 
-  constructor() { }
+  ticket = this.bookingService.ticket;
+  type: string = this.bookingService.type;
+  constructor( private bookingService: BookingService) { }
 
   ngOnInit() {
+    console.log(this.bookingService.ticket);
+    console.log(this.bookingService.type)
   }
+  
+  
 
 }

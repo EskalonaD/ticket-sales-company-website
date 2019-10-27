@@ -1,5 +1,6 @@
 import { MainTicketService } from './main/main-tickets/main-tickets.service';
 import { SearchService } from './main/search.service';
+
 import { SpecialOfferComponent } from './main/main-gallery/special-offers/special-offer/special-offer.component';
 import { TicketComponent } from './main/main-tickets/ticket/ticket.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -42,6 +43,7 @@ import { AuthorizationComponent } from './authorization/authorization.component'
 import { RegistrationComponent } from './registration/registration.component';
 
 import {MatMenuModule, MatButtonModule} from '@angular/material';
+import { BookingService } from './main/main-ticket-booking/booking.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -86,7 +88,7 @@ import {MatMenuModule, MatButtonModule} from '@angular/material';
     Ng5SliderModule,
     MatMenuModule, MatButtonModule
   ],
-  providers: [SearchService, MainTicketService],
+  providers: [SearchService, MainTicketService, BookingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

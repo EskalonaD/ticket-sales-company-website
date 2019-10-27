@@ -1,64 +1,155 @@
-<div class="ticket">
-    <div class="ticket-details">
-        <div class="ticket-details__logo"><img src="/assets/img/airfrance.png" alt="Logo"></div>
-        <div class="ticket-details__date">
-            <div class="ticket-time">
-                12:45-17:35
-                <!-- enter ticket time span here -->
+<div *ngIf='type === "twoWay"'>
+    <div class="ticket" >
+        <div class="ticket-details">
+            <div class="ticket-details__logo"><img src="/assets/img/airfrance.png" alt="Logo"></div>
+            <div class="ticket-details__date">
+                <div class="ticket-time">
+                    {{ ticket.ticketTo.startTime | date: 'HH:mm'}} - {{ ticket.ticketTo.endTime | date: 'HH:mm' }}
+                </div>
+                <time class="ticket-date">
+                    {{ ticket.ticketTo.startTime | date: 'EEE, MMM dd'}}
+                </time>
             </div>
-            <time class="ticket-date">
-                Wed, Sept 21
-                <!-- Insert date from moment js gere -->
-            </time>
+            <div class="ticket-details__trip">
+                <p class="ticket-details__flight-duration">
+                    {{ ticket.ticketTo.durationTotal | flightTime }}
+                </p>
+                <div class="ticket-details__route">
+                    <span class="ticket-details__route-from">
+                        {{ ticket.ticketTo.startAirport.shortName }}
+                    </span>
+                    
+                    <div class="route-details">
+                        <div *ngIf='!ticket.ticketTo.direct; else elseBlock' class="route-details__transfer">
+                          <img src="/assets/img/route-arrow-transfer.svg" class="route-details__arrow">
+                          <div>{{ ticket.ticketTo.flyWay1.endAirport.code }}</div>
+                          <div>{{ ticket.ticketTo.flyWay1.duration }}</div>
+                        </div>
+                        <ng-template #elseBlock class="route-details__transfer">
+                          <img src="/assets/img/route-arrow.svg" class="route-details__arrow">
+                        </ng-template>
+                    </div>
+                    <span class="ticket-details__route-to">
+                        {{ ticket.ticketTo.endAirport.shortName }}
+                    </span>
+                </div>
+            </div>
+            <div class="ticket__price">
+                {{ ticket.price | currency: undefined: undefined: '2.0-0'}}
+            </div>
         </div>
-        <div class="ticket-details__trip">
-            <p class="ticket-details__flight-duration">
-                7h. 30min
-                <!-- insert flight duration here -->
-            </p>
-            <div class="ticket-details__route">
-                <span class="ticket-details__route-from">
-                    Kyiv (KBP)
-                    <!-- insert departure city -->
-                </span>
-                <div class="route-details">
-                    <img src="/assets/img/route-arrow-transfer.svg" class="route-details__arrow">
-                    <div class="route-details__transfer">
-                        <p>WAW</p>
-                        <p>(2H)</p>
-                        <!-- insert transfer info here -->
+        <div class="trip-info">
+            <span class="trip-info__dashes"></span>
+            <span class="trip-info__text">{{ ticket.nightsIn }} nights in  {{ ticket.ticketTo.endAirport.city }}</span>
+        </div>
+        <div class="flight-details" *ngIf='!ticket.ticketTo.direct; else elseBlock1'>
+            <div class="flight-details__item">
+                <p>{{ ticket.ticketTo.flyWay1.startAirport.shortName }} <span class="text_grey">{{ ticket.ticketTo.startTime | date: 'HH:mm, MMM dd' }}</span></p>
+                <div class="flight-details__arrow">
+                    <p class="flight-details__arrow-text text_grey">{{ ticket.ticketTo.flyWay1.duration | flightTime }}</p>
+                    <img src="/assets/img/route-arrow.svg" class="route-details__arrow">
+                </div>
+                <!-- fix time in second span -->
+                <p>{{ ticket.ticketTo.flyWay1.endAirport.shortName }}<span class="text_grey"></span></p>
+            </div>
+            <div class="flight-details__item">
+                <!-- fix time in second span -->
+                <p>{{ ticket.ticketTo.flyWay2.startAirport.shortName }}<span class="text_grey"></span></p>
+                <div class="flight-details__arrow">
+                    <p class="flight-details__arrow-text text_grey">{{ ticket.ticketTo.flyWay2.duration | flightTime }}</p>
+                    <img src="/assets/img/route-arrow.svg" class="route-details__arrow">
+                </div>
+                <p>{{ ticket.ticketTo.flyWay2.endAirport.shortName }} <span class="text_grey">{{ ticket.ticketTo.endTime | date: 'HH:mm, MMM dd' }}</span></p>
+            </div>
+        </div>
+        <ng-template #elseBlock1 class="route-details__transfer">
+            <div class="flight-details__item">
+                <p>{{ ticket.ticketTo.startAirport.shortName }} <span class="text_grey">{{ ticket.ticketTo.startTime | date: 'HH:mm, MMM dd' }}</span></p>
+                <div class="flight-details__arrow">
+                    <p class="flight-details__arrow-text text_grey">{{ ticket.ticketTo.flyWay1.duration | flightTime }}</p>
+                    <img src="/assets/img/route-arrow.svg" class="route-details__arrow">
+                </div>
+                <p>{{ ticket.ticketTo.endAirport.shortName }}<span class="text_grey">{{ ticket.ticketTo.endTime | date: 'HH:mm, MMM dd' }}</span></p>
+            </div>
+        </ng-template>
+    </div>
+    <div class="ticket" >
+            <div class="ticket-details">
+                <div class="ticket-details__logo"><img src="/assets/img/airfrance.png" alt="Logo"></div>
+                <div class="ticket-details__date">
+                    <div class="ticket-time">
+                        {{ ticket.ticketFrom.startTime | date: 'HH:mm'}} - {{ ticket.ticketFrom.endTime | date: 'HH:mm' }}
+                    </div>
+                    <time class="ticket-date">
+                        {{ ticket.ticketFrom.startTime | date: 'EEE, MMM dd'}}
+                    </time>
+                </div>
+                <div class="ticket-details__trip">
+                    <p class="ticket-details__flight-duration">
+                        {{ ticket.ticketFrom.durationTotal | flightTime }}
+                    </p>
+                    <div class="ticket-details__route">
+                        <span class="ticket-details__route-from">
+                            {{ ticket.ticketFrom.startAirport.shortName }}
+                        </span>
+                        
+                        <div class="route-details">
+                            <div *ngIf='!ticket.ticketFrom.direct; else elseBlock2' class="route-details__transfer">
+                              <img src="/assets/img/route-arrow-transfer.svg" class="route-details__arrow">
+                              <div>{{ ticket.ticketFrom.flyWay1.endAirport.code }}</div>
+                              <div>{{ ticket.ticketFrom.flyWay1.duration }}</div>
+                            </div>
+                            <ng-template #elseBlock2  class="route-details__transfer">
+                                        <img src="/assets/img/route-arrow.svg" class="route-details__arrow">
+                            </ng-template>
+                        </div>
+                        <span class="ticket-details__route-to">
+                            {{ ticket.ticketFrom.endAirport.shortName }}
+                        </span>
                     </div>
                 </div>
-                <span class="ticket-details__route-to">
-                    Paris (CDG)
-                    <!-- insert arrival city -->
-                </span>
+                <div class="ticket__price">
+                    {{ ticket.price | currency: undefined: undefined: '2.0-0'}}
+                </div>
             </div>
-        </div>
-        <div class="ticket__price">
-            $123
-        </div>
-    </div>
-    <div class="trip-info">
-        <span class="trip-info__dashes"></span>
-        <span class="trip-info__text">4 nights in Paris</span>
-    </div>
-    <div class="flight-details">
-        <div class="flight-details__item">
-            <p>Kyiv KBP <span class="text_grey">12:45, Sept 21</span></p>
-            <div class="flight-details__arrow">
-                <p class="flight-details__arrow-text text_grey">(2H)</p>
-                <img src="/assets/img/route-arrow.svg" class="route-details__arrow">
+            <div class="trip-info">
+                <span class="trip-info__dashes"></span>
+                <span class="trip-info__text">{{ ticket.nightsIn }} nights in  {{ ticket.ticketTo.endAirport.city }}</span>
             </div>
-            <p>Kyiv KBP <span class="text_grey">12:45, Sept 21</span></p>
-        </div>
-        <div class="flight-details__item">
-            <p>Kyiv KBP <span class="text_grey">12:45, Sept 21</span></p>
-            <div class="flight-details__arrow">
-                <p class="flight-details__arrow-text text_grey">(2H)</p>
-                <img src="/assets/img/route-arrow.svg" class="route-details__arrow">
+            <div class="flight-details" *ngIf='!ticket.ticketFrom.direct; else elseBlock3'>
+                <div class="flight-details__item">
+                    <p>{{ ticket.ticketFrom.flyWay1.startAirport.shortName }} <span class="text_grey">{{ ticket.ticketFrom.startTime | date: 'HH:mm, MMM dd' }}</span></p>
+                    <div class="flight-details__arrow">
+                        <p class="flight-details__arrow-text text_grey">{{ ticket.ticketFrom.flyWay1.duration | flightTime }}</p>
+                        <img src="/assets/img/route-arrow.svg" class="route-details__arrow">
+                    </div>
+                    <!-- fix time in second span -->
+                    <p>{{ ticket.ticketFrom.flyWay1.endAirport.shortName }}<span class="text_grey"></span></p>
+                </div>
+                <div class="flight-details__item">
+                    <!-- fix time in second span -->
+                    <p>{{ ticket.ticketTo.flyWay2.startAirport.shortName }}<span class="text_grey"></span></p>
+                    <div class="flight-details__arrow">
+                        <p class="flight-details__arrow-text text_grey">{{ ticket.ticketFrom.flyWay2.duration | flightTime }}</p>
+                        <img src="/assets/img/route-arrow.svg" class="route-details__arrow">
+                    </div>
+                    <p>{{ ticket.ticketFrom.flyWay2.endAirport.shortName }} <span class="text_grey">{{ ticket.ticketFrom.endTime | date: 'HH:mm, MMM dd' }}</span></p>
+                </div>
             </div>
-            <p>Kyiv KBP <span class="text_grey">12:45, Sept 21</span></p>
+            <ng-template #elseBlock3  class="flight-details">
+                <!-- <div class="flight-details"> -->
+                    <div class="flight-details__item">
+                        <p>{{ ticket.ticketFrom.startAirport.shortName }} <span class="text_grey">{{ ticket.ticketFrom.startTime | date: 'HH:mm, MMM dd' }}</span></p>
+                        <div class="flight-details__arrow">
+                            <p class="flight-details__arrow-text text_grey">{{ ticket.ticketFrom.flyWay1.duration | flightTime }}</p>
+                            <img src="/assets/img/route-arrow.svg" class="route-details__arrow">
+                        </div>
+                        <p>{{ ticket.ticketFrom.endAirport.shortName }}<span class="text_grey">{{ ticket.ticketFrom.endTime | date: 'HH:mm, MMM dd' }}</span></p>
+                    </div>
+                <!-- </div> -->
+            </ng-template>
         </div>
-    </div>
 </div>
+
+
+
