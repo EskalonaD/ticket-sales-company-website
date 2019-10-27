@@ -55,16 +55,16 @@
             <img src="../assets/img/profile.svg" alt="passengers" />
             <div class="buttons__passenger" tabindex="0" (blur)="blur()">
               <div *ngIf="condition; then thenBlock else elseBlock"></div>
-              <ng-template #thenBlock><button (focus)="toggle()"
+              <ng-template #thenBlock><button (mouseenter)="toggle()"
                   class="button button__countpasenger">{{ passengersAmount }}
                   passenger</button></ng-template>
               <ng-template #elseBlock>
-                <div class="block_buttonsincrement">
-                  <button (click)="decrease()" (blur)="toggle()" class="buttonleft"><img
-                      src="../assets/img/slider-arrow.svg" class="arrow_left"></button>
+                <div class="block_buttonsincrement" (mouseleave)='toggle()'>
+                  <button (click)="decrease()" class="buttonleft"><img src="../assets/img/slider-arrow.svg"
+                      class="arrow_left"></button>
                   <div>{{ passengersAmount }}</div>
-                  <button (click)="increase()" (blur)="toggle()" class="buttonright"><img
-                      src="../assets/img/slider-arrow.svg" class="arrow_right"></button>
+                  <button (click)="increase()" class="buttonright"><img src="../assets/img/slider-arrow.svg"
+                      class="arrow_right"></button>
                 </div>
               </ng-template>
             </div>

@@ -1,8 +1,10 @@
 import { SearchService } from './../search.service';
 
-import { RETURNTICKETS } from 'src/app/data/mock-ReturnTickets';
 import { TicketReturn } from 'src/app/data/TicketReturn';
 import { Subject } from 'rxjs';
+import { Injectable } from '@angular/core';
+
+@Injectable()
 export class MainTicketService {
 
     // Flights: any = [
