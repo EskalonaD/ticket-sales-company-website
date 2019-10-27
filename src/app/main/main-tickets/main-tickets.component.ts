@@ -1,3 +1,4 @@
+import { SearchService } from './../search.service';
 
 import { TicketReturn } from 'src/app/data/TicketReturn';
 import { Component, OnInit, OnDestroy } from '@angular/core';
@@ -15,7 +16,7 @@ export class MainTicketsComponent implements OnInit, OnDestroy {
 
   private ticketChangeSub: Subscription
 
-  constructor(private ticketService: MainTicketService) { }
+  constructor(private ticketService: MainTicketService, private searchService: SearchService) { }
 
   tickets: any[];
 
@@ -23,13 +24,13 @@ export class MainTicketsComponent implements OnInit, OnDestroy {
 
 
     this.tickets = this.ticketService.getTickets();
-    this.ticketChangeSub = this.ticketService.ticketsChange.subscribe((tickets: TicketReturn[]) => {
+    this.ticketChangeSub = this.ticketService.ticketsChange.subscribe((tickets: any[]) => {
       this.tickets = tickets;
     })
-    this.minValue1 = Math.min.apply(Math, this.tickets.map(function (o) { return o.price; }));
-    this.maxValue1 = Math.max.apply(Math, this.tickets.map(function (o) { return o.price; }));
-    this.minValue2 = Math.min.apply(Math, this.tickets.map(function (o) { return o.durationTotal; }));
-    this.maxValue2 = Math.max.apply(Math, this.tickets.map(function (o) { return o.durationTotal; }));
+    this.minValue1 = Math.min.apply(Math, this.tickets.map(function (o) { return o.price; })) || 0;
+    this.maxValue1 = Math.max.apply(Math, this.tickets.map(function (o) { return o.price; })) || 0;
+    this.minValue2 = Math.min.apply(Math, this.tickets.map(function (o) { return o.durationTotal; })) || 0;
+    this.maxValue2 = Math.max.apply(Math, this.tickets.map(function (o) { return o.durationTotal; })) || 0;
   }
 
   ngOnDestroy(): void {
@@ -48,7 +49,7 @@ export class MainTicketsComponent implements OnInit, OnDestroy {
   ceilDuration: number;
   options1: Options = {
     floor: 0,
-    ceil: 500,
+    ceil: 1000,
     translate: (value: number, label: LabelType): string => {
       switch (label) {
         case LabelType.Low:

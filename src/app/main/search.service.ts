@@ -26,7 +26,9 @@ export class SearchService {
         passengersAmount: 1,
     }
 
-    constructor() { }
+    tickets: any[];
+
+    constructor(private ticketService: MainTicketService) { }
 
 
     onSearch(queryString: string): Airport[] {
@@ -41,30 +43,10 @@ export class SearchService {
     onSearchFlights(data: TripInfo, passengersAmount: number) {
         this.newTripInfo = data;
         this.newTripInfo.passengersAmount = passengersAmount;
-        this.calculateTickets()
 
+        this.ticketService.addTicketsArray(this.newTripInfo);
     }
-
-    calculateTickets() {
-        console.log(this.newTripInfo);
-
-        return this.newTripInfo.typeOfFlight === 'twoWay' ?
-            RETURNTICKETS.filter(el => el.ticketFrom.availableTickets >= this.newTripInfo.passengersAmount
-                && (this.newTripInfo.startP !== null || el.ticketTo.startAirport.name === this.newTripInfo.startP)
-                && (this.newTripInfo.endP !== null || el.ticketTo.endAirport.name === this.newTripInfo.endP)
-                && (this.newTripInfo.date.startDate === null || el.ticketTo.startTime.valueOf() > this.newTripInfo.date.startDate.valueOf())
-                && (this.newTripInfo.date.endDate === null || el.ticketFrom.endTime.valueOf() < this.newTripInfo.date.endDate.valueOf()))
-            : this.newTripInfo.typeOfFlight === 'oneWay' ?
-                ONEWAYTICKETS.filter(el => el.availableTickets > this.newTripInfo.passengersAmount
-                    && (this.newTripInfo.startP === null || el.startAirport.name === this.newTripInfo.startP)
-                    && (this.newTripInfo.endP === null || el.endAirport.name === this.newTripInfo.endP)
-                    && (this.newTripInfo.date.startDate === null || el.startTime.valueOf() > this.newTripInfo.date.startDate.valueOf())
-                    && (this.newTripInfo.date.endDate === null || el.endTime.valueOf() < this.newTripInfo.date.endDate.valueOf()))
-                : MULTITICKETS.filter(el => el.availableTickets > this.newTripInfo.passengersAmount
-                    && (this.newTripInfo.startP === null || el.flyWays[0].flyWay.startAirport.name === this.newTripInfo.startP)
-                    && (this.newTripInfo.endP === null || el.flyWays[el.flyWays.length - 1].flyWay.endAirport.name === this.newTripInfo.endP)
-                    && (this.newTripInfo.date.startDate === null || el.flyWays[0].startTime.valueOf() > this.newTripInfo.date.startDate.valueOf())
-                    && (this.newTripInfo.date.endDate === null || el.flyWays[el.flyWays.length - 1].endTime.valueOf() < this.newTripInfo.date.endDate.valueOf()))
-    }
-
 }
+
+
+

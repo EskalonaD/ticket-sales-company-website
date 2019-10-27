@@ -1,10 +1,12 @@
-import { SearchService } from './../search.service';
+import { MULTITICKETS } from './../../data/mock-MultiTickets';
+import { ONEWAYTICKETS } from './../../data/mock-OneWayTickets';
+import { RETURNTICKETS } from './../../data/mock-ReturnTickets';
+import { SearchService } from '../search.service';
 
 import { TicketReturn } from 'src/app/data/TicketReturn';
 import { Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
 
-@Injectable()
 export class MainTicketService {
 
     // Flights: any = [
@@ -14,20 +16,43 @@ export class MainTicketService {
 
     ticketsChange = new Subject<TicketReturn[]>();
 
-    tickets: any[];
+    tickets: any[] = [];
 
-    getTickets() {
-        this.tickets = this.searchService.calculateTickets();
-        this.ticketsChange.next(this.tickets);
+    addTicketsArray(query) {
+        console.log(query);
+
+        this.tickets = query.typeOfFlight === 'twoWay' ?
+            RETURNTICKETS.filter(el => el.ticketFrom.availableTickets >= query.passengersAmount
+                && (query.startP === null || el.ticketTo.startAirport.name === query.startP)
+                && (query.endP === null || el.ticketTo.endAirport.name === query.endP)
+                && (query.date.startDate === null || el.ticketTo.startTime.valueOf() > query.date.startDate.valueOf())
+                && (query.date.endDate === null || el.ticketFrom.endTime.valueOf() < query.date.endDate.valueOf()))
+            : query.typeOfFlight === 'oneWay' ?
+                ONEWAYTICKETS.filter(el => el.availableTickets > query.passengersAmount
+                    && (query.startP === null || el.startAirport.name === query.startP)
+                    && (query.endP === null || el.endAirport.name === query.endP)
+                    && (query.date.startDate === null || el.startTime.valueOf() > query.date.startDate.valueOf())
+                    && (query.date.endDate === null || el.endTime.valueOf() < query.date.endDate.valueOf()))
+                : MULTITICKETS.filter(el => el.availableTickets > query.passengersAmount
+                    && (query.startP === null || el.flyWays[0].flyWay.startAirport.name === query.startP)
+                    && (query.endP === null || el.flyWays[el.flyWays.length - 1].flyWay.endAirport.name === query.endP)
+                    && (query.date.startDate === null || el.flyWays[0].startTime.valueOf() > query.date.startDate.valueOf())
+                    && (query.date.endDate === null || el.flyWays[el.flyWays.length - 1].endTime.valueOf() < query.date.endDate.valueOf()))
+        this.ticketsChange.next(this.tickets)
+
         console.log(this.tickets);
 
-        return this.tickets;
+    }
+
+    getTickets() {
+        return this.tickets.slice();
     }
 
 
 
+
     results: any[] = [];
-    constructor(private searchService: SearchService) { }
+    constructor() { }
 
     onRangeFilter(min: number, max: number, props: string) {
 
