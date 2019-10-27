@@ -29,6 +29,19 @@ import { CardInfoComponent } from './main/main-ticket-booking/card-info/card-inf
 import { BookedTicketComponent } from './main/main-ticket-booking/booked-ticket/booked-ticket.component';
 import { ModalComponent } from './modal/modal.component';
 
+import { OneWayTripComponent } from './main/main-tickets/ticket/one-way-trip/one-way-trip.component';
+import { ReturnTripComponent } from './main/main-tickets/ticket/return-trip/return-trip.component';
+import { MultiTripComponent } from './main/main-tickets/ticket/multi-trip/multi-trip.component';
+import { FlightTimePipe } from './main/main-tickets/ticket/flight-time.pipe';
+import { UpcomingTripsComponent } from './my-trips/upcoming-trips/upcoming-trips.component';
+import { PastTripsComponent } from './my-trips/past-trips/past-trips.component';
+
+
+import { Ng5SliderModule } from 'ng5-slider';
+import { AuthorizationComponent } from './authorization/authorization.component';
+import { RegistrationComponent } from './registration/registration.component';
+
+import {MatMenuModule, MatButtonModule} from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +65,15 @@ import { ModalComponent } from './modal/modal.component';
     BookedTicketComponent,
     ModalComponent,
 
+    OneWayTripComponent,
+    ReturnTripComponent,
+    MultiTripComponent,
+    FlightTimePipe,
+    UpcomingTripsComponent,
+    PastTripsComponent,
+    AuthorizationComponent,
+    RegistrationComponent
+
   ],
   imports: [
     BrowserModule,
@@ -60,7 +82,9 @@ import { ModalComponent } from './modal/modal.component';
     NgbModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    NgxDaterangepickerMd.forRoot()
+    NgxDaterangepickerMd.forRoot(),
+    Ng5SliderModule,
+    MatMenuModule, MatButtonModule
   ],
   providers: [SearchService, MainTicketService],
   bootstrap: [AppComponent]

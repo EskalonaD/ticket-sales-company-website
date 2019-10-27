@@ -32,7 +32,7 @@
 
 .block-form__mainform {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   flex-direction: row;
 }
@@ -94,6 +94,7 @@ input[type=radio]:checked+label:after {
   flex-direction: row;
   margin-top: 20px;
   padding-bottom: 30px;
+  width: 45%;
 }
 
 .block-form__labelfrom,
@@ -112,7 +113,7 @@ input[type=radio]:checked+label:after {
 
 .block-form__labelfrom input {
   height: 40px;
-  width: 300px;
+  width: 230px;
   border-right: none;
   border-top: 1px solid grey;
   border-bottom: 1px solid grey;
@@ -124,7 +125,7 @@ input[type=radio]:checked+label:after {
 
 .block-form__labelto input {
   height: 40px;
-  width: 300px;
+  width: 250px;
   border-left: none;
   border-top: 1px solid grey;
   border-bottom: 1px solid grey;
@@ -172,8 +173,8 @@ input[type=radio]:checked+label:after {
   justify-content: space-between;
   margin-top: 20px;
   padding-bottom: 30px;
-  width: 100%;
-  padding-left: 20px;
+  width: 55%;
+  margin-left: 25px;
   position: relative;
 
 }
@@ -212,7 +213,7 @@ input[type=radio]:checked+label:after {
 
 .form-control {
   height: 40px;
-  width: 300px;
+  width:250px;
   text-align: center;
   font-family: sans-serif;
   font-size: 18px;
@@ -238,11 +239,10 @@ input[type=radio]:checked+label:after {
 }
 
 .block-form__calendar {
-  width: 60%;
   display: flex;
   align-items: center;
   height: 40px;
-  width: 300px;
+  width: 250px;
 }
 
 .block-calendar__image {
@@ -303,4 +303,267 @@ input[type=radio]:checked+label:after {
 
 .arrow_left {
   transform: scale(-1);
+}
+
+@media (max-width: 1350px) {
+  .block-form__labelfrom input {
+    height: 40px;
+    width: 220px;
+  }
+
+  .block-form__labelto input {
+    height: 40px;
+    width: 230px;
+  }
+  .block-form__button {
+    height: 40px;
+    width: 60px;
+  }
+
+  .block-form__calendar {
+    height: 40px;
+    width: 250px;
+  }
+
+  .block-form__passenger {
+    height: 40px;
+    width: 200px;
+  }
+
+  .block-form__buttonsearch {
+    width: 135px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 1320px) {
+  .block-form__labelfrom input {
+    height: 40px;
+    width: 210px;
+  }
+
+  .block-form__labelto input {
+    height: 40px;
+    width: 210px;
+  }
+  .block-form__button {
+    height: 40px;
+    width: 50px;
+  }
+
+  .block-form__calendar {
+    height: 40px;
+    width: 250px;
+  }
+
+  .block-form__passenger {
+    height: 40px;
+    width: 200px;
+  }
+
+  .block-form__buttonsearch {
+    width: 135px;
+    height: 40px;
+  }
+
+  .block-form__textfields {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    margin-top: 20px;
+    padding-bottom: 30px;
+    width: 40%;
+  }
+
+  .block-form__information {
+    width: 55%;
+  }
+}
+
+@media (max-width: 1250px) {
+  .block-form__mainform {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .block-form__textfields {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .block-form__labelfrom input {
+    height: 40px;
+    width: 250px;
+  }
+
+  .block-form__labelto input {
+    height: 40px;
+    width: 250px;
+  }
+  .block-form__button {
+    height: 40px;
+    width: 50px;
+  }
+
+  .block-form__calendar {
+    height: 40px;
+    width: 250px;
+  }
+
+  .block-form__passenger {
+    height: 40px;
+    width: 200px;
+  }
+
+  .block-form__buttonsearch {
+    width: 135px;
+    height: 40px;
+  }
+
+  .block-form__textfields {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    margin-top: 20px;
+    padding-bottom: 30px;
+    width: 100%;
+  }
+
+  .block-form__information {
+    width: 70%;
+    margin-left: 0;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 1250px) {
+  .block-form__mainform {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .block-form__textfields {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  .elements1{
+    width: 45%;
+  }
+
+  .elements2{
+    width: 10%;
+  }
+
+  .elements3{
+    width: 45%;
+  }
+
+  .block-form__labelfrom input {
+    height: 40px;
+    width: 100%;
+  }
+
+  .block-form__labelto input {
+    height: 40px;
+    width: 100%;
+  }
+  .block-form__button {
+    height: 40px;
+    width: 100%;
+  }
+
+  .block-form__calendar {
+    height: 40px;
+    width: 250px;
+  }
+
+  .block-form__passenger {
+    height: 40px;
+    width: 200px;
+  }
+
+  .block-form__buttonsearch {
+    width: 135px;
+    height: 40px;
+  }
+
+  .block-form__textfields {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    margin-top: 20px;
+    padding-bottom: 30px;
+    width: 100%;
+  }
+
+  .block-form__information {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 0;
+  }
+}
+
+@media (max-width:992px) {
+  .block-form__information {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .block-form__calendar,
+  .block-form__passenger {
+    width: 100%;
+  }
+  .block-form__search {
+    width: 50%;
+  }
+
+  .block-form__calendar {
+    height: 40px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .form-control {
+    width: 100%;
+  }
+
+  .block-form__passenger {
+    height: 40px;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .block-form__buttonsearch {
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width:768px) {
+  .block-form__search {
+    width: 100%;
+  }
+  .block-main__text-header {
+    font-size: 35px;
+    width: 80%;
+  }
+}
+
+@media (max-width:569px) {
+  .block-textfields {
+    margin-right: 15px;
+    margin-left: 10px;
+    margin-bottom: 15px;
+  }
+  .block-form__buttons {
+    display: flex;
+    flex-direction: column;
+  }
 }
