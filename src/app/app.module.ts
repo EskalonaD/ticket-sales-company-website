@@ -27,7 +27,7 @@ import { MainTicketBookingComponent } from './main/main-ticket-booking/main-tick
 import { PassengersFormComponent } from './main/main-ticket-booking/passengers-form/passengers-form.component';
 import { CardInfoComponent } from './main/main-ticket-booking/card-info/card-info.component';
 import { BookedTicketComponent } from './main/main-ticket-booking/booked-ticket/booked-ticket.component';
-import { ModalComponent } from './modal/modal.component';
+import { ModalComponent } from './main/main-ticket-booking/card-info/modal/modal.component';
 
 import { OneWayTripComponent } from './main/main-tickets/ticket/one-way-trip/one-way-trip.component';
 import { ReturnTripComponent } from './main/main-tickets/ticket/return-trip/return-trip.component';

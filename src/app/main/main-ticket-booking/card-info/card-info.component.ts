@@ -11,7 +11,7 @@ export class CardInfoComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   focusInput: string;
-
+  isSubmitted: boolean = false;
   ngOnInit() {
   }
 
@@ -36,6 +36,7 @@ export class CardInfoComponent implements OnInit {
   });
 
   onSubmit() {
+    this.isSubmitted = true;
     console.log(this.cardInfo.value);
   }
 

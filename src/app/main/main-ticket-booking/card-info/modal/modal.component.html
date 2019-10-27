@@ -1,6 +1,6 @@
-<div class="modal" [ngClass]="{'modal_hidden': !display}">
+<div class="modal">
     <div class="modal__content">
-        <input type="image" src="/assets/img/cross-icon.svg" class="modal__close-button" (click)="onCloseButton()">
+        <input type="image" src="/assets/img/cross-icon.svg" class="modal__close-button" [routerLink]="['/']">
         <ng-container *ngIf="modalType === 'ticketBooked'">
             <p class="section-title modal__title">Hooray, you've booked your tickets!</p>
             <div class="modal__image-container">
