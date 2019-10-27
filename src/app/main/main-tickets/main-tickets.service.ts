@@ -24,7 +24,7 @@ export class MainTicketService {
 
         this.results = this.tickets.filter((item) => {
 
-            return min <= item.price && item[props] <= max
+            return min <= item[props] && item[props] <= max
         });
 
         this.ticketsChange.next(this.results)
