@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { RETURNTICKETS } from 'src/app/data/mock-ReturnTickets';
-import { TicketReturn } from 'src/app/data/TicketReturn';
+import { SearchService } from 'src/app/main/search.service';
 
 @Component({
   selector: 'app-return-trip',
@@ -9,10 +8,13 @@ import { TicketReturn } from 'src/app/data/TicketReturn';
   styleUrls: ['./return-trip.component.css']
 })
 export class ReturnTripComponent implements OnInit {
+  
+  get tickets() {
+    return this.searchService.calculateTickets();
+  }
 
-  constructor() { }
+  constructor( private searchService: SearchService) { }
 
-  tickets: TicketReturn[] = RETURNTICKETS;
 
   ngOnInit() {
     console.log(this.tickets)

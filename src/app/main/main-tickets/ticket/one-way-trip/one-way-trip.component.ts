@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchService } from 'src/app/main/search.service';
 
-import { ONEWAYTICKETS } from 'src/app/data/mock-OneWayTickets';
-import { TicketOneWay } from 'src/app/data/TicketOneWay';
+
 
 @Component({
   selector: 'app-one-way-trip',
@@ -9,10 +9,12 @@ import { TicketOneWay } from 'src/app/data/TicketOneWay';
   styleUrls: ['./one-way-trip.component.css']
 })
 export class OneWayTripComponent implements OnInit {
+  get tickets() {
+    return this.searchService.calculateTickets();
+  }
 
-  constructor() { }
+  constructor( private searchService: SearchService) { }
 
-  tickets: TicketOneWay[] = ONEWAYTICKETS;
 
   ngOnInit() {
     console.log(this.tickets)

@@ -57,6 +57,7 @@
   </div>
   <div class="passenger-form__button">
     <button class="button button_blue passenger-form__submit" type="submit"
+      [disabled]="!passengerData.valid"
       [ngClass]="{'passenger-form__submit_disabled': !passengerData.valid}"
       [routerLink]="['../card-info']">Book</button>
   </div>

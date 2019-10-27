@@ -1,7 +1,9 @@
+import { Moment } from 'moment';
+
 export interface TripInfo {
     date: {
-        endDate: Object;
-        startDate: Object;
+        endDate: Moment;
+        startDate: Moment;
     },
     endP: string,
     startP: string,

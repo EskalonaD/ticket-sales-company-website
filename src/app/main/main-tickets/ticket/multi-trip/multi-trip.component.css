@@ -15,7 +15,7 @@
     width: 100%;
     flex-direction: column;
     justify-content: space-between;
-    padding: 25px 75px;
+    padding: 25px 50px;
   }
   
   .ticket-details {
@@ -33,14 +33,12 @@
   
   .ticket-details__date {
     margin-right: 20px;
-    min-width: 150px;
   }
   
   .ticket-time {
     font-weight: bold;
     font-size: 24px;
     letter-spacing: 1px;
-    min-width: 200px;
   }
   
   .ticket-date {
@@ -51,7 +49,7 @@
   }
   
   .ticket-details__trip {
-    min-width: 150px;
+
   }
   
   .ticket-details__flight-duration {
@@ -75,8 +73,8 @@
   }
   
   .route-details__arrow {
-    width: 100px;
-    min-width: 100px;
+    width: 75px;
+    min-width: 75px;
   }
   
   .route-details__transfer{
@@ -88,7 +86,6 @@
     display: flex;
     align-items: center;
     color: grey;
-    min-width: 300px;
   }
   
   .trip-info__dashes {
@@ -99,9 +96,8 @@
     border-bottom: 3px dashed grey;
   }
   
-  .trip-ifno__text {
+  .trip-info__text {
     display: block;
-    min-width: 150px;
   }
   
   .ticket__price-block {
@@ -109,7 +105,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 25px 50px;
+    padding: 15px 25px;
     border-left: 2px solid var(--main-blue);
   }
   
@@ -122,10 +118,26 @@
   .button-book {
     border-radius: 5px;
     margin-top: 25px;
-    font-size: 30px;
+    font-size: 24px;
     font-weight: bold;
-    padding: 20px 50px;
+    padding: 15px 25px;
     transition: 0.1s;
+  }
+
+  @media (max-width: 1200px) {
+    .ticket {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .ticket__price-block {
+      border: none;
+    }
+
+    .ticket-info {
+      padding: 10px 25px;
+    }
   }
 
   @media (max-width: 768px) {
@@ -140,22 +152,4 @@
     }
   }
 
-  @media (max-width: 1000px) {
-    .ticket {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-
-    .ticket__price-block {
-      border: none;
-    }
-
-    .ticket-info {
-      padding: 10px 25px;
-    }
-
-    .trip-info {
-      min-width: 150px;
-    }
-  }
+  
