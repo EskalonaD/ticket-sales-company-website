@@ -3,18 +3,24 @@
     <div class="card-info__container">
         <form [formGroup]="cardInfo" (ngSubmit)="onSubmit()" class="card-form">
             <div class="card-form__number">
-                <label for="cardNumber">Card number</label>
-                <input type="text" id="cardNumber" placeholder="0000000000000000" formControlName="number"
-                    (keypress)="onNANInput($event); onMaxLength($event, 16)" 
+                <label for="cardNumber" class="card-form__label">Card number</label>
+                <input type="text" id="cardNumber" 
+                placeholder="0000000000000000" 
+                formControlName="number" 
+                [ngClass]="{'input_invalid': numberField.invalid && numberField.touched, 'input_valid': numberField.valid && numberField.touched}"
+                    (keypress)="onNANInput($event); 
+                                onMaxLength($event, 16)" 
                     (focus)="onFocus('number')" 
                     (blur)="onBlur()"
                     (paste)="onPaste($event)"
-                    
                 >
             </div>
             <div class="card-form__expiry">
-                <label for="cardExpiry">End Date</label>
-                <input type="text" id="cardExpiry" placeholder="01/25" formControlName="expiry" 
+                <label for="cardExpiry" class="card-form__label">End Date</label>
+                <input type="text" id="cardExpiry" 
+                placeholder="01/25" 
+                formControlName="expiry"
+                [ngClass]="{'input_invalid': expiryField.invalid && expiryField.touched, 'input_valid': expiryField.valid && expiryField.touched}"
                     (focus)="onFocus('expiry')"
                     (blur)="onBlur()"
                     (paste)="onPaste($event)"
@@ -24,25 +30,41 @@
                 >
             </div>
             <div class="card-form__cvv">
-                <label for="cardCvv">CV2</label>
-                <input type="text" id="cardCvv" placeholder="000" formControlName="cvv" 
+                <label for="cardCvv" class="card-form__label">CV2</label>
+                <input type="text" id="cardCvv" 
+                placeholder="000" 
+                formControlName="cvv" 
+                [ngClass]="{'input_invalid': cvvField.invalid && cvvField.touched, 'input_valid': cvvField.valid && cvvField.touched}"
                     (keypress)="onMaxLength($event, 3);
                                 onNANInput($event);"
                     (paste)="onPaste($event)"
                     (focus)="onFocus('cvv')" 
-                    (blur)="onBlur()"
+                    (blur)="onBlur();"
                 >
             </div>
             <div class="card-form__owner">
-                <label for="cardOwner">Card Owner</label>
-                <input type="text" id="cardOwner" placeholder="John Johnson" formControlName="owner" 
+                <label for="cardOwner" class="card-form__label">Card Owner</label>
+                <input type="text" id="cardOwner" 
+                    placeholder="John Johnson" 
+                    formControlName="owner"
+                    [ngClass]="{'input_invalid': ownerField.invalid && ownerField.touched, 'input_valid': ownerField.valid && ownerField.touched}"
                     (focus)="onFocus('owner')" 
-                    (blur)="onBlur()"
+                    (blur)="onBlur();"
                     (paste)="onPaste($event)"
                 >
             </div>
+            <div class="card-form__warning">
+                <p *ngIf="numberField.invalid && numberField.errors.required && numberField.touched">Card number is required!</p>
+                <p *ngIf="numberField.invalid && numberField.errors.pattern && numberField.touched">Card number must be 16 digits long!</p>
+                <p *ngIf="expiryField.invalid && expiryField.errors.required && expiryField.touched">End date is required!</p>
+                <p *ngIf="expiryField.invalid && expiryField.errors.pattern && expiryField.touched">End date is invalid!</p>
+                <p *ngIf="cvvField.invalid && cvvField.errors.required && cvvField.touched">CV2 is required!</p>
+                <p *ngIf="cvvField.invalid && cvvField.errors.pattern && cvvField.touched">CV2 must be 3 digits long!</p>
+                <p *ngIf="ownerField.invalid && ownerField.errors.required && ownerField.touched">Card owner is required!</p>
+                <p *ngIf="ownerField.invalid && ownerField.errors.minlength && ownerField.touched">Card owner name must be at least 2 charaters!</p>
+            </div>
             <div class="card-form__agreement">
-                <label>
+                <label class="card-form__label">
                     <input type="checkbox" formControlName="agreement">
                     I agree with <a href="#">Terms & Conditions</a>
                 </label>

@@ -19,33 +19,26 @@ export class MainTicketService {
     tickets: any[] = [];
 
     addTicketsArray(query) {
-        // console.log(query);
-        console.log(this.tickets);
-        console.log(MULTITICKETS);
 
         this.tickets = query.typeOfFlight === 'twoWay' ?
             RETURNTICKETS.filter(el => el.ticketFrom.availableTickets >= query.passengersAmount
-                && (query.startP === null || el.ticketTo.startAirport.name === query.startP)
-                && (query.endP === null || el.ticketTo.endAirport.name === query.endP)
+                && (query.startP === null || query.startP === '' || el.ticketTo.startAirport.name === query.startP)
+                && (query.endP === null || query.endP === '' || el.ticketTo.endAirport.name === query.endP)
                 && (query.date.startDate === null || el.ticketTo.startTime.valueOf() > query.date.startDate.valueOf())
                 && (query.date.endDate === null || el.ticketFrom.endTime.valueOf() < query.date.endDate.valueOf()))
             : query.typeOfFlight === 'oneWay' ?
                 ONEWAYTICKETS.filter(el => el.availableTickets > query.passengersAmount
-                    && (query.startP === null || el.startAirport.name === query.startP)
-                    && (query.endP === null || el.endAirport.name === query.endP)
+                    && (query.startP === null || query.startP === '' || el.startAirport.name === query.startP)
+                    && (query.endP === null || query.endP === '' || el.endAirport.name === query.endP)
                     && (query.date.startDate === null || el.startTime.valueOf() > query.date.startDate.valueOf())
                     && (query.date.endDate === null || el.endTime.valueOf() < query.date.endDate.valueOf()))
                 : MULTITICKETS.filter(el => el.availableTickets > query.passengersAmount
-                    && (query.startP === null || el.flyWays[0].flyWay.startAirport.name === query.startP)
-                    && (query.endP === null || el.flyWays[el.flyWays.length - 1].flyWay.endAirport.name === query.endP)
+                    && (query.startP === null || query.startP === '' || el.flyWays[0].flyWay.startAirport.name === query.startP)
+                    && (query.endP === null || query.endP === '' || el.flyWays[el.flyWays.length - 1].flyWay.endAirport.name === query.endP)
                     && (query.date.startDate === null || el.flyWays[0].startTime.valueOf() > query.date.startDate.valueOf())
                     && (query.date.endDate === null || el.flyWays[el.flyWays.length - 1].endTime.valueOf() < query.date.endDate.valueOf()))
 
-        console.log(MULTITICKETS);
-
         this.ticketsChange.next(this.tickets)
-
-        console.log(this.tickets);
 
     }
 

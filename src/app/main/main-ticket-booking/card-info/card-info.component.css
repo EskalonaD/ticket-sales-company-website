@@ -37,7 +37,7 @@
 }
 
 
-.card-form input:focus {
+input:focus {
     border: 1px solid var(--main-blue);
 }
 
@@ -45,7 +45,7 @@
     display: inline-block;
 }
 
-.card-form input {
+input {
     font-size: 16px;
     display: inline-block;
     width: 100%;
@@ -54,15 +54,11 @@
     border-radius: 2px;
 }
 
-.hey {
-    color: red;
-}
-
 .card-form input[type="checkbox"] {
     width: auto;
 }
 
-.card-form label {
+.card-form__label {
     display: block;
     line-height: 30px;
 }
@@ -129,6 +125,22 @@
     .card-form {
         width: 100%;
     }
+}
+
+.input_invalid {
+    border: 1px solid red;
+}
+
+.input_valid {
+    border: 1px solid green;
+}
+
+.card-form__warning {
+    color: red;
+    font-style: italic;
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 20px;
 }
 
 

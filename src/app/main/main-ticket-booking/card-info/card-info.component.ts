@@ -12,6 +12,7 @@ export class CardInfoComponent implements OnInit {
 
   focusInput: string;
   isSubmitted: boolean = false;
+
   ngOnInit() {
   }
 
@@ -31,13 +32,32 @@ export class CardInfoComponent implements OnInit {
         Validators.required,
         Validators.pattern("[0-9]{3}"),
         Validators.minLength(3)])],
-    owner: ['', Validators.required],
+    owner: ['',  
+      Validators.compose([
+        Validators.required,
+        Validators.minLength(3)
+      ])],
     agreement: [false, Validators.requiredTrue]
   });
 
+  get numberField() {
+    return this.cardInfo.get('number');
+  }
+
+  get expiryField() {
+    return this.cardInfo.get('expiry');
+  }
+
+  get cvvField() {
+    return this.cardInfo.get('cvv');
+  }
+
+  get ownerField() {
+    return this.cardInfo.get('owner');
+  }
+
   onSubmit() {
     this.isSubmitted = true;
-    console.log(this.cardInfo.value);
   }
 
   onFocus(cardPart: string) {
@@ -59,7 +79,7 @@ export class CardInfoComponent implements OnInit {
   }
 
   onNANInput(event) {
-    if (event.key.match(/[^0-9]/)) {
+    if (!event.key.match(/[0-9]/)) {
       event.preventDefault();
     }
   }

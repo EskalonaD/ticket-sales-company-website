@@ -4,9 +4,6 @@ import { MainTicketService } from './main-tickets/main-tickets.service';
 import { Airport } from '../data/airports.module';
 import { AIRPORTS } from '../data/flightFrom';
 import { TripInfo } from './TripInfo';
-import { RETURNTICKETS } from '../data/mock-ReturnTickets';
-import { ONEWAYTICKETS } from '../data/mock-OneWayTickets';
-import { MULTITICKETS } from '../data/mock-MultiTickets';
 import * as moment from 'moment';
 
 
@@ -43,10 +40,6 @@ export class SearchService {
     onSearchFlights(data: TripInfo, passengersAmount: number) {
         this.newTripInfo = data;
         this.newTripInfo.passengersAmount = passengersAmount;
-
-        // console.log(this.newTripInfo);
-
-
         this.ticketService.addTicketsArray(this.newTripInfo);
     }
 }
