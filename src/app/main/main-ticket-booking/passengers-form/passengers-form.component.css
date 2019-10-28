@@ -17,6 +17,10 @@
     display: inline-block;
 }
 
+.passenger-data {
+    margin-bottom: 100px;
+}
+
 input:focus,
 select:focus {
     border: 1px solid var(--main-blue);
@@ -32,7 +36,7 @@ select {
     border-radius: 2px;
 }
 
-.passenger-form label {
+.passenger-form__label {
     display: block;
     line-height: 30px;
 }
@@ -50,14 +54,14 @@ select {
     margin-top: 30px;
 }
 
-.passenger-data__name div,
-.passenger-data__passport div {
+.passenger-data__name-block,
+.passenger-data__passport-block {
     display: inline-block;
     width: calc((100% - 25px) / 2);
 }
 
-.passenger-data__name div:not(:last-child),
-.passenger-data__passport div:not(:last-child) {
+.passenger-data__name-block:not(:last-child),
+.passenger-data__passport-block:not(:last-child) {
     margin-right: 25px;
 }
 
@@ -76,8 +80,7 @@ select {
 }
 
 .passenger-form__luggage {
-    margin-top: 75px;
-    margin-bottom: 40px;
+    margin-top: 25px;
 }
 
 .passenger-form__price {

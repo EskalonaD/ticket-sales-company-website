@@ -2,19 +2,19 @@
   <div class="passenger-data" *ngFor="let passenger of bookingService.passengers">
     <p class="passenger-form__text_big">Passenger {{ passenger.id }}</p>
     <div formGroupName="name" class="passenger-data__name">
-      <div>
-        <label for="firstName">First name</label>
+      <div class="passenger-data__name-block">
+        <label for="firstName" class="passenger-form__label">First name</label>
         <input type="text" formControlName="firstName" placeholder="Type something" 
           [ngClass]="{'input_invalid': name.invalid && name.touched, 'input_valid': name.valid && name.touched}">
       </div>
-      <div>
-        <label for="lastName">Last name</label>
+      <div class="passenger-data__name-block">
+        <label for="lastName" class="passenger-form__label">Last name</label>
         <input type="text" formControlName="lastName" placeholder="Type something" 
           [ngClass]="{'input_invalid': name.invalid && name.touched, 'input_valid': name.valid && name.touched}">
       </div>
     </div>
     <div class="passenger-data__country">
-      <label for="country">Country</label>
+      <label for="country" class="passenger-form__label">Country</label>
       <select formControlName="country" id="country" 
         [ngClass]="{'input_invalid': country.invalid && country.touched, 'input_valid': country.valid && country.touched}">
         <option value="" disabled selected hidden>Select your country</option>
@@ -24,7 +24,7 @@
       </select>
     </div>
     <div class="passenger-data__gender">
-      <label for="gender">Gender</label>
+      <label for="gender" class="passenger-form__label">Gender</label>
       <select formControlName="gender" id="gender" 
         [ngClass]="{'input_invalid': gender.invalid && gender.touched, 'input_valid': gender.valid && gender.touched}">
         <option value="" disabled selected hidden>f / m</option>
@@ -33,18 +33,18 @@
       </select>
     </div>
     <div class="passenger-data__birth">
-      <label for="birthDate">Date of Birth</label>
+      <label for="birthDate" class="passenger-form__label">Date of Birth</label>
       <input type="date" formControlName="birthDate" id="birthDate" 
         [ngClass]="{'input_invalid': birthDate.invalid && birthDate.touched, 'input_valid': birthDate.valid && birthDate.touched}">
     </div>
     <div formGroupName="passport" class="passenger-data__passport">
-      <div>
-        <label for="id">Passport ID</label>
+      <div class="passenger-data__passport-block">
+        <label for="id" class="passenger-form__label">Passport ID</label>
         <input type="text" formControlName="id" id="id" placeholder="Type something" 
           [ngClass]="{'input_invalid': passport.invalid && passport.touched, 'input_valid': passport.valid && passport.touched}">
       </div>
-      <div>
-        <label for="expiration">Passport or ID expiry date</label>
+      <div class="passenger-data__passport-block">
+        <label for="expiration" class="passenger-form__label">Passport or ID expiry date</label>
         <input type="date" formControlName="expiration" id="expiration" 
           [ngClass]="{'input_invalid': passport.invalid && passport.touched, 'input_valid': passport.valid && passport.touched}">
       </div>
@@ -59,7 +59,7 @@
     <div class="passenger-form__luggage">
       <p class="passenger-form__text_big">Luggage</p>
       <p class="passenger-form__text_small">Choose the luggage to want to travel with</p>
-      <label><input type="checkbox" formControlName="luggage" id="luggage-check" class="passenger-form__checkbox">Bag up
+      <label class="passenger-form__label"><input type="checkbox" formControlName="luggage" id="luggage-check" class="passenger-form__checkbox">Bag up
         to 24k. ($20
         additional
         cost)</label>

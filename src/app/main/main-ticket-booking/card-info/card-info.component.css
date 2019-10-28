@@ -54,15 +54,11 @@ input {
     border-radius: 2px;
 }
 
-.hey {
-    color: red;
-}
-
 .card-form input[type="checkbox"] {
     width: auto;
 }
 
-.card-form label {
+.card-form__label {
     display: block;
     line-height: 30px;
 }

@@ -3,7 +3,7 @@
     <div class="card-info__container">
         <form [formGroup]="cardInfo" (ngSubmit)="onSubmit()" class="card-form">
             <div class="card-form__number">
-                <label for="cardNumber">Card number</label>
+                <label for="cardNumber" class="card-form__label">Card number</label>
                 <input type="text" id="cardNumber" 
                 placeholder="0000000000000000" 
                 formControlName="number" 
@@ -16,7 +16,7 @@
                 >
             </div>
             <div class="card-form__expiry">
-                <label for="cardExpiry">End Date</label>
+                <label for="cardExpiry" class="card-form__label">End Date</label>
                 <input type="text" id="cardExpiry" 
                 placeholder="01/25" 
                 formControlName="expiry"
@@ -30,7 +30,7 @@
                 >
             </div>
             <div class="card-form__cvv">
-                <label for="cardCvv">CV2</label>
+                <label for="cardCvv" class="card-form__label">CV2</label>
                 <input type="text" id="cardCvv" 
                 placeholder="000" 
                 formControlName="cvv" 
@@ -43,7 +43,7 @@
                 >
             </div>
             <div class="card-form__owner">
-                <label for="cardOwner">Card Owner</label>
+                <label for="cardOwner" class="card-form__label">Card Owner</label>
                 <input type="text" id="cardOwner" 
                     placeholder="John Johnson" 
                     formControlName="owner"
@@ -64,7 +64,7 @@
                 <p *ngIf="ownerField.invalid && ownerField.errors.minlength && ownerField.touched">Card owner name must be at least 2 charaters!</p>
             </div>
             <div class="card-form__agreement">
-                <label>
+                <label class="card-form__label">
                     <input type="checkbox" formControlName="agreement">
                     I agree with <a href="#">Terms & Conditions</a>
                 </label>
