@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from 'src/app/main/search.service';
+import { BookingService } from 'src/app/main/main-ticket-booking/booking.service';
 
 
 @Component({
@@ -13,9 +14,12 @@ export class MultiTripComponent implements OnInit {
     return this.searchService.calculateTickets();
   }
 
-  constructor(private searchService: SearchService) { }
+  constructor(private searchService: SearchService, private bookingService: BookingService) { }
 
-
+  onClick(value): void {
+    this.bookingService.ticket = value;
+    this.bookingService.type = this.searchService.newTripInfo.typeOfFlight
+  }
 
   ngOnInit() {
     console.log(this.tickets);
