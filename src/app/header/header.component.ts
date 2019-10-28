@@ -1,4 +1,6 @@
+import { RegistrationService } from './../registration/registration.service';
 import { Component, OnInit } from '@angular/core';
+import { Subscription, Subscribable } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +8,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  condition: boolean = false;
-  constructor() { }
+
+
+  condition = false;
+  private userSub: Subscription;
+  constructor(private registrationService: RegistrationService) { }
+
 
   ngOnInit() {
+    this.userSub = this.registrationService.user.subscribe(user => {
+      this.condition = !!user;
+      console.log(this.condition);
+
+    })
   }
+
+  ngOnDestroy(): void {
+    this.userSub.unsubscribe()
+
+  }
+
+
+
 
 }

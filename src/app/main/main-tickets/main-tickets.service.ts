@@ -14,7 +14,7 @@ export class MainTicketService {
 
     // ]
 
-    ticketsChange = new Subject<TicketReturn[]>();
+    ticketsChange = new Subject<any[]>();
 
     tickets: any[] = [];
 

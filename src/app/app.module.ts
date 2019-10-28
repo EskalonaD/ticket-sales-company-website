@@ -1,3 +1,4 @@
+import { RegistrationService } from './registration/registration.service';
 import { MainTicketService } from './main/main-tickets/main-tickets.service';
 import { SearchService } from './main/search.service';
 import { SpecialOfferComponent } from './main/main-gallery/special-offers/special-offer/special-offer.component';
@@ -9,6 +10,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MainComponent } from './main/main.component';
 import { FooterComponent } from './footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
 
 import { PopularDestinationsComponent } from './main/main-gallery/popular-destinations/popular-destinations.component';
 import { PopularCardComponent } from './main/main-gallery/popular-destinations/popular-card/popular-card.component';
@@ -37,7 +39,6 @@ import { PastTripsComponent } from './my-trips/past-trips/past-trips.component';
 
 
 import { Ng5SliderModule } from 'ng5-slider';
-import { AuthorizationComponent } from './authorization/authorization.component';
 import { RegistrationComponent } from './registration/registration.component';
 
 import { MatMenuModule, MatButtonModule } from '@angular/material';
@@ -69,7 +70,6 @@ import { MatMenuModule, MatButtonModule } from '@angular/material';
     FlightTimePipe,
     UpcomingTripsComponent,
     PastTripsComponent,
-    AuthorizationComponent,
     RegistrationComponent
 
   ],
@@ -82,9 +82,10 @@ import { MatMenuModule, MatButtonModule } from '@angular/material';
     BrowserAnimationsModule,
     NgxDaterangepickerMd.forRoot(),
     Ng5SliderModule,
-    MatMenuModule, MatButtonModule
+    MatMenuModule, MatButtonModule,
+    HttpClientModule
   ],
-  providers: [SearchService, MainTicketService],
+  providers: [SearchService, MainTicketService, RegistrationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

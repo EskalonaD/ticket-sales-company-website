@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { NgForm } from '@angular/forms';
+
+import { RegistrationService, RegisterResponseData } from './registration.service';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -8,40 +12,48 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class RegistrationComponent implements OnInit {
 
-  RegistrationForm: FormGroup;
+  isLogin = true;
+  error: string = null;
 
-  constructor(private fb: FormBuilder){}
-  ngOnInit(){
-   this.initForm();
+
+  constructor(private registrationService: RegistrationService, private router: Router) { }
+  ngOnInit() {
   }
- 
-  initForm(){
-   this.RegistrationForm = this.fb.group({
-     username: ['', [
-       Validators.required,
-       Validators.pattern(/[A-z]/)
-      ]
-     ],
-      email: ['', [
-        Validators.required, Validators.email
-       ]
-      ],
-     password: ['', [
-       Validators.required, Validators.pattern(/^.*(?=.{8,})(?=..*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$/)
-      ]
-     ]
-    });
+
+  onSwitchModel() {
+    this.isLogin = !this.isLogin;
   }
-  onSubmit() {
-    const controls = this.RegistrationForm.controls;
-    
-     if (this.RegistrationForm.invalid) {
-      Object.keys(controls)
-       .forEach(controlName => controls[controlName].markAsTouched());
-  
-       return;
-      }
-     console.log(this.RegistrationForm.value);
+
+  onSubmit(form: NgForm) {
+    if (!form.valid) {
+      return;
     }
+    const email = form.value.email;
+    const password = form.value.password
+
+    let authObs: Observable<RegisterResponseData>;
+
+    if (this.isLogin) {
+      authObs = this.registrationService.login(email, password);
+    } else {
+      authObs = this.registrationService.signup(email, password);
+    }
+
+    authObs.subscribe(
+      resData => {
+        console.log(resData);
+        this.router.navigate(['../flights/gallery'])
+      },
+      errorMessage => {
+        console.log(errorMessage);
+        this.error = errorMessage;
+
+      }
+    )
+
+    form.reset();
+  }
+
+
 
 }

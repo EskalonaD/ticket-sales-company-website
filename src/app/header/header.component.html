@@ -3,51 +3,55 @@
     <img src="../assets/img/logo.svg" alt="Travelo" />
   </div>
   <nav class="header-menu__navigation navigation">
-        <div *ngIf="condition; then thenBlock else elseBlock"></div>
-        <ng-template #thenBlock>
-          <div class="main-menu">
-            <div class="main-menu__list">
-            <ul class="main-menu__navigation">
-                <li class="navigation-header__item" routerLinkActive="active"><a routerLink="/flights/gallery"
-                  class="navigation-header__link">Flights</a></li>
-              <li class="navigation-header__item" routerLinkActive="active"><a routerLink="/my-trips"
-                  class="navigation-header__link">My trips</a></li>
-              <li class="navigation-header__item" routerLinkActive="active"><a routerLink="/trip-helper"
-                  class="navigation-header__link">Trip helper</a>
-              </li>
-            </ul>
-            </div>
-            <div class="header__registration">
-                <a href="#" class="header__registration-link">AV</a>
-              </div>
-              </div>
-      <div class="menu-mobile">
-      <button mat-button [matMenuTriggerFor] = "menu" class="menu-mobile__button">Menu &nbsp;<svg class="burger-menu" height="32px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z" fill="#283493"/></svg></button>
-        <mat-menu #menu = "matMenu" class="matMenu">
+    <div class="main-menu" *ngIf="condition">
+      <div class="main-menu__list">
+        <ul class="main-menu__navigation">
+          <li class="navigation-header__item" routerLinkActive="active"><a routerLink="/flights/gallery"
+              class="navigation-header__link">Flights</a></li>
+          <li class="navigation-header__item" routerLinkActive="active"><a routerLink="/my-trips"
+              class="navigation-header__link">My trips</a></li>
+          <li class="navigation-header__item" routerLinkActive="active"><a routerLink="/trip-helper"
+              class="navigation-header__link">Trip helper</a>
+          </li>
+        </ul>
+      </div>
+      <div class="header__registration">
+        <a href="#" class="header__registration-link">AV</a>
+      </div>
+    </div>
+    <div class="menu-mobile" *ngIf="condition">
+      <button mat-button [matMenuTriggerFor]="menu" class="menu-mobile__button">Menu &nbsp;<svg class="burger-menu"
+          height="32px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32"
+          width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink">
+          <path
+            d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"
+            fill="#283493" /></svg></button>
+      <mat-menu #menu="matMenu" class="matMenu">
         <button mat-menu-item routerLink="/flights/gallery">Flights</button>
         <button mat-menu-item routerLink="/my-trips">My trips</button>
         <button mat-menu-item routerLink="/trip-helper">Trip helper</button>
         <button mat-menu-item>AV</button>
       </mat-menu>
-      </div>
-    </ng-template>
-      <ng-template #elseBlock>
-          <ul class="navigation-header">
-              <li class="navigation-header__item" routerLinkActive="active"><a routerLink="/flights/gallery"
-                  class="navigation-header__link">Flights</a></li>
-                  <li class="navigation-header__item" routerLinkActive="active"><a routerLink="/authorization"
-                    class="navigation-header__link">Sign In</a></li>
-                    <li class="navigation-header__item" routerLinkActive="active"><a routerLink="/registration"
-                      class="navigation-header__link">Sign Up</a></li>
-            </ul>
-            <div class="menu-mobile">
-                <button mat-button [matMenuTriggerFor] = "menu" class="menu-mobile__button">Menu &nbsp;<svg class="burger-menu" height="32px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z" fill="#283493"/></svg></button>
-                  <mat-menu #menu = "matMenu" class="matMenu">
-                  <button mat-menu-item routerLink="/flights/gallery">Flights</button>
-                  <button mat-menu-item routerLink="/authorization">Sign In</button>
-                  <button mat-menu-item routerLink="/registration">Sign Up</button>
-                </mat-menu>
-                </div>
-        </ng-template>
-    </nav>
+    </div>
+    <ul class="navigation-header" *ngIf="!condition">
+      <li class="navigation-header__item" routerLinkActive="active"><a routerLink="/flights/gallery"
+          class="navigation-header__link">Flights</a></li>
+      <li class="navigation-header__item" routerLinkActive="active"><a routerLink="/registration"
+          class="navigation-header__link">Sign Up</a></li>
+    </ul>
+    <div class="menu-mobile" *ngIf="!condition">
+      <button mat-button [matMenuTriggerFor]="menu" class="menu-mobile__button">Menu &nbsp;<svg class="burger-menu"
+          height="32px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32"
+          width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink">
+          <path
+            d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"
+            fill="#283493" /></svg></button>
+      <mat-menu #menu="matMenu" class="matMenu">
+        <button mat-menu-item routerLink="/flights/gallery">Flights</button>
+        <button mat-menu-item routerLink="/registration">Sign Up</button>
+      </mat-menu>
+    </div>
+  </nav>
 </header>
