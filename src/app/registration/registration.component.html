@@ -6,16 +6,20 @@
     <form class="form validate-form login" #authForm="ngForm" (submit)="onSubmit(authForm)">
       <div class="form-container">
         <header class="head-form">
-          <h2>Sign Up</h2>
-          <p>Sign Up here in order to use this service</p>
+          <h2>Sign Up/In</h2>
+          <p>Sign Up/In here in order to use this service</p>
         </header>
         <br>
         <div class="form__field-set">
           <div class="inputs">
             <span class="input-item">
-              <img src="../assets/img/icons8-user-male.svg" class="authorization__image">
+              <img src="../assets/img/email.svg" class="registration__image">
             </span>
-            <input class="form-input" id="email" type="text" ngModel placeholder="UserName" name="email" required email>
+            <input class="form-input" id="email" type="text" ngModel placeholder="Email" name="email" required email
+              #email="ngModel" pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
+          </div>
+          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+            Email is not valid, plesae enter valid email
           </div>
           <br>
           <br>
@@ -24,7 +28,12 @@
               <img src="../assets/img/lock.svg" class="registration__image">
             </span>
             <input class="form-input" type="password" placeholder="Password" ngModel id="password" name="password"
-              minlength="6" password required>
+              #password="ngModel" minlength="6" required
+              tooltip="Please enter a password of at least 6 characters using uppercase letters and numbers"
+              pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$">
+          </div>
+          <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+            Password is not valid, plesae enter valid password
           </div>
           <br>
           <button class="form__field-set-button" type='submit' [disabled]="!authForm.valid">
