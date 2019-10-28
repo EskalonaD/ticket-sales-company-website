@@ -19,7 +19,6 @@ export class MainTicketService {
     tickets: any[] = [];
 
     addTicketsArray(query) {
-        console.log(query);
 
         this.tickets = query.typeOfFlight === 'twoWay' ?
             RETURNTICKETS.filter(el => el.ticketFrom.availableTickets >= query.passengersAmount
@@ -51,16 +50,27 @@ export class MainTicketService {
 
 
 
-    results: any[] = [];
+    results: any[];
+    minG: number;
+    maxG: number;
+    propsG: string;
     constructor() { }
 
     onRangeFilter(min: number, max: number, props: string) {
+        console.log(this.maxG, max, this.minG, min);
+        console.log(!(this.maxG > max), !(this.minG < min));
+        if (!(this.maxG > max) && !(this.minG < min)) {
+            console.log('1');
 
-        this.results = this.tickets.filter((item) => {
-
+            this.results = this.tickets.filter((item) => {
+                return min <= item[props] && item[props] <= max
+            });
+        }
+        this.results = this.results.filter((item) => {
             return min <= item[props] && item[props] <= max
         });
-
+        this.maxG = max
+        this.minG = min
         this.ticketsChange.next(this.results)
 
     }
