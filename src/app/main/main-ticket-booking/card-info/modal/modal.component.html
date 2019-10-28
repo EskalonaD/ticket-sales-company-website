@@ -1,0 +1,27 @@
+<div class="modal">
+    <div class="modal__content">
+        <input type="image" src="/assets/img/cross-icon.svg" class="modal__close-button" [routerLink]="['/']">
+        <ng-container *ngIf="modalType === 'ticketBooked'">
+            <p class="section-title modal__title">Hooray, you've booked your tickets!</p>
+            <div class="modal__image-container">
+                <img src="/assets/img/checkmark.svg" class="modal__image">
+            </div>
+            <div class="modal__message">
+                <p class="modal__message-item">That's great!</p>
+                <p>You're so close to your trip in Paris
+                    <!--ENTER ARRIVAL CITY INSTEAD OF PARIS-->.</p>
+                <p>Now you can go to <a (click)="onCloseButton()" [routerLink]="['/my-trips']">My trips</a> to look at your tickets.</p>
+            </div>
+            <div class="modal__warning">
+                <p>If automatic download hasn't started:</p>
+            </div>
+            <button class="button button_blue modal__download">Download PDF</button>
+        </ng-container>
+        <ng-container *ngIf="modalType === 'ticketSent'">
+            <p class="section-title modal__title">Tickets sent</p>
+            <div class="modal__image-container">
+                <img src="/assets/img/checkmark.svg" class="modal__image">
+            </div>
+        </ng-container>
+    </div>
+</div>
