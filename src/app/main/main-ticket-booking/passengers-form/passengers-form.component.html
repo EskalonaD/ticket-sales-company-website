@@ -1,6 +1,6 @@
 <form [formGroup]="passengerData" class="passenger-form" (ngSubmit)="onSubmit()">
-  <div class="passenger-data">
-    <p class="passenger-form__text_big">Passenger 1</p>
+  <div class="passenger-data" *ngFor="let passenger of bookingService.passengers">
+    <p class="passenger-form__text_big">Passenger {{ passenger.id }}</p>
     <div formGroupName="name" class="passenger-data__name">
       <div>
         <label for="firstName">First name</label>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { BookingService } from '../booking.service';
 
 @Component({
   selector: 'app-passengers-form',
@@ -8,7 +9,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class PassengersFormComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private bookingService: BookingService) { }
 
   ngOnInit() {
   }

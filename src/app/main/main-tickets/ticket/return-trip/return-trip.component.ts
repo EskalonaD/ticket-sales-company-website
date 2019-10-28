@@ -20,7 +20,10 @@ export class ReturnTripComponent implements OnInit {
 
   onClick(value): void {
     this.bookingService.ticket = value;
-    this.bookingService.type = this.searchService.newTripInfo.typeOfFlight
+    this.bookingService.passengersAmount = this.searchService.newTripInfo.passengersAmount;
+    this.bookingService.passengers = this.bookingService.createPassengersArray();
+    console.log(this.bookingService.createPassengersArray())
+    this.bookingService.type = this.searchService.newTripInfo.typeOfFlight;
   }
 
   ngOnInit() {
