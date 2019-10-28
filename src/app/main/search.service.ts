@@ -44,6 +44,9 @@ export class SearchService {
         this.newTripInfo = data;
         this.newTripInfo.passengersAmount = passengersAmount;
 
+        // console.log(this.newTripInfo);
+
+
         this.ticketService.addTicketsArray(this.newTripInfo);
     }
 }

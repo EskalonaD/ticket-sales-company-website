@@ -49,6 +49,6 @@
   <div class="ticket__price-block">
     <span class="ticket__price">{{ ticket.price | currency: undefined: undefined: '1.0-0' }}</span>
     <button class="button button-book button_blue" [routerLink]="['../ticket/passengers-form']"
-      (click)="onSubmit(ticket)">Book</button>
+      (click)="onClick(ticket)">Book</button>
   </div>
 </div>

@@ -19,6 +19,9 @@ export class MainTicketService {
     tickets: any[] = [];
 
     addTicketsArray(query) {
+        // console.log(query);
+        console.log(this.tickets);
+        console.log(MULTITICKETS);
 
         this.tickets = query.typeOfFlight === 'twoWay' ?
             RETURNTICKETS.filter(el => el.ticketFrom.availableTickets >= query.passengersAmount
@@ -37,6 +40,9 @@ export class MainTicketService {
                     && (query.endP === null || el.flyWays[el.flyWays.length - 1].flyWay.endAirport.name === query.endP)
                     && (query.date.startDate === null || el.flyWays[0].startTime.valueOf() > query.date.startDate.valueOf())
                     && (query.date.endDate === null || el.flyWays[el.flyWays.length - 1].endTime.valueOf() < query.date.endDate.valueOf()))
+
+        console.log(MULTITICKETS);
+
         this.ticketsChange.next(this.tickets)
 
         console.log(this.tickets);
@@ -53,7 +59,6 @@ export class MainTicketService {
     results: any[];
     minG: number;
     maxG: number;
-    propsG: string;
     constructor() { }
 
     onRangeFilter(min: number, max: number, props: string) {

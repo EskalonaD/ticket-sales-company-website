@@ -1,6 +1,7 @@
 import { RegistrationService } from './../registration/registration.service';
 import { Component, OnInit } from '@angular/core';
 import { Subscription, Subscribable } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,7 @@ export class HeaderComponent implements OnInit {
 
   condition = false;
   private userSub: Subscription;
-  constructor(private registrationService: RegistrationService) { }
+  constructor(private registrationService: RegistrationService, private route: ActivatedRoute, private router: Router) { }
 
 
   ngOnInit() {
@@ -27,6 +28,7 @@ export class HeaderComponent implements OnInit {
     this.userSub.unsubscribe()
 
   }
+
 
 
 

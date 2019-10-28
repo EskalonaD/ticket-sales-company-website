@@ -1,6 +1,6 @@
 <header class="header">
   <div class="header__logo">
-    <img src="../assets/img/logo.svg" alt="Travelo" />
+    <img src="../assets/img/logo.svg" alt="Travelo" routerLink="/flights/gallery" />
   </div>
   <nav class="header-menu__navigation navigation">
     <div class="main-menu" *ngIf="condition">
@@ -38,7 +38,7 @@
       <li class="navigation-header__item" routerLinkActive="active"><a routerLink="/flights/gallery"
           class="navigation-header__link">Flights</a></li>
       <li class="navigation-header__item" routerLinkActive="active"><a routerLink="/registration"
-          class="navigation-header__link">Sign Up</a></li>
+          class="navigation-header__link">Sign Up/In</a></li>
     </ul>
     <div class="menu-mobile" *ngIf="!condition">
       <button mat-button [matMenuTriggerFor]="menu" class="menu-mobile__button">Menu &nbsp;<svg class="burger-menu"
@@ -50,7 +50,7 @@
             fill="#283493" /></svg></button>
       <mat-menu #menu="matMenu" class="matMenu">
         <button mat-menu-item routerLink="/flights/gallery">Flights</button>
-        <button mat-menu-item routerLink="/registration">Sign Up</button>
+        <button mat-menu-item routerLink="/registration">Sign Up/In</button>
       </mat-menu>
     </div>
   </nav>

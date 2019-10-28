@@ -1,6 +1,7 @@
 import { RegistrationService } from './registration/registration.service';
 import { MainTicketService } from './main/main-tickets/main-tickets.service';
 import { SearchService } from './main/search.service';
+
 import { SpecialOfferComponent } from './main/main-gallery/special-offers/special-offer/special-offer.component';
 import { TicketComponent } from './main/main-tickets/ticket/ticket.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,7 +11,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MainComponent } from './main/main.component';
 import { FooterComponent } from './footer/footer.component';
-import { HttpClientModule } from '@angular/common/http';
 
 import { PopularDestinationsComponent } from './main/main-gallery/popular-destinations/popular-destinations.component';
 import { PopularCardComponent } from './main/main-gallery/popular-destinations/popular-card/popular-card.component';
@@ -29,6 +29,7 @@ import { MainTicketBookingComponent } from './main/main-ticket-booking/main-tick
 import { PassengersFormComponent } from './main/main-ticket-booking/passengers-form/passengers-form.component';
 import { CardInfoComponent } from './main/main-ticket-booking/card-info/card-info.component';
 import { BookedTicketComponent } from './main/main-ticket-booking/booked-ticket/booked-ticket.component';
+import { ModalComponent } from './main/main-ticket-booking/card-info/modal/modal.component';
 
 import { OneWayTripComponent } from './main/main-tickets/ticket/one-way-trip/one-way-trip.component';
 import { ReturnTripComponent } from './main/main-tickets/ticket/return-trip/return-trip.component';
@@ -42,6 +43,8 @@ import { Ng5SliderModule } from 'ng5-slider';
 import { RegistrationComponent } from './registration/registration.component';
 
 import { MatMenuModule, MatButtonModule } from '@angular/material';
+import { BookingService } from './main/main-ticket-booking/booking.service';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,6 +66,7 @@ import { MatMenuModule, MatButtonModule } from '@angular/material';
     PassengersFormComponent,
     CardInfoComponent,
     BookedTicketComponent,
+    ModalComponent,
 
     OneWayTripComponent,
     ReturnTripComponent,
@@ -85,7 +89,7 @@ import { MatMenuModule, MatButtonModule } from '@angular/material';
     MatMenuModule, MatButtonModule,
     HttpClientModule
   ],
-  providers: [SearchService, MainTicketService, RegistrationService],
+  providers: [SearchService, MainTicketService, BookingService, RegistrationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

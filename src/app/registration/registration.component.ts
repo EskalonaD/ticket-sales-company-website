@@ -14,6 +14,7 @@ export class RegistrationComponent implements OnInit {
 
   isLogin = true;
   error: string = null;
+  state: boolean = true;
 
 
   constructor(private registrationService: RegistrationService, private router: Router) { }
@@ -52,6 +53,10 @@ export class RegistrationComponent implements OnInit {
     )
 
     form.reset();
+  }
+
+  changeState() {
+
   }
 
 
