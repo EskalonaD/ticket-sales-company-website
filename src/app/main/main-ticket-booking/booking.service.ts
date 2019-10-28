@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Passenger } from './passenger';
+import { SearchService } from '../search.service';
 
 
 @Injectable({
@@ -11,7 +12,8 @@ export class BookingService {
   type: string;
   passengersAmount: number;
   passengers: Passenger[];
-  constructor() { }
+
+  constructor(private searchService: SearchService) { }
 
   createPassengersArray(){
     return new Array(this.passengersAmount).fill(null).map((el, index) => ({
@@ -25,7 +27,12 @@ export class BookingService {
       idExpireTime: new Date(),
       luggage: false,
     }))
-    
+  }
 
+  onClick(value): void {
+    this.ticket = value;
+    this.passengersAmount = this.searchService.newTripInfo.passengersAmount;
+    this.passengers = this.createPassengersArray();
+    this.type = this.searchService.newTripInfo.typeOfFlight;
   }
 }

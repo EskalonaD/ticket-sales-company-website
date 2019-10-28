@@ -16,11 +16,7 @@ export class OneWayTripComponent implements OnInit {
 
   constructor( private searchService: SearchService, private bookingService: BookingService) { }
 
-  onClick(value): void {
-    this.bookingService.ticket = value;
-    this.bookingService.type = this.searchService.newTripInfo.typeOfFlight
-  }
-
+ 
   ngOnInit() {
     console.log(this.tickets)
   }

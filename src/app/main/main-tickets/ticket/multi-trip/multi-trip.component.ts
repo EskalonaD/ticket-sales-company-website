@@ -16,17 +16,8 @@ export class MultiTripComponent implements OnInit {
 
   constructor(private searchService: SearchService, private bookingService: BookingService) { }
 
-  onClick(value): void {
-    this.bookingService.ticket = value;
-    this.bookingService.type = this.searchService.newTripInfo.typeOfFlight
-  }
-
   ngOnInit() {
-    console.log(this.tickets);
-    // console.log(MULTITICKETS.filter(el => el.id === 2)[0].flyWays[1].flyWay.startAirport.name === this.searchService.newTripInfo.startP);
-    // console.log(MULTITICKETS.filter(el => el.id === 2)[0].flyWays[MULTITICKETS.filter(el => el.id === 2)[0].flyWays.length - 1].flyWay.endAirport.name === this.searchService.newTripInfo.endP)
-    // console.log(MULTITICKETS.filter(el => el.id === 2)[0].flyWays[1].startTime.valueOf() > this.searchService.newTripInfo.date.startDate.valueOf())
-
+  
   }
 
 }
