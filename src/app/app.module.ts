@@ -39,11 +39,12 @@ import { PastTripsComponent } from './my-trips/past-trips/past-trips.component';
 
 
 import { Ng5SliderModule } from 'ng5-slider';
-import { AuthorizationComponent } from './authorization/authorization.component';
 import { RegistrationComponent } from './registration/registration.component';
 
 import {MatMenuModule, MatButtonModule} from '@angular/material';
 import { BookingService } from './main/main-ticket-booking/booking.service';
+import { RegistrationService } from './registration/registration.service';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,7 +74,6 @@ import { BookingService } from './main/main-ticket-booking/booking.service';
     FlightTimePipe,
     UpcomingTripsComponent,
     PastTripsComponent,
-    AuthorizationComponent,
     RegistrationComponent
 
   ],
@@ -86,9 +86,10 @@ import { BookingService } from './main/main-ticket-booking/booking.service';
     BrowserAnimationsModule,
     NgxDaterangepickerMd.forRoot(),
     Ng5SliderModule,
-    MatMenuModule, MatButtonModule
+    MatMenuModule, MatButtonModule,
+    HttpClientModule
   ],
-  providers: [SearchService, MainTicketService, BookingService],
+  providers: [SearchService, MainTicketService, BookingService, RegistrationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

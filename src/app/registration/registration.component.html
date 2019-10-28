@@ -1,43 +1,39 @@
 <div class="registration">
-        <div class="registration__left-side">
-            <img src="../assets/img/plane.jpg" class="right-side__background">
-        </div>
-        <div class="registration__right-side">
-            <form class="form validate-form login" [formGroup]="AuthorizationForm" (submit)="onSubmit()">
-                <div class="form-container">
-                    <header class="head-form">
-                        <h2>Sign Up</h2>
-                        <p>Sign Up here in order to use this service</p>
-                    </header>
-                    <br>
-                    <div class="form__field-set">
-                        <div class="inputs">
-                            <span class="input-item">
-                                <img src="../assets/img/icons8-user-male.svg" class="authorization__image">
-                            </span>
-                            <input class="form-input" id="name" type="text" placeholder="UserName" required>
-                        </div>
-                        <div class="error" *ngIf="isControlInvalid('name')">
-                                Please enter valid name
-                            </div>
-                        <br>
-                        <div class="inputs">
-                                <span class="input-item">
-                                    <img src="../assets/img/email.svg" class="registration__image">
-                                </span>
-                                <input class="form-input" type="email" placeholder="Email" id="email" name="email" required>
-                            </div>
-                            <br>
-                        <div class="inputs">
-                            <span class="input-item">
-                                <img src="../assets/img/lock.svg" class="registration__image">
-                            </span>
-                            <input class="form-input" type="password" placeholder="Password" id="password" name="password" required>
-                        </div>
-                        <br>
-                        <button class="form__field-set-button"> Sign Up </button>
-                    </div>
-                </div>
-            </form>
-        </div>
+    <div class="registration__left-side">
+      <img src="../assets/img/plane.jpg" class="right-side__background">
     </div>
+    <div class="registration__right-side">
+      <form class="form validate-form login" #authForm="ngForm" (submit)="onSubmit(authForm)">
+        <div class="form-container">
+          <header class="head-form">
+            <h2>Sign Up</h2>
+            <p>Sign Up here in order to use this service</p>
+          </header>
+          <br>
+          <div class="form__field-set">
+            <div class="inputs">
+              <span class="input-item">
+                <img src="../assets/img/icons8-user-male.svg" class="authorization__image">
+              </span>
+              <input class="form-input" id="email" type="text" ngModel placeholder="UserName" name="email" required email>
+            </div>
+            <br>
+            <br>
+            <div class="inputs">
+              <span class="input-item">
+                <img src="../assets/img/lock.svg" class="registration__image">
+              </span>
+              <input class="form-input" type="password" placeholder="Password" ngModel id="password" name="password"
+                minlength="6" required>
+            </div>
+            <br>
+            <button class="form__field-set-button" type='submit' [disabled]="!authForm.valid">
+              {{isLogin ? 'Login' : 'Sign Up'}} </button>
+            <button class="form__field-set-button" (click)="onSwitchModel()" type="button">Switch to
+              {{isLogin ?  'Sign Up': 'Login'}}</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  

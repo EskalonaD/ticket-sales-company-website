@@ -8,7 +8,6 @@ import { MyTripsComponent } from './my-trips/my-trips.component';
 import { MainComponent } from './main/main.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthorizationComponent } from './authorization/authorization.component';
 import { RegistrationComponent } from './registration/registration.component';
 
 
@@ -33,7 +32,6 @@ const appRoute: Routes = [
     },
     { path: 'my-trips', component: MyTripsComponent },
     { path: 'trip-helper', component: TripHelperComponent },
-    { path: 'authorization', component: AuthorizationComponent },
     { path: 'registration', component: RegistrationComponent }
 ]
 
