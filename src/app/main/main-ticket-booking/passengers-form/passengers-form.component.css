@@ -17,13 +17,13 @@
     display: inline-block;
 }
 
-.passenger-form input:focus,
-.passenger-form select:focus {
+input:focus,
+select:focus {
     border: 1px solid var(--main-blue);
 }
 
-.passenger-data input,
-.passenger-data select {
+input,
+select {
     font-size: 16px;
     display: inline-block;
     width: 100%;
@@ -112,4 +112,22 @@
     background-color: grey;
     border: 1px solid grey;
     color: white;
+}
+
+.card-form__warning {
+    width: 100%;
+    margin-top: 25px;
+    color: red;
+    font-style: italic;
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.input_invalid {
+    border: 1px solid red;
+}
+
+.input_valid {
+    border: 1px solid green;
 }

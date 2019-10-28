@@ -1,19 +1,22 @@
 <form [formGroup]="passengerData" class="passenger-form" (ngSubmit)="onSubmit()">
-  <div class="passenger-data" formGroupName="passengerInfo">
+  <div class="passenger-data">
     <p class="passenger-form__text_big">Passenger 1</p>
     <div formGroupName="name" class="passenger-data__name">
       <div>
         <label for="firstName">First name</label>
-        <input type="text" formControlName="firstName" placeholder="Type something">
+        <input type="text" formControlName="firstName" placeholder="Type something" 
+          [ngClass]="{'input_invalid': name.invalid && name.touched, 'input_valid': name.valid && name.touched}">
       </div>
       <div>
         <label for="lastName">Last name</label>
-        <input type="text" formControlName="lastName" placeholder="Type something">
+        <input type="text" formControlName="lastName" placeholder="Type something" 
+          [ngClass]="{'input_invalid': name.invalid && name.touched, 'input_valid': name.valid && name.touched}">
       </div>
     </div>
     <div class="passenger-data__country">
       <label for="country">Country</label>
-      <select formControlName="country" id="country">
+      <select formControlName="country" id="country" 
+        [ngClass]="{'input_invalid': country.invalid && country.touched, 'input_valid': country.valid && country.touched}">
         <option value="" disabled selected hidden>Select your country</option>
         <option value="ua">Ukraine</option>
         <option value="rus">Russia</option>
@@ -22,7 +25,8 @@
     </div>
     <div class="passenger-data__gender">
       <label for="gender">Gender</label>
-      <select formControlName="gender" id="gender">
+      <select formControlName="gender" id="gender" 
+        [ngClass]="{'input_invalid': gender.invalid && gender.touched, 'input_valid': gender.valid && gender.touched}">
         <option value="" disabled selected hidden>f / m</option>
         <option value="female">f</option>
         <option value="male">m</option>
@@ -30,17 +34,27 @@
     </div>
     <div class="passenger-data__birth">
       <label for="birthDate">Date of Birth</label>
-      <input type="date" formControlName="birthDate" id="birthDate">
+      <input type="date" formControlName="birthDate" id="birthDate" 
+        [ngClass]="{'input_invalid': birthDate.invalid && birthDate.touched, 'input_valid': birthDate.valid && birthDate.touched}">
     </div>
     <div formGroupName="passport" class="passenger-data__passport">
       <div>
         <label for="id">Passport ID</label>
-        <input type="text" formControlName="id" id="id" placeholder="Type something">
+        <input type="text" formControlName="id" id="id" placeholder="Type something" 
+          [ngClass]="{'input_invalid': passport.invalid && passport.touched, 'input_valid': passport.valid && passport.touched}">
       </div>
       <div>
         <label for="expiration">Passport or ID expiry date</label>
-        <input type="date" formControlName="expiration" id="expiration">
+        <input type="date" formControlName="expiration" id="expiration" 
+          [ngClass]="{'input_invalid': passport.invalid && passport.touched, 'input_valid': passport.valid && passport.touched}">
       </div>
+    </div>
+    <div class="card-form__warning">
+      <p *ngIf="name.invalid && name.touched">Enter both your last and first names!</p>
+      <p *ngIf="country.invalid && country.errors.required && country.touched">Select your country!</p>
+      <p *ngIf="gender.invalid && gender.errors.required && gender.touched">Please, specify your gender!</p>
+      <p *ngIf="birthDate.invalid && birthDate.errors.required && birthDate.touched">Please, enter your date of birth!</p>
+      <p *ngIf="passport.invalid && passport.touched">Passport ID and expiry date are required!</p>
     </div>
     <div class="passenger-form__luggage">
       <p class="passenger-form__text_big">Luggage</p>
@@ -56,8 +70,7 @@
     <p class="passenger-form__text_big">$156</p>
   </div>
   <div class="passenger-form__button">
-    <button class="button button_blue passenger-form__submit" type="submit"
-      [disabled]="!passengerData.valid"
+    <button class="button button_blue passenger-form__submit" type="submit" [disabled]="!passengerData.valid"
       [ngClass]="{'passenger-form__submit_disabled': !passengerData.valid}"
       [routerLink]="['../card-info']">Book</button>
   </div>
