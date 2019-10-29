@@ -55,10 +55,7 @@ export class MainTicketService {
     constructor() { }
 
     onRangeFilter(min: number, max: number, props: string) {
-        console.log(this.maxG, max, this.minG, min);
-        console.log(!(this.maxG > max), !(this.minG < min));
         if (!(this.maxG > max) && !(this.minG < min)) {
-            console.log('1');
 
             this.results = this.tickets.filter((item) => {
                 return min <= item[props] && item[props] <= max
