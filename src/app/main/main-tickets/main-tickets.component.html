@@ -2,7 +2,7 @@
   <div class="section-wrapper">
     <h3 class="section-title search-results__title">Search-results</h3>
     <div class="ticket__filter">
-      <button class="filtering">
+      <button class="filtering" (click)="sort()">
         <img src="../assets/img/sort.svg" class="filtering__image" />
       </button>
       <input type="checkbox" id="lowest" name="lowest">
@@ -11,7 +11,7 @@
     <div class="search-results__container">
       <div class="ticket-form">
         <div class="ticket-form__finds">Total results:
-          <span class="ticket-form__finds-number">{{tickets.lenght}}</span>
+          <span class="ticket-form__finds-number">{{tickets.length}}</span>
         </div>
         <div class="ticket-form__inputs">
           <div class="ticket-form__price custom-slider">

@@ -15,7 +15,6 @@ import { TicketMulti } from 'src/app/data/TicketMulti';
 export class MainTicketsComponent implements OnInit, OnDestroy {
 
   private ticketChangeSub: Subscription
-
   constructor(private ticketService: MainTicketService, private searchService: SearchService) { }
 
   tickets: any[];
@@ -24,8 +23,11 @@ export class MainTicketsComponent implements OnInit, OnDestroy {
 
 
     this.tickets = this.ticketService.getTickets();
+    console.log(this.tickets);
+
     this.ticketChangeSub = this.ticketService.ticketsChange.subscribe((tickets: any[]) => {
       this.tickets = tickets;
+      console.log(this.tickets);
     })
     this.minValue1 = Math.min.apply(Math, this.tickets.map(function (o) { return o.price; })) || 0;
     this.maxValue1 = Math.max.apply(Math, this.tickets.map(function (o) { return o.price; })) || 0;
@@ -42,6 +44,11 @@ export class MainTicketsComponent implements OnInit, OnDestroy {
   rangeFilter(min: number, max: number, props: string) {
     this.ticketService.onRangeFilter(min, max, props);
   }
+
+  sort() {
+    this.ticketService.onSort();
+  }
+
   minValue1: number;
   maxValue1: number;
   minValue2: number;

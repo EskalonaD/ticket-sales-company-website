@@ -3,9 +3,7 @@ import { ONEWAYTICKETS } from './../../data/mock-OneWayTickets';
 import { RETURNTICKETS } from './../../data/mock-ReturnTickets';
 import { SearchService } from '../search.service';
 
-import { TicketReturn } from 'src/app/data/TicketReturn';
 import { Subject } from 'rxjs';
-import { Injectable } from '@angular/core';
 
 export class MainTicketService {
 
@@ -56,17 +54,34 @@ export class MainTicketService {
 
     onRangeFilter(min: number, max: number, props: string) {
         if (!(this.maxG > max) && !(this.minG < min)) {
-
             this.results = this.tickets.filter((item) => {
                 return min <= item[props] && item[props] <= max
             });
+        } else {
+            this.results = this.results.filter((item) => {
+                return min <= item[props] && item[props] <= max
+            });
         }
-        this.results = this.results.filter((item) => {
-            return min <= item[props] && item[props] <= max
-        });
-        this.maxG = max
-        this.minG = min
+        if (!(props === 'destination')) {
+            this.maxG = max
+            this.minG = min
+        }
+
         this.ticketsChange.next(this.results)
+
+    }
+
+    onSort() {
+        if (!!this.results == false) {
+            this.results = this.tickets.sort((a, b) => {
+                return a.price - b.price
+            }).reverse();
+        } else {
+            this.results = this.results.sort((a, b) => {
+                return a.price - b.price
+            }).reverse();
+        }
+
 
     }
 

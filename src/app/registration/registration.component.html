@@ -18,7 +18,7 @@
             <input class="form-input" id="email" type="text" ngModel placeholder="Email" name="email" required email
               #email="ngModel" pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
           </div>
-          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+          <div *ngIf="email.invalid &&  email.touched" class="alert alert-danger">
             Email is not valid, plesae enter valid email
           </div>
           <br>
@@ -29,13 +29,15 @@
             </span>
             <input class="form-input" type="password" placeholder="Password" ngModel id="password" name="password"
               #password="ngModel" minlength="6" required
-              tooltip="Please enter a password of at least 6 characters using uppercase letters and numbers"
-              pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$">
+              tooltip="Please enter a password of at least 6 characters using uppercase letters and numbers">
           </div>
-          <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+          <div *ngIf="password.invalid && password.touched" class="alert alert-danger">
             Password is not valid, plesae enter valid password
           </div>
           <br>
+          <div *ngIf="error">
+            <p>{{error}}</p>
+          </div>
           <button class="form__field-set-button" type='submit' [disabled]="!authForm.valid">
             {{isLogin ? 'Login' : 'Sign Up'}} </button>
           <button class="form__field-set-button" (click)="onSwitchModel()" type="button">Switch to
